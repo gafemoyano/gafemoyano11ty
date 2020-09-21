@@ -1,0 +1,34 @@
+.markdown-content {
+  @apply text-gray-700 leading-relaxed;
+
+  > * + *:not(:first-child) {
+    @apply mt-6;
+  }
+
+  a {
+    @apply text-gray-900 underline;
+  }
+
+  ul {
+    @apply list-none;
+
+    li {
+      display: inline-flex;
+      @apply mb-2;
+    }
+  }
+
+  ol {
+    @apply list-decimal pl-6;
+  }
+
+  strong {
+    background: linear-gradient(
+      60deg,
+      rgba(207, 212, 217, 0.45) 0%,
+      rgba(207, 212, 217, 0.05) 100%
+    );
+    box-decoration-break: clone;
+    @apply inline-block px-1 rounded-sm;
+  }
+}
