@@ -6,6 +6,7 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addShortcode("version", function () {
     return String(Date.now());
   });
+  eleventyConfig.addPassthroughCopy("src/assets/img");
 
   eleventyConfig.addTransform("htmlmin", function (content, outputPath) {
     if (
