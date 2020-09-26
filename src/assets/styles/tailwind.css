@@ -4,4 +4,6 @@
 
 @import "components.css";
 
+@import "typography.css";
+
 @import "tailwindcss/utilities";

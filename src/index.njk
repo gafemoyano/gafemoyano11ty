@@ -1,20 +1,16 @@
 {% extends "layouts/base.njk" %}
 {% block title %}It does work{% endblock %}
 {% block content %}
-  <div class="relative overflow-hidden" style="height: 50vh; z-index: -1;">
-    <div class="w-full max-w-6xl mx-auto">
-      <div class="flex flex-col items-center mt-16">
-        <h1 class="z-10 max-w-lg text-3xl font-bold text-center text-pink-700">
-          I'm Felipe Moyano
+  <div class="hero-background" style="height: 30vh">
+    <div class="w-full h-full max-w-6xl mx-auto">
+      <div class="flex flex-col items-center justify-center h-full">
+        <h1 class="max-w-lg text-6xl font-bold leading-none text-center text-red-600 font-display">
+          Hi I'm Felipe!
         </h1>
-        <h2 class="z-10 text-2xl font-bold text-pink-600">
-          A colombian web developer, traveler and former entrepreneur.
+        <h2 class="max-w-xl mt-6 text-2xl font-bold leading-8 text-center text-gray-800">
+          This is the space where I write about web development, product strategy and startups.
         </h2>
-        <div class="change"></div>
       </div>
-    </div>
-    <div class="absolute inset-0">
-      <img src="/assets/img/diego-guzman-u_4bPYOXujE-unsplash.jpg" alt="" class="object-cover w-full h-full" style="object-position: 0% 25%;">
     </div>
   </div>
 {% endblock %}

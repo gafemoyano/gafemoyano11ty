@@ -7,6 +7,12 @@ module.exports = function (eleventyConfig) {
     return String(Date.now());
   });
   eleventyConfig.addPassthroughCopy("src/assets/img");
+  eleventyConfig.addPassthroughCopy("src/assets/fonts");
+  eleventyConfig.addPassthroughCopy("src/assets/javascript");
+  eleventyConfig.addPassthroughCopy({
+    "node_modules/chartist/dist/chartist.min.css": "assets/chartist.min.css",
+    "node_modules/chartist/dist/chartist.min.js": "assets/chartist.min.js",
+  });
 
   eleventyConfig.addTransform("htmlmin", function (content, outputPath) {
     if (

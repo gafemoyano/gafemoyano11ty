@@ -1,0 +1,191 @@
+/* inter-100normal - latin */
+@font-face {
+  font-family: "Inter";
+  font-style: normal;
+  font-display: swap;
+  font-weight: 100;
+  src: local("Inter Thin normal"), local("Inter-Thinnormal"),
+    url("/assets/fonts/inter-100.woff2") format("woff2"),
+    /* Super Modern Browsers */ url("/assets/fonts/inter-100.woff")
+      format("woff"); /* Modern Browsers */
+}
+
+/* inter-100italic - latin */
+@font-face {
+  font-family: "Inter";
+  font-style: italic;
+  font-display: swap;
+  font-weight: 100;
+  src: local("Inter Thin italic"), local("Inter-Thinitalic"),
+    url("/assets/fonts/inter-100italic.woff2") format("woff2"),
+    /* Super Modern Browsers */ url("/assets/fonts/inter-100italic.woff")
+      format("woff"); /* Modern Browsers */
+}
+
+/* inter-300normal - latin */
+@font-face {
+  font-family: "Inter";
+  font-style: normal;
+  font-display: swap;
+  font-weight: 300;
+  src: local("Inter Light normal"), local("Inter-Lightnormal"),
+    url("/assets/fonts/inter-300.woff2") format("woff2"),
+    /* Super Modern Browsers */ url("/assets/fonts/inter-300.woff")
+      format("woff"); /* Modern Browsers */
+}
+
+/* inter-300italic - latin */
+@font-face {
+  font-family: "Inter";
+  font-style: italic;
+  font-display: swap;
+  font-weight: 300;
+  src: local("Inter Light italic"), local("Inter-Lightitalic"),
+    url("/assets/fonts/inter-300italic.woff2") format("woff2"),
+    /* Super Modern Browsers */ url("/assets/fonts/inter-300italic.woff")
+      format("woff"); /* Modern Browsers */
+}
+
+/* inter-400normal - latin */
+@font-face {
+  font-family: "Inter";
+  font-style: normal;
+  font-display: swap;
+  font-weight: 400;
+  src: local("Inter Regular normal"), local("Inter-Regularnormal"),
+    url("/assets/fonts/inter-400.woff2") format("woff2"),
+    /* Super Modern Browsers */ url("/assets/fonts/inter-400.woff")
+      format("woff"); /* Modern Browsers */
+}
+
+/* inter-400italic - latin */
+@font-face {
+  font-family: "Inter";
+  font-style: italic;
+  font-display: swap;
+  font-weight: 400;
+  src: local("Inter Regular italic"), local("Inter-Regularitalic"),
+    url("/assets/fonts/inter-400italic.woff2") format("woff2"),
+    /* Super Modern Browsers */ url("/assets/fonts/inter-400italic.woff")
+      format("woff"); /* Modern Browsers */
+}
+
+/* inter-500normal - latin */
+@font-face {
+  font-family: "Inter";
+  font-style: normal;
+  font-display: swap;
+  font-weight: 500;
+  src: local("Inter Medium normal"), local("Inter-Mediumnormal"),
+    url("/assets/fonts/inter-500.woff2") format("woff2"),
+    /* Super Modern Browsers */ url("/assets/fonts/inter-500.woff")
+      format("woff"); /* Modern Browsers */
+}
+
+/* inter-500italic - latin */
+@font-face {
+  font-family: "Inter";
+  font-style: italic;
+  font-display: swap;
+  font-weight: 500;
+  src: local("Inter Medium italic"), local("Inter-Mediumitalic"),
+    url("/assets/fonts/inter-500italic.woff2") format("woff2"),
+    /* Super Modern Browsers */ url("/assets/fonts/inter-500italic.woff")
+      format("woff"); /* Modern Browsers */
+}
+
+/* inter-600normal - latin */
+@font-face {
+  font-family: "Inter";
+  font-style: normal;
+  font-display: swap;
+  font-weight: 600;
+  src: local("Inter SemiBold normal"), local("Inter-SemiBoldnormal"),
+    url("/assets/fonts/inter-600.woff2") format("woff2"),
+    /* Super Modern Browsers */ url("/assets/fonts/inter-600.woff")
+      format("woff"); /* Modern Browsers */
+}
+
+/* inter-600italic - latin */
+@font-face {
+  font-family: "Inter";
+  font-style: italic;
+  font-display: swap;
+  font-weight: 600;
+  src: local("Inter SemiBold italic"), local("Inter-SemiBolditalic"),
+    url("/assets/fonts/inter-600italic.woff2") format("woff2"),
+    /* Super Modern Browsers */ url("/assets/fonts/inter-600italic.woff")
+      format("woff"); /* Modern Browsers */
+}
+
+/* inter-700normal - latin */
+@font-face {
+  font-family: "Inter";
+  font-style: normal;
+  font-display: swap;
+  font-weight: 700;
+  src: local("Inter Bold normal"), local("Inter-Boldnormal"),
+    url("/assets/fonts/inter-700.woff2") format("woff2"),
+    /* Super Modern Browsers */ url("/assets/fonts/inter-700.woff")
+      format("woff"); /* Modern Browsers */
+}
+
+/* inter-700italic - latin */
+@font-face {
+  font-family: "Inter";
+  font-style: italic;
+  font-display: swap;
+  font-weight: 700;
+  src: local("Inter Bold italic"), local("Inter-Bolditalic"),
+    url("/assets/fonts/inter-700italic.woff2") format("woff2"),
+    /* Super Modern Browsers */ url("/assets/fonts/inter-700italic.woff")
+      format("woff"); /* Modern Browsers */
+}
+
+/* inter-800normal - latin */
+@font-face {
+  font-family: "Inter";
+  font-style: normal;
+  font-display: swap;
+  font-weight: 800;
+  src: local("Inter ExtraBold normal"), local("Inter-ExtraBoldnormal"),
+    url("/assets/fonts/inter-800.woff2") format("woff2"),
+    /* Super Modern Browsers */ url("/assets/fonts/inter-800.woff")
+      format("woff"); /* Modern Browsers */
+}
+
+/* inter-800italic - latin */
+@font-face {
+  font-family: "Inter";
+  font-style: italic;
+  font-display: swap;
+  font-weight: 800;
+  src: local("Inter ExtraBold italic"), local("Inter-ExtraBolditalic"),
+    url("/assets/fonts/inter-800italic.woff2") format("woff2"),
+    /* Super Modern Browsers */ url("/assets/fonts/inter-800italic.woff")
+      format("woff"); /* Modern Browsers */
+}
+
+/* inter-900normal - latin */
+@font-face {
+  font-family: "Inter";
+  font-style: normal;
+  font-display: swap;
+  font-weight: 900;
+  src: local("Inter Black normal"), local("Inter-Blacknormal"),
+    url("/assets/fonts/inter-900.woff2") format("woff2"),
+    /* Super Modern Browsers */ url("/assets/fonts/inter-900.woff")
+      format("woff"); /* Modern Browsers */
+}
+
+/* inter-900italic - latin */
+@font-face {
+  font-family: "Inter";
+  font-style: italic;
+  font-display: swap;
+  font-weight: 900;
+  src: local("Inter Black italic"), local("Inter-Blackitalic"),
+    url("/assets/fonts/inter-900italic.woff2") format("woff2"),
+    /* Super Modern Browsers */ url("/assets/fonts/inter-900italic.woff")
+      format("woff"); /* Modern Browsers */
+}
