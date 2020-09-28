@@ -1,3 +1,5 @@
+const { colors } = require("tailwindcss/defaultTheme");
+
 module.exports = {
   future: {
     removeDeprecatedGapUtilities: true,
@@ -42,7 +44,12 @@ module.exports = {
         '"Noto Color Emoji"',
       ],
     },
-    extend: {},
+    extend: {
+      gray: {
+        50: "#f9fafb",
+        ...colors.gray,
+      },
+    },
   },
   variants: {
     borderWidth: ["responsive", "hover", "focus"],
