@@ -1,4 +1,4 @@
-const { colors } = require("tailwindcss/defaultTheme");
+const { colors } = require("tailwindcss/defaultTheme")
 
 module.exports = {
   future: {
@@ -45,9 +45,11 @@ module.exports = {
       ],
     },
     extend: {
-      gray: {
-        50: "#f9fafb",
-        ...colors.gray,
+      colors: {
+        gray: {
+          50: "#f9fafb",
+          ...colors.gray,
+        },
       },
     },
   },
@@ -55,4 +57,4 @@ module.exports = {
     borderWidth: ["responsive", "hover", "focus"],
   },
   plugins: [],
-};
+}

@@ -1,0 +1,58 @@
+{% extends "layouts/base.njk" %}
+{% block title %}Felipe Moyano | Sitio personal y blog
+{% endblock %}
+{% block content %}
+  <section class="hero-background" style="height: 30vh; min-height: 200px;">
+    <div class="w-full h-full max-w-6xl mx-auto">
+      <div class="flex flex-col items-center justify-center h-full px-2">
+        <h1 class="max-w-lg text-4xl font-bold leading-none text-center text-red-600 md:text-6xl font-display">
+          Hola, Soy Felipe!
+        </h1>
+        <h2 class="max-w-xl mt-6 text-lg font-bold leading-6 text-center text-gray-800 md:leading-8 md:text-2xl">
+          Me gusta moverme en esa delgada línea entre el código, el producto y el diseño.
+        </h2>
+      </div>
+    </div>
+  </section>
+
+  <section class="w-full max-w-2xl mx-auto">
+    <div class="px-4 mt-6 content">
+      <h2 class="text-4xl font-bold text-gray-900 font-display">
+        ¡Bienvenido!
+      </h2>
+      <p>
+        Mi nombre es Felipe Moyano. Soy un ingeniero de sistemas, desarrollador web y emprendedor en una vida pasada.
+      </p>
+      <p>
+        Durante mis últimos años estuve trabajando como uno de los co-fundadores de
+        <a href="https://savy.co">Savy</a>, un marketplace de Fitneses y Welnness que tenía la intención de dar máxima flexibilidad a los usuarios y a los centros deportivos al cobrar por horas con un sistema de precios on demand según la oferta y la demanda del momento. Desafortunadamente tuvimos que cerrar debido al COVID-19 y ahora ando explorando nuevas ideas.
+      </p>
+      <p>
+        Este sitio web es donde planeo explorar algunas cosas nuevas y compartir lo que vaya aprendiendo en el camino. También compartiré algunas de las lecciones aprendidas durante mi emprendimiento pasado, acerca de como construir un producto de tecnología, ser un desarrollador, ser manager de un equipo y construir una empresa en Colombia.
+      </p>
+
+      <p>
+        Muchas gracias por leer, espero que disfrutes el contenido de este blog, suscríbete si quieres recibir notificacionese cuando publico algo nuevo.
+      </p>
+      <p>
+        Si quieres contactarme no dudes en hacerlo a través de twitter en
+        <a href="https://twitter.com/gafemoyano">twitter</a>.
+      </p>
+    </div>
+  </section>
+
+  <section class="w-full max-w-2xl mx-auto">
+    <div class="px-4 mt-6">
+      <h2 class="text-4xl font-bold text-gray-900 font-display">
+        Recent Articles
+      </h2>
+      <ul class="mt-2 ml-4 list-disc">
+        {%- for post in collections.post | head(-3) | reverse -%}
+          <li class="mt-2">
+            <a class="text-lg text-gray-700" href="{{post.url | url}}">{{ post.data.title }}</a>
+          </li>
+        {%- endfor -%}
+      </ul>
+    </div>
+  </section>
+{% endblock %}

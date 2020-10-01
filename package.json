@@ -29,5 +29,8 @@
     "postcss-nested": "^4.2.3",
     "rimraf": "^3.0.2",
     "tailwindcss": "^1.8.10"
+  },
+  "dependencies": {
+    "eleventy-plugin-i18n": "^0.1.1"
   }
 }
