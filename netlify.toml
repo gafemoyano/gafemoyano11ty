@@ -1,3 +1,21 @@
 [build]
   publish = "_site"
   command = "DEBUG=* npm run build"
+
+[[redirects]]
+  from = "/en/*"
+  to = "/en/:splat"
+[[redirects]]
+  from = "/en/*"
+  to = "/en/:splat"
+
+[[redirects]]
+  from = "/*"
+  to = "/es/:splat"
+  status = 302
+  conditions = {Language = ["es"]}
+[[redirects]]
+  from = "/*"
+  to = "/es/:splat"
+  status = 302
+  
