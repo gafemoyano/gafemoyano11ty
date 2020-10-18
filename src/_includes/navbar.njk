@@ -1,12 +1,9 @@
-{% set home = "/" if locale == "en" else 
-  locale %}
-
-<nav class="bg-white shadow-md">
+<nav x-data="{ open: false }" @keydown.window.escape="open = false" @click.away=" open = false " class="z-10 bg-white shadow-sm">
   <div class="max-w-4xl px-4 mx-auto sm:px-6 lg:px-8">
     <div class="flex items-center justify-between h-16">
       <div class="flex items-center">
         <div class="flex-shrink-0 ">
-          <a href="{{home}}" class="text-lg font-bold text-red-600 transition-all duration-150 ease-in-out hover:text-red-700 focus:text-red-800">Felipe Moyano</a>
+          <a href="/{{locale}}" class="text-lg font-bold text-red-600 transition-all duration-150 ease-in-out hover:text-red-700 focus:text-red-800">Felipe Moyano</a>
         </div>
       </div>
 
@@ -14,18 +11,18 @@
         <div class="hidden md:block">
           <div class="flex items-baseline justify-end ml-10 space-x-4">
 
-            <a href="/" class="px-3 py-2 mt-2 text-sm font-medium leading-5 text-gray-700 duration-150 ease-in-out border-b-4 border-transparent hover:border-b-4 hover:border-red-600 focus:outline-none focus:border-red-600 tansition">{{"nav.home" | i18n}}</a>
+            <a href="/{{ locale }}" class="px-3 py-2 mt-2 text-sm font-medium leading-5 text-gray-700 duration-150 ease-in-out border-b-4 border-transparent hover:border-b-4 hover:border-red-600 focus:outline-none focus:border-red-600 tansition">{{"nav.home" | i18n}}</a>
 
-            <a href="/articles" class="px-3 py-2 mt-2 text-sm font-medium leading-5 text-gray-700 duration-150 ease-in-out border-b-4 border-transparent hover:border-b-4 hover:border-red-600 focus:outline-none focus:border-red-600 tansition">{{"nav.articles" | i18n}}</a>
+            <a href="/{{ locale }}/articles" class="px-3 py-2 mt-2 text-sm font-medium leading-5 text-gray-700 duration-150 ease-in-out border-b-4 border-transparent hover:border-b-4 hover:border-red-600 focus:outline-none focus:border-red-600 tansition">{{"nav.articles" | i18n}}</a>
 
-            <a href="/projects" class="px-3 py-2 mt-2 text-sm font-medium leading-5 text-gray-700 duration-150 ease-in-out border-b-4 border-transparent hover:border-b-4 hover:border-red-600 focus:outline-none focus:border-red-600 tansition">{{"nav.projects" | i18n}}</a>
+            <a href="/{{ locale }}/projects" class="px-3 py-2 mt-2 text-sm font-medium leading-5 text-gray-700 duration-150 ease-in-out border-b-4 border-transparent hover:border-b-4 hover:border-red-600 focus:outline-none focus:border-red-600 tansition">{{"nav.projects" | i18n}}</a>
 
-            <a href="/about" class="px-3 py-2 mt-2 text-sm font-medium leading-5 text-gray-700 duration-150 ease-in-out border-b-4 border-transparent hover:border-b-4 hover:border-red-600 focus:outline-none focus:border-red-600 tansition">{{"nav.about" | i18n}}</a>
+            <a href="/{{ locale }}/about" class="px-3 py-2 mt-2 text-sm font-medium leading-5 text-gray-700 duration-150 ease-in-out border-b-4 border-transparent hover:border-b-4 hover:border-red-600 focus:outline-none focus:border-red-600 tansition">{{"nav.about" | i18n}}</a>
           </div>
         </div>
         <!-- Mobile menu button -->
         <div class="-mr-2 md:hidden">
-          <button class="inline-flex items-center justify-center p-2 text-gray-400 rounded-md hover:text-white hover:bg-gray-700 focus:outline-none focus:bg-gray-700 focus:text-white">
+          <button @click="open = !open" class="inline-flex items-center justify-center p-2 text-red-400 rounded-md hover:text-white hover:bg-red-700 focus:outline-none focus:bg-red-700 focus:text-white">
             <!-- Menu open: "hidden", Menu closed: "block" -->
             <svg class="block w-6 h-6" stroke="currentColor" fill="none" viewbox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
@@ -41,35 +38,15 @@
   </div>
 
   <!-- Mobile menu, toggle classes based on menu state. Open: "block", closed: "hidden" -->
-  <div class="hidden md:hidden">
+  <div :class="{'block': open, 'hidden': !open}" class="hidden md:hidden">
     <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-      <a href="#" class="block px-3 py-2 text-base font-medium text-white bg-gray-900 rounded-md focus:outline-none focus:text-white focus:bg-gray-700">Dashboard</a>
+      <a href="/{{ locale }}" class="block px-3 py-2 text-base font-medium text-white bg-red-800 rounded-md focus:outline-none focus:text-white focus:bg-red-700 hover:text-white">{{"nav.home" | i18n}}</a>
 
-      <a href="#" class="block px-3 py-2 text-base font-medium text-red-500 rounded-md hover:text-white hover:bg-red-700 focus:outline-none focus:text-white focus:bg-gray-700">Team</a>
+      <a href="/{{ locale }}/articles" class="block px-3 py-2 text-base font-medium text-red-600 rounded-md hover:text-white hover:bg-red-600 focus:outline-none focus:text-white focus:bg-red-700">{{"nav.articles" | i18n}}</a>
 
-      <a href="#" class="block px-3 py-2 text-base font-medium text-red-500 rounded-md hover:text-white hover:bg-red-700 focus:outline-none focus:text-white focus:bg-gray-700">Projects</a>
+      <a href="/{{ locale }}/projects" class="block px-3 py-2 text-base font-medium text-red-600 rounded-md hover:text-white hover:bg-red-600 focus:outline-none focus:text-white focus:bg-red-700">{{"nav.projects" | i18n}}</a>
 
-      <a href="#" class="block px-3 py-2 text-base font-medium text-red-500 rounded-md hover:text-white hover:bg-red-700 focus:outline-none focus:text-white focus:bg-gray-700">Calendar</a>
-
-      <a href="#" class="block px-3 py-2 text-base font-medium text-red-500 rounded-md hover:text-white hover:bg-red-700 focus:outline-none focus:text-white focus:bg-red-700">Reports</a>
-    </div>
-    <div class="pt-4 pb-3 border-t border-gray-700">
-      <div class="flex items-center px-5 space-x-3">
-        <div class="flex-shrink-0">
-          <img class="w-10 h-10 rounded-full" src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="">
-        </div>
-        <div class="space-y-1">
-          <div class="text-base font-medium leading-none text-white">Tom Cook</div>
-          <div class="text-sm font-medium leading-none text-gray-400">tom@example.com</div>
-        </div>
-      </div>
-      <div class="px-2 mt-3 space-y-1">
-        <a href="#" class="block px-3 py-2 text-base font-medium text-gray-400 rounded-md hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700">Your Profile</a>
-
-        <a href="#" class="block px-3 py-2 text-base font-medium text-gray-400 rounded-md hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700">Settings</a>
-
-        <a href="#" class="block px-3 py-2 text-base font-medium text-gray-400 rounded-md hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700">Sign out</a>
-      </div>
+      <a href="/{{ locale }}/about" class="block px-3 py-2 text-base font-medium text-red-600 rounded-md hover:text-white hover:bg-red-600 focus:outline-none focus:text-white focus:bg-red-700">{{"nav.about" | i18n}}</a>
     </div>
   </div>
 </nav>
