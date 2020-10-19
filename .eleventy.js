@@ -85,11 +85,11 @@ module.exports = function (eleventyConfig) {
 
   //Collections
 
-  eleventyConfig.addCollection("posts_en", function (collection) {
-    return collection.getFilteredByGlob("./src/posts/*.md")
+  eleventyConfig.addCollection("englishPosts", function (collection) {
+    return collection.getFilteredByGlob("./src/en/posts/*.md")
   })
 
-  eleventyConfig.addCollection("posts_es", function (collection) {
+  eleventyConfig.addCollection("spanishPosts", function (collection) {
     return collection.getFilteredByGlob("./src/es/posts/*.md")
   })
 

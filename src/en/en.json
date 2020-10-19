@@ -1,4 +1,6 @@
 {
   "dir": "ltr",
-  "locale": "en"
+  "locale": "en",
+  "language": "english",
+  "icon": "us.png"
 }

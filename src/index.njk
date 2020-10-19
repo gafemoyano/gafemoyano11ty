@@ -51,7 +51,7 @@ dir: "ltr"
         Recent Articles
       </h2>
       <ul class="mt-2 ml-4 list-disc">
-        {%- for post in collections.post | head(-3) | reverse -%}
+        {%- for post in collections.englishPosts | head(-3) | reverse -%}
           <li class="mt-2">
             <a class="text-lg text-gray-700" href="{{post.url | url}}">{{ post.data.title }}</a>
           </li>
