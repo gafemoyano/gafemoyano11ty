@@ -1,6 +1,6 @@
 ---
 title: A Simple Strategy for Translated Routes in Rails
-date: 202-11-02
+date: 2020-11-02
 featured_image: /assets/images/hybrid-uGP_6CAD-14-unsplash.jpg
 featured_image_alt: Orange and pink ballons with smiles
 image_caption: Photo by Dylan Gillis on Unsplash
