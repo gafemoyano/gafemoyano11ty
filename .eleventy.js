@@ -41,6 +41,7 @@ module.exports = function (eleventyConfig) {
   })
 
   // Build
+  eleventyConfig.addPassthroughCopy("netlify.toml")
   eleventyConfig.addPassthroughCopy("src/assets/img")
   eleventyConfig.addPassthroughCopy("src/assets/fonts")
   eleventyConfig.addPassthroughCopy("src/assets/javascript")
