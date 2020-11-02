@@ -8,7 +8,6 @@ const i18n = require("eleventy-plugin-i18n")
 const translations = require("./src/_data/i18n")
 
 module.exports = function (eleventyConfig) {
-  // eleventyConfig.addPassthroughCopy("./src/assets/styles");
   // Plugins
   eleventyConfig.addPlugin(pluginSyntaxHighlight)
   eleventyConfig.addPlugin(i18n, {
@@ -41,6 +40,7 @@ module.exports = function (eleventyConfig) {
   })
 
   // Build
+  eleventyConfig.addPassthroughCopy("robots.txt")
   eleventyConfig.addPassthroughCopy("netlify.toml")
   eleventyConfig.addPassthroughCopy("src/assets/img")
   eleventyConfig.addPassthroughCopy("src/assets/fonts")
@@ -104,5 +104,6 @@ module.exports = function (eleventyConfig) {
     templateFormats: ["md", "njk", "html"],
     dataTemplateEngine: "njk",
     markdownTemplateEngine: "njk",
+    htmlTemplateEngine: "njk",
   }
 }
