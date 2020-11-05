@@ -20,7 +20,7 @@ module.exports = {
   nav: {
     home: { en: "Home", es: "Inicio" },
     articles: { en: "Articles", es: "Artículos" },
-    projects: { en: "Projects", es: "Projectos" },
-    about: { en: "About", es: "Acerca" },
+    projects: { en: "Projects", es: "Proyectos" },
+    about: { en: "About", es: "Acerca de" },
   },
 }
