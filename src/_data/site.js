@@ -1,7 +1,7 @@
 module.exports = {
   title: "Felipe Moyano",
   description:
-    "Webstoemp is the portfolio and blog of Jérôme Coupé, a designer and front-end developer from Brussels, Belgium.",
+    "This site will serve both as a learning experience and as a playground to try out new things and share my thoughts along the way",
   url: "https://gafemoyano.com",
   baseUrl: "/",
   author: "Felipe Moyano",
