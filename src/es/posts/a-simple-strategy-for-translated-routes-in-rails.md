@@ -64,6 +64,6 @@ scope(:path_names => { :new => 'nuevo', :edit => 'editar' }) do
 # edit_job GET    /trabajos/:id/editar(.:format)
 ```
 
-¡Y eso es todo! ahora todas las URLs están en el lenguaje que deceamos sin incluir dependencias extenas complejas, sacrificar la legibilidad de nuestro código o perder unos hipotéticos puntos de SEO.
+¡Y eso es todo! ahora todas las URLs están en el lenguaje que deseamos sin incluir dependencias extenas complejas, sacrificar la legibilidad de nuestro código o perder unos hipotéticos puntos de SEO.
 
 Espero que este ejemplo haya servido para ilustrar como una solución simple muchas veces puede ser suficiente y recordarnos que a veces debemos mirar **dentro** de las posibilidades que ofrecen las herramientas que usamos, un lugar de mirar hacia **afuera** e incluir dependencias que cubren más casos de usos de los que necesitamos.
