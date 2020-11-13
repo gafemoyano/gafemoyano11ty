@@ -4,14 +4,25 @@
   <section class="w-full max-w-2xl mx-auto">
     <div class="px-4 mt-6">
       <h2 class="text-4xl font-bold text-gray-900 font-display">
-        Articles
+        Artículos
       </h2>
       <ul class="mt-2 ml-4 list-disc">
-        {%- for post in collections.posts_es -%}
+
+        {%- for post in collections.spanishPosts -%}
           <li class="mt-2">
             <a class="text-lg text-gray-700" href="{{post.url | url}}">{{ post.data.title }}</a>
           </li>
         {%- endfor -%}
+        <li class="mt-2">
+          <a class="text-lg text-gray-700" href="https://www.fullstacklabs.co/blog/building-a-responsive-filter-component-on-react">Cómo construir un popup responsive en React</a>
+        </li>
+        <li class="mt-2">
+          <a class="text-lg text-gray-700" href="https://www.fullstacklabs.co/blog/create-box-component-react-native-styled-system">Como crear un componente Box con Style System
+          </a>
+        </li>
+        <li class="mt-2">
+          <a class="text-lg text-gray-700" href="https://www.fullstacklabs.co/blog/optimizing-graphql-query-problems-ruby-on-rails">Optimizar problemas de N+1 queries con GraphQL y Ruby on Rails</a>
+        </li>
       </ul>
     </div>
   </section>
