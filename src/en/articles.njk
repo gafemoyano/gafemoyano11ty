@@ -4,7 +4,7 @@ dir: "ltr"
 ---
 
 {% extends "layouts/base.njk" %}
-{% block title %}Projects{% endblock %}
+{% block title %}Felipe Moyano | Articles{% endblock %}
 {% block content %}
   <section class="w-full max-w-2xl mx-auto">
     <div class="px-4 mt-6">
@@ -17,20 +17,10 @@ dir: "ltr"
             <a class="text-lg text-gray-700" href="{{post.url | url}}">{{ post.data.title }}</a>
           </li>
         {%- endfor -%}
-        <li class="mt-2">
-          <a class="text-lg text-gray-700" href="https://www.fullstacklabs.co/blog/building-a-responsive-filter-component-on-react">Building a Responsive Filter Component on React</a>
-        </li>
-        <li class="mt-2">
-          <a class="text-lg text-gray-700" href="https://www.fullstacklabs.co/blog/create-box-component-react-native-styled-system">How to Create a Box Component in React Native with Styled System
-          </a>
-        </li>
-        <li class="mt-2">
-          <a class="text-lg text-gray-700" href="https://www.fullstacklabs.co/blog/optimizing-graphql-query-problems-ruby-on-rails">Optimizing GraphQL N+1 query problems in Ruby on Rails</a>
-        </li>
       </ul>
 
       <hr class="mt-16">
-      <h2 class="text-3xl font-bold text-gray-800 font-display">
+      <h2 class="mt-8 text-3xl font-bold text-gray-800 font-display">
         Other stuff I've written
       </h2>
       <ul class="mt-2 ml-4 list-disc">
