@@ -1,11 +1,39 @@
+---
+locale: "es"
+dir: "ltr"
+description: Hola, soy Felipe Moyano. Un desarrollador web que comparte sus pensamientos acerca de Ruby on Rails, diseño y producto.
+---
+
 {% extends "layouts/base.njk" %}
 {% block title %}Acerca de mi{% endblock %}
+
+{% block head %}
+  <meta property="og:type" content="article">
+{% endblock %}
+
 {% block content %}
-  <div class="flex items-center justify-center">
-    <div>
-      <span class="text-change">Buen diseño</span><br/>
-      <span class="change">es
-        <br/>tan poco diseñó como sea posible blah blhadesign<br/>as possible</span>
+  <section class="w-full max-w-2xl mx-auto">
+    <div class="px-4 mt-6 content">
+      <h1 class="text-4xl font-bold text-gray-900 font-display">
+        Acerca de Felipe Moyano
+      </h1>
+      <p>
+        Soy un programador, fan del desarrollo y diseño web aplicado en construir productos que entiendan y resuelvan problemas para sus usuarios. Me gusta particularmente trabajar con Ruby on Rails, Tailwindcss y, de vez en cuando, en React y en React Native.
+      </p>
+      <p>En mi vida pasada fui emprendedor de una empresa (ahora difunta) llamada
+        <a href="https://savy.co">Savy</a>
+        en la cual tuve la oportunidad de aprender muchas cosas sobre emprendimiento, programación y producto las cuales espero compartir en este blog.
+      </p>
+      <p>
+        Este es un espacio donde pretendo aplicar la filosofía de
+        <a href="https://www.swyx.io/learn-in-public/" target="_blank">aprender</a>
+        <a href="https://joelhooks.com/digital-garden" target="_blank">en</a>
+        <a href="https://kentcdodds.com/blog/how-i-am-so-productive/" target="_blank">público</a>. Si quieres acompañarme en este viaje de aprendizaje de nuevos conceptos y productos, no dudes en suscribirte a la lista de correo.
+      </p>
+      <p>
+        Actualmente me encuentro empleado en una nueva startup llamada
+        <span class="font-medium text-red-700">Sumz</span>. Es un emprendimiento enfocado en generar valor a partir de sinergias de datos de distintas empresas.
+      </p>
     </div>
-  </div>
+  </section>
 {% endblock %}

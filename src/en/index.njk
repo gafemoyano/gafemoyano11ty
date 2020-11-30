@@ -1,10 +1,18 @@
 ---
 locale: "en"
 dir: "ltr"
+title: "Felipe Moyano: I like to move in the space between building products, writing code and creating awesome engineering teams."
+description: "Join me on my journey to learnin public about web development, design and product building."
 ---
 
 {% extends "layouts/base.njk" %}
+
+{% block head %}
+  <meta property="og:type" content="website">
+{% endblock %}
+
 {% block title %}Felipe Moyano | Web Developer. Personal site and Blog{% endblock %}
+
 {% block content %}
   <section class="hero-background" style="height: 30vh; min-height: 200px;">
     <div class="w-full h-full max-w-6xl mx-auto">

@@ -1,16 +1,27 @@
----
-layout: layouts/base.njk
----
+{% extends "layouts/base.njk" %}
 
-<div class="w-full max-w-2xl px-6 mx-auto md:px-0">
-  <h1 class="mt-6 text-2xl font-bold leading-6 md:leading-9 md:text-4xl">{{ title }}</h1>
-  <div class="mt-8 h-96">
-    <img class="object-cover w-full h-96" src="{{ featured_image }}" alt="{{ featured_image_alt }}">
-    <p class="text-sm text-center text-gray-600">
-      {{ image_caption | safe }}
-    </p>
+{% block head %}
+  <meta property="og:type" content="article">
+  <meta property="article:published_time" content="{{date | htmlDateString}}">
+  <meta property="og:image" content="{{featured_image}}">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:label1" value="Written by">
+  <meta name="twitter:data1" value="Felipe Moyano">
+{% endblock %}
+
+{% block content %}
+
+  <div class="w-full max-w-2xl px-6 mx-auto md:px-0">
+    <h1 class="mt-6 text-2xl font-bold leading-6 md:leading-tight md:text-4xl">{{ title }}</h1>
+    <div class="mt-8 h-96">
+      <img class="object-cover w-full h-96" src="{{ featured_image }}" alt="{{ featured_image_alt }}">
+      <p class="text-sm text-center text-gray-600">
+        {{ image_caption | safe }}
+      </p>
+    </div>
+    <div class="my-8 content">
+      {{ content | safe }}
+    </div>
   </div>
-  <div class="my-8 content">
-    {{ content | safe }}
-  </div>
-</div>
+
+{% endblock %}
