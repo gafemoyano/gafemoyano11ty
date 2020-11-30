@@ -3,7 +3,7 @@ module.exports = {
   description:
     "This site will serve both as a learning experience and as a playground to try out new things and share my thoughts along the way",
   url:
-    process.env.ELEVENTY_PRODUCTION === true
+    process.env.ELEVENTY_ENV === "production"
       ? "https://gafemoyano.com"
       : "http://localhost:8080",
   baseUrl: "/",
@@ -20,4 +20,5 @@ module.exports = {
       code: "es",
     },
   ],
+  environment: process.env.ELEVENTY_ENV,
 }
