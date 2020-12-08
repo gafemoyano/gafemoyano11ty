@@ -1,10 +1,18 @@
 ---
 locale: "en"
 dir: "ltr"
+title: "Felipe Moyano: I like to move in the space between building products, writing code and creating awesome engineering teams."
+description: "Join me on my journey to learnin public about web development, design and product building."
 ---
 
 {% extends "layouts/base.njk" %}
+
+{% block head %}
+  <meta property="og:type" content="website">
+{% endblock %}
+
 {% block title %}Felipe Moyano | Web Developer. Personal site and Blog{% endblock %}
+
 {% block content %}
   <section class="hero-background" style="height: 30vh; min-height: 200px;">
     <div class="w-full h-full max-w-6xl mx-auto">
@@ -57,14 +65,14 @@ dir: "ltr"
           </li>
         {%- endfor -%}
         <li class="mt-2">
-          <a class="text-lg text-gray-700" href="https://www.fullstacklabs.co/blog/building-a-responsive-filter-component-on-react">Building a Responsive Filter Component on React</a>
+          <a class="text-lg text-gray-700" target="_blank" rel="noopener noreferrer" href="https://www.fullstacklabs.co/blog/building-a-responsive-filter-component-on-react">Building a Responsive Filter Component on React</a>
         </li>
         <li class="mt-2">
-          <a class="text-lg text-gray-700" href="https://www.fullstacklabs.co/blog/create-box-component-react-native-styled-system">How to Create a Box Component in React Native with Styled System
+          <a class="text-lg text-gray-700" target="_blank" rel="noopener noreferrer" href="https://www.fullstacklabs.co/blog/create-box-component-react-native-styled-system">How to Create a Box Component in React Native with Styled System
           </a>
         </li>
         <li class="mt-2">
-          <a class="text-lg text-gray-700" href="https://www.fullstacklabs.co/blog/optimizing-graphql-query-problems-ruby-on-rails">Optimizing GraphQL N+1 query problems in Ruby on Rails</a>
+          <a class="text-lg text-gray-700" target="_blank" rel="noopener noreferrer" href="https://www.fullstacklabs.co/blog/optimizing-graphql-query-problems-ruby-on-rails">Optimizing GraphQL N+1 query problems in Ruby on Rails</a>
         </li>
       </ul>
     </div>

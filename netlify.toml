@@ -6,18 +6,3 @@
   from = "/"
   to = "/en"
   status = 301
-
-# [[redirects]]
-#   from = "/en/*"
-#   to = "/en/:splat"
-
-# [[redirects]]
-#   from = "/*"
-#   to = "/es/:splat"
-#   status = 302
-#   conditions = {Language = ["es"]}
-# [[redirects]]
-#   from = "/*"
-#   to = "/es/:splat"
-#   status = 302
-  
