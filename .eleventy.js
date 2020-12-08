@@ -94,6 +94,14 @@ module.exports = function (eleventyConfig) {
     return collection.getFilteredByGlob("./src/es/posts/*.md")
   })
 
+  eleventyConfig.addCollection("englishProjects", function (collection) {
+    return collection.getFilteredByGlob("./src/en/projects/*.md")
+  })
+
+  eleventyConfig.addCollection("spanishProjects", function (collection) {
+    return collection.getFilteredByGlob("./src/es/projects/*.md")
+  })
+
   return {
     dir: {
       input: "src",

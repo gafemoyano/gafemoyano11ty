@@ -12,6 +12,11 @@
     {% endif %}
     <meta http-equiv="x-ua-compatible" content="ie=edge"/>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no, viewport-fit=cover"/>
+    {% if tags %}
+    <meta name=”keywords” content="{{tags}}" />
+    {% else %}
+    <meta name=”keywords” content="web development, rails, ruby on rails, blog, web design" />
+    {% endif %}
     <link rel="stylesheet" href="/assets/styles/tailwind.css?v={% version %}"/>
     {% block head %}{% endblock %}
     <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.7.0/dist/alpine.min.js" defer="defer"></script>
