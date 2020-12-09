@@ -1,7 +1,7 @@
 ---
 title: My happy place
 date: 2020-12-08
-featured_image: /assets/img/team-savy.jpg
+featured_image: /assets/img/articles/team-savy.jpg
 featured_image_alt: /#TeamSavy on Secret Santa day.
 image_caption: /#TeamSavy on Secret Santa day.
 tags:
@@ -23,9 +23,9 @@ Because, in spite of all the challenges we faced, for the most part I believe th
 
 And that's what finally motivated me to write this piece: For nearly three years, I had the privilege of living in my happy place. That's what it always felt like, no matter how difficult things where, if a project was out of track, if the numbers weren't meeting our expectations, or even when I felt I had to let someone go from the team (which fucking _sucks_), I didn't feel like closing my eyes and going somewhere else. Not. Even. Once.
 
-Entrepreneurship is funny like that, you get to experience so many feelings: joy and sadness, success and failure, clarity and despair, pride and shame and I so much more. But that you **get** to experience **all** of it is, in my eyes, a blessing in disguise.
+Entrepreneurship is funny like that, you get to experience so many feelings: joy and sadness, success and failure, clarity and despair, pride and shame and so much more. That you **get** to experience **all** of this is, in my eyes, reason enough to do it.
 
-Unfortunately, everything must come to an end and 2020 was quite effective at ending things, if you ask me. I can't predict the future, but I can only hope to achieve this kind of environment once again in my career. I do, however, hope that every one of us finds it once again, and is able to hold on to it for a bit longer than we did.
+Unfortunately, everything must come to an end and 2020 was quite ruthless at ending things abruptly. Going back to the picture that prompted this post, I cannot predict the future but I do hope, sincerely, that everyone from the picture (and from our team) finds themselves, once again, in kind of environment. That once again, we get to experience this electric feeling of being surrounded by a team that's so much more than the sum of it's parts and that we're able to hold on to it for a bit longer than we were able to.
 
 I'm incredibly lucky for having had that opportunity and I'm even more thankful to all the people that took part in those feelings and experiences. I loved being part of that team and having a small part in creating something that brought joy and happiness to the world and lives of many people.
 

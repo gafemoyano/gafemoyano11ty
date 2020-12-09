@@ -12,7 +12,7 @@ dir: "ltr"
         Artículos
       </h1>
       <ul class="mt-2 ml-4 list-disc">
-        {%- for post in collections.englishPosts -%}
+        {%- for post in collections.englishPosts | reverse -%}
           <li class="mt-2">
             <a class="text-lg text-gray-700" href="{{post.url | url}}">{{ post.data.title }}</a>
           </li>

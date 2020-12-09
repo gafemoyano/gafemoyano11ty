@@ -8,4 +8,4 @@ external_url: "https://grancolmado.com.co"
 permalink: false
 ---
 
-Marketing site built for Comercializadora Gran Colmado. It features a modern design with a clean look that inspires a modern, lean company that cares about it's clients and their success. The site was built with Gatsby and uses Netlify CMS for the content and catalog administration.
+Marketing site built for Comercializadora Gran Colmado. It features a modern design with a clean look that showcases a lean company that cares about it's clients and their success. The site was built with Gatsby and uses Netlify CMS for the content and catalog administration.

@@ -19,9 +19,9 @@
     <meta http-equiv="x-ua-compatible" content="ie=edge"/>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no, viewport-fit=cover"/>
     {% if tags %}
-    <meta name=”keywords” content="{{tags}}" />
+      <meta name=”keywords” content="{{tags}}"/>
     {% else %}
-    <meta name=”keywords” content="web development, rails, ruby on rails, blog, web design" />
+      <meta name=”keywords” content="web development, rails, ruby on rails, blog, web design"/>
     {% endif %}
     <link rel="stylesheet" href="/assets/styles/tailwind.css?v={% version %}"/>
     <link rel="canonical" href="{{site.url}}/en/{{pageUrl}}">
@@ -43,7 +43,21 @@
     <link href="https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
     <link rel="icon" type="image/png" href="/assets/img/transition_400x.png">
     <link href="https://unpkg.com/prismjs@1.20.0/themes/prism-okaidia.css" rel="stylesheet">
-    <script async="async" defer="defer" data-domain="gafemoyano.com" src="https://plausible.io/js/plausible.js"></script>
+
+    {% if site.environment === "production" %}
+      <!-- Global site tag (gtag.js) - Google Analytics -->
+      <script async src="https://www.googletagmanager.com/gtag/js?id=G-8THYF9RS37"></script>
+      <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() {
+          dataLayer.push(arguments);
+        }
+        gtag('js', new Date());
+
+        gtag('config', 'G-8THYF9RS37');
+      </script>
+      {# <script async="async" defer="defer" data-domain="gafemoyano.com" src="https://plausible.io/js/plausible.js"></script> #}
+    {% endif %}
   </head>
   <body class="flex flex-col min-h-screen overflow-x-hidden text-lg antialiased text-gray-800 bg-gray-50 font-body">
     {% include "navbar.njk" %}
