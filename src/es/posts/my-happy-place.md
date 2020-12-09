@@ -41,6 +41,9 @@ Gracias por haber sido parte de mi lugar feliz.
 
 Felipe.
 
+<br />
+<br />
+
 _P.S. Some other memories_
 
 Allow me, for posterity, to share some other moments that come to memory from looking at this picture:

@@ -39,6 +39,9 @@ And to my family, friends and girlfriend who dealt with my absence during the lo
 
 Felipe.
 
+<br />
+<br />
+
 _P.S. Some other memories_
 
 Allow me, for posterity, to share some other moments that come to memory from looking at this picture:
