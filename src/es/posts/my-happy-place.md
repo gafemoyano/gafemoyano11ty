@@ -1,7 +1,7 @@
 ---
 title: Mi lugar feliz
 date: 2020-12-08
-featured_image: /assets/img/team-savy.jpg
+featured_image: /assets/img/articles/team-savy.jpg
 featured_image_alt: /#TeamSavy el día del amigo secreto.
 image_caption: /#TeamSavy en el día del amigo secreto.
 tags:

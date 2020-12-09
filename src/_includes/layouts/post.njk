@@ -19,6 +19,20 @@
         {{ image_caption | safe }}
       </p>
     </div>
+    <div class="mt-6">
+      <div class="inline-flex space-x-2">
+        {% for l in locales -%}
+          {% if locale == l.code %}
+            {% set classNames = "text-red-800 underline hover:bg-gray-100 font-bold" %}
+          {% else %}
+            {% set classNames = "text-red-600 hover:text-red-800 hover:underline" %}
+          {% endif %}
+          <a class="{{classNames}}" href="/{{ l.code }}/{{ pageUrl }}" rel="alternate" hreflang="{{ l.code }}">
+            {{ l.label | capitalize }}
+          </a>
+        {% endfor -%}
+      </div>
+    </div>
     <div class="my-8 content">
       {{ content | safe }}
     </div>
