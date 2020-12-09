@@ -4,7 +4,7 @@ date: 2020-11-02
 featured_image: /assets/img/daniel-vargas-ngrIs67UJEg-unsplash.png
 featured_image_alt: The streets of Guatapé, Antioquia, Colombia
 image_caption: <span>Photo by <a href="https://unsplash.com/@danielvargas?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Daniel Vargas</a> on <a href="https://unsplash.com/s/photos/colombia?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Unsplash</a></span>
-description: Sometimes you want your Rails app to be in another language. This doesn't mean you want to bring a full on i18n solution. Lets try to solve this using only what the framework provides.
+description: "Sometimes you want your Rails app to be in another language. This doesn't mean you want to bring a full on i18n solution. Lets try to solve this using only what the framework provides."
 tags:
   - post
   - rails

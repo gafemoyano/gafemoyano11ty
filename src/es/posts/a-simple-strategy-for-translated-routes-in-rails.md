@@ -4,7 +4,7 @@ date: 2020-11-02
 featured_image: /assets/img/daniel-vargas-ngrIs67UJEg-unsplash.png
 featured_image_alt: Las calles de Guatapé, Antioquia, Colombia
 image_caption: <span>Photo by <a href="https://unsplash.com/@danielvargas?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Daniel Vargas</a> on <a href="https://unsplash.com/s/photos/colombia?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Unsplash</a></span>
-description: Una solución simple para desarrollar tu aplicación de Rails en un lenguaje primario distinto al inglés y mantener las convenciones del framework. Sin gemas, ni complicaciones. Únicamente es necesario aprovechar los features que nos provee Rails.
+description: "Una solución simple para desarrollar tu aplicación de Rails en un lenguaje primario distinto al inglés y mantener las convenciones del framework. Sin gemas, ni complicaciones. Únicamente es necesario aprovechar los features que nos provee Rails."
 tags:
   - post
   - rails
