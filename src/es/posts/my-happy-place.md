@@ -28,7 +28,7 @@ A pesar de todas las dificultades que vivimos y los retos que enfrentamos, en la
 Fue recordar esa sensación lo que me motivo, finalmente, a escribir este artículo. Por cerca de tres años tuve el _privilegio_ de vivir y trabajar en mi lugar feliz. Sin importar qué tan difíciles se llegaron a poner las cosas: si un proyecto no marchaba bien, cuando los números no alcanzaban nuetras espectativas,
 cuando tuve que tomar la decisión de despedir a alguien (que es _lo peor_); no pensé en un solo momento, en cerrar los ojos y escapar a otro lado. Ni Una. Sola. Vez.
 
-Un emprendimiento es curioso en este sentido. Uno tiene la oportunidad de experimentar cualquier cantidad de experiencias y oportunidades en un solo lugar: alegría y tristesa, éxito y fracaso, claridad y desespero, orgullo y verguenza... y muchas más. Pero en el día a día las cosas se mueven tan rápido que no hay mucho tiempo para reflexionar sobre todo lo que está sucediendo. En retrospectiva, me es fácil decir que tan solo _tener_ la oportunidad de vivir _todo_ esto es, en mi concepto, razón suficiente para hacerlo.
+Un emprendimiento es curioso en este sentido. Uno tiene la oportunidad de experimentar cualquier cantidad de experiencias y oportunidades en un solo lugar: alegría y tristeza, éxito y fracaso, claridad y desespero, orgullo y verguenza... y muchas más. Pero en el día a día las cosas se mueven tan rápido que no hay mucho tiempo para reflexionar sobre todo lo que está sucediendo. En retrospectiva, me es fácil decir que tan solo _tener_ la oportunidad de vivir _todo_ esto es, en mi concepto, razón suficiente para hacerlo.
 
 Desafortunadamente, [todo tiene su final](https://youtu.be/s3SO1j06oSA) y el 2020 fue un año despiadado en cuanto a terminar cosas abruptamente. Volviendo un poco a la foto que disparó este artículo, sé que no puedo predecir el futuro. Espero, sinceramente, que todas las personas que estamos en esa foto encontremos, una vez más, el ambiente que fue capturado en ese instante: un ambiente de energía eléctrica y positiva que emana de un equipo que es mucho más que la suma de sus partes. Y que, esta vez, logren mantenerlo un poquito más que lo que pudimos en Savy.
 
@@ -52,7 +52,7 @@ _P.S. Some other memories_
 Allow me, for posterity, to share some other moments that come to memory from looking at this picture:
 
 - Los partidos de ping pong y lo competitivo que es Chris de no descansar hasta convertirse en el mejor de todos.
-- Los juegos de Mario Kart después de almuerzo para decidir quién lavaba la losa.
+- Los juegos de Mario Kart después de almuerzo para decidir quién lavaba la loza.
 - Llegar tarde a todas las reuniones que hubo, para el desespero de mis muy puntuales y franceces co-fundadores.
 - El día en el que lanzamos el app al App Store y empezaron a llegar los comentarios positivos.
 - Ver a Camilo llegar todos los días a la oficina con una sonrisa gigante en la cara.
