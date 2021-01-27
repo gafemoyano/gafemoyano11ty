@@ -19,9 +19,9 @@
     <meta http-equiv="x-ua-compatible" content="ie=edge"/>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no, viewport-fit=cover"/>
     {% if tags %}
-      <meta name=”keywords” content="{{tags}}"/>
+      <meta name="”keywords”" content="{{tags}}"/>
     {% else %}
-      <meta name=”keywords” content="web development, rails, ruby on rails, blog, web design"/>
+      <meta name="”keywords”" content="web development, rails, ruby on rails, blog, web design"/>
     {% endif %}
     <link rel="stylesheet" href="/assets/styles/tailwind.css?v={% version %}"/>
     <link rel="canonical" href="{{site.url}}/en/{{pageUrl}}">
@@ -46,7 +46,7 @@
 
     {% if site.environment === "production" %}
       <!-- Global site tag (gtag.js) - Google Analytics -->
-      <script async src="https://www.googletagmanager.com/gtag/js?id=G-8THYF9RS37"></script>
+      <script async="async" src="https://www.googletagmanager.com/gtag/js?id=G-8THYF9RS37"></script>
       <script>
         window.dataLayer = window.dataLayer || [];
         function gtag() {
@@ -56,7 +56,7 @@
 
         gtag('config', 'G-8THYF9RS37');
       </script>
-      {# <script async="async" defer="defer" data-domain="gafemoyano.com" src="https://plausible.io/js/plausible.js"></script> #}
+      <script async="async" defer="defer" data-domain="gafemoyano.com" src="https://plausible.io/js/plausible.js"></script>
     {% endif %}
   </head>
   <body class="flex flex-col min-h-screen overflow-x-hidden text-lg antialiased text-gray-800 bg-gray-50 font-body">

@@ -13,13 +13,7 @@
 
   <div class="w-full max-w-3xl px-6 mx-auto md:px-0">
     <h1 class="mt-6 text-2xl font-bold leading-6 md:leading-tight md:text-4xl">{{ title }}</h1>
-    <div class="mt-8 h-96">
-      <img class="object-cover object-center w-full h-96" src="{{ featured_image }}" alt="{{ featured_image_alt }}">
-      <p class="text-sm text-center text-gray-600">
-        {{ image_caption | safe }}
-      </p>
-    </div>
-    <div class="mt-6">
+    <div class="mt-2">
       <div class="inline-flex space-x-2">
         {% for l in locales -%}
           {% if locale == l.code %}
@@ -33,7 +27,13 @@
         {% endfor -%}
       </div>
     </div>
-    <div class="my-8 content">
+    <div class="mt-6 h-96">
+      <img class="object-cover object-center w-full h-96" src="{{ featured_image }}" alt="{{ featured_image_alt }}">
+      <p class="mt-1 text-sm text-center text-gray-600">
+        {{ image_caption | safe }}
+      </p>
+    </div>
+    <div class="mt-12 mb-8 content">
       {{ content | safe }}
     </div>
   </div>

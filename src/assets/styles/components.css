@@ -15,6 +15,14 @@ a {
     @apply mt-4;
   }
 
+  h2 {
+    @apply text-xl font-bold leading-5;
+  }
+
+  h3 {
+    @apply text-lg font-bold leading-4;
+  }
+
   a {
     @apply text-red-700 underline;
   }
@@ -47,6 +55,14 @@ a {
 
     > * + *:not(:first-child) {
       @apply mt-6;
+    }
+
+    h2 {
+      @apply leading-lose text-3xl;
+    }
+
+    h3 {
+      @apply text-2xl font-bold;
     }
   }
 }
