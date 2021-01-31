@@ -1,8 +1,8 @@
 ---
-title: Errores (DRY) en los formularios de Ruby on Rails
-date: 2021-01-26
+title: Estrategia DRY para errores de validación en Ruby on Rails
+date: 2021-01-31
 featured_image: /assets/img/articles/omar-nava-LGx6XzKYyv0-unsplash.jpg
-featured_image_alt: El desierto de la tatacoa, Colombia
+featured_image_alt: El desierto de la Tatacoa, Colombia
 image_caption: <span>Photo by <a href="https://unsplash.com/@omar_nava?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Omar Nava</a> on <a href="https://unsplash.com/?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Unsplash</a></span>
 description: DRY up your forms with a little Rails hook that will help you forget about conditionally rendering validation errors inline.
 tags:
@@ -13,13 +13,13 @@ layout: layouts/post.njk
 ---
 
 Iniciar una nueva aplicación de Ruby on Rails siempre ha sido un placer para mi. Uno puede construir rápidamente el esqueleto de las pantallas que necesita tu app para funcionar, crear los modelos iniciales de base de datos y arrancar a programar la lógica de negocio que, finalmente, es la que genera valor. Siempre he sentido que es una herramienta que _facilita_ el trabajo. Sin embargo,
-hay un punto que siempre encuentro difícil, donde los defaults del framework no cumplen del todo con mis espectativas: validación de formularios y manejo de errores. En particular, al mostrar los errores de entrada de los campos.
+hay un punto que siempre encuentro difícil, donde las configuraciones por defecto del framework no cumplen del todo con mis expectativas: validación de formularios y manejo de errores. En particular, al mostrar los errores de entrada de los campos.
 
 Si corremos el generador de _scaffold_ de Rails (que es una gran forma de arrancar una app pero no está pensado para código de _producción_), encontraremos en nuestros formularios el siguiente fragmento:
 
 ```erb
 <div id="error_explanation">
-  <h2><%= pluralize(model.errors.count, "error") %> prohibited this model from being saved:</h2>
+  <h2><%= pluralize(model.errors.count, "error") %> impidieron guardar este formulario:</h2>
 
   <ul>
     <% model.errors.each do |error| %>
@@ -29,7 +29,7 @@ Si corremos el generador de _scaffold_ de Rails (que es una gran forma de arranc
 </div>
 ```
 
-Lo que esto hace es mostrar en una alerta encima del formulario una lista de los errores encontrados ordenando el nombre del campo, seguido del mensaje de error. Incluso podriamos considerar, ya que esta lógica es bastante genérica, extraerla a una vista parcial aparte y reutilizarla.
+Lo que esto hace es mostrar en una alerta encima del formulario una lista de los errores encontrados ordenando el nombre del campo, seguido del mensaje de error. Incluso podríamos considerar, ya que esta lógica es bastante genérica, extraerla a una vista parcial aparte y reutilizarla.
 
 ![description](/assets/img/articles/lM8pK46.png)
 
@@ -57,7 +57,7 @@ Con esa sóla línea de código, por debajo Simple Form está creando la etiquet
 
 A pesar de esto tengo dos razones para no incluir Simple Form (o una librería similar) en este proyecto.
 
-La primera es que para el CSS de este proyecto estoy usando [tailwind](https://tailwindcss.com) y los formularios tienen layouts más bien complejos. Al usar un helper como el de simple form, donde las clases del label, input, wrapper se pasan como argumetos adicionales, resulta un poco difícil entender la estructura del html que se va a generar. Adicionalmente, no he logrado que el autocomplete de tailwind funcione en bloques de Ruby:
+La primera es que para el CSS de este proyecto estoy usando [tailwind](https://tailwindcss.com) y los formularios tienen layouts más bien complejos. Al usar un helper como el de simple form, donde las clases del label, input, wrapper se pasan como argumentos adicionales, resulta un poco difícil entender la estructura del html que se va a generar. Adicionalmente, no he logrado que el autocomplete de tailwind funcione en bloques de Ruby:
 
 ```erb
 <%= simple_form_for @user do |f| %>
@@ -80,9 +80,9 @@ La primera es que para el CSS de este proyecto estoy usando [tailwind](https://t
 <% end %>
 ```
 
-La segunda, es que como regla autoimpuesta si sólo necesito una _parte_ de la funcionalidad de una gema y yo mismo podría escribirla en un tiempo _razonable_ seguramente lo haré. En este caso sólo me interesa autogenerar los errores.
+La segunda, es que como regla auto impuesta si sólo necesito una _parte_ de la funcionalidad de una gema y yo mismo podría escribirla en un tiempo _razonable_ seguramente lo haré. En este caso sólo me interesa auto generar los errores.
 
-## Aplicando DRY a los errores de validación
+## Una estrategia DRY para mostrar los errores
 
 Con este objetivo en mente salí a buscar mejor forma de incluir los errores automáticamente junto a sus respectivos inputs. Empecé inspeccionando el repositorio de Simple Form, pero rápidamente vi que ellos se "enganchan" de todo el formulario, no sólo de los inputs. Eventualmente me topé con este [blog post](https://www.jorgemanrubia.com/2019/02/16/form-validations-with-html5-and-modern-rails/) de Jorge Manrubia. En el artículo jorge nos muestra una forma de extraer la funcionalidad por default del _scaffold_, todos los errores agregados en una alerta, en un inicializador de Rails. De ahí, sólo toma un poquito de trabajo adicional modificar el código para que incluya los mensajes de error debajo de los inputs.
 
@@ -108,9 +108,9 @@ ActionView::Base.field_error_proc = Proc.new do |html_tag, instance_tag|
   html.html_safe
 end
 ```
+Revisemos el código anterior paso a paso para entenderlo mejor. Cuando rails va a mostrar los elementos del formulario, va a llamar el `Proc` anterior cada vez que detecte que el modelo tiene un error. Sobre-escribiendo el método anterior, podemos engancharnos y reemplazar el comportamiento por default (que envuelve el input en un `div` y le agrega la clase `field_error`) con algo distinto.
 
-Since I had a bit of trouble understanding what was going on at first, I'll try to explain it here. This proc is called by Rails action view each time an ActiveModel field, that has validation errors, is rendered. This includes all kind of elements, including labels so the first thing we do is check if we're rendering an input that could have a validation error. If it's any other tag, we just render the html as is. Otherwise, we'll get all the error messagges from the field associated with the instance_tag (I was surprised to find out is exposed on it's public [api](https://api.rubyonrails.org/classes/ActionView/Helpers/ActiveModelInstanceTag.html#method-i-error_message)) and finally append our `<p>` tag with the proper styling and errors below the input.
+Ya que el `Proc` es llamado con cualquier elemento dentro del formulario (incluyendo labels) lo primero es revisar si se trata de un input. En ese caso, podemos agregar una etiqueta `<p>` que contenga el error de ese campo y los estilos necesarios. Gracias a que `instance_tag` expone el método [error_message](https://api.rubyonrails.org/classes/ActionView/Helpers/ActiveModelInstanceTag.html#method-i-error_message)) resulta bastante fácil encontrar los errores correspondientes al campo actual. Para todos los demás elementos, retornamos el `html` sin ningún cambio.
 
 ## Closing thoughts
-
-And there you go! Now we have automatically included a way to conditionally show validation errors on all of our forms without having to write a single line of code. I got to admit it felt a bit hacky at first, but so far I haven't really encountered any issues with this bit of logic and it pairs fairly well with server side validations. So what do you think? Is this a great or terrible idea? Let me know via email if you experiment with it and find any issues.
+Y eso es todo! No olvides reiniciar tu aplicación para que recargue el nuevo archivo de configuración. Con esto, podemos incluir condicionalmente los mensajes de error en línea con los inputs de nuestros formularios sin agregar código adicional. Debo admitir que la solución no me pareció lo más limpio del mundo al principio y tampoco hay mucha documentación al respecto. Pero lo importante es que funciona y es un API público por lo que podemos estar confiados que será estable hacia el futuro. Déjame saber qué te parece esta solución, ¿es una gran idea o es terrible? Cualquier comentario no dudes en escribirme a felipe@gafemoyano.com o en twitter.
