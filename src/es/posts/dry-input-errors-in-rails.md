@@ -12,8 +12,7 @@ tags:
 layout: layouts/post.njk
 ---
 
-Iniciar una nueva aplicación de Ruby on Rails siempre ha sido un placer para mi. Uno puede construir rápidamente el esqueleto de las pantallas que necesita tu app para funcionar, crear los modelos iniciales de base de datos y arrancar a programar la lógica de negocio que, finalmente, es la que genera valor. Siempre he sentido que es una herramienta que _facilita_ el trabajo. Sin embargo,
-hay un punto que siempre encuentro difícil, donde las configuraciones por defecto del framework no cumplen del todo con mis expectativas: validación de formularios y manejo de errores. En particular, al mostrar los errores de entrada de los campos.
+Iniciar una nueva aplicación de Ruby on Rails siempre ha sido un placer para mi. Uno puede construir rápidamente el esqueleto de las pantallas que necesita tu app para funcionar, crear los modelos iniciales de base de datos y arrancar a programar la lógica de negocio que, finalmente, es la que genera valor. Siempre he sentido que es una herramienta que _facilita_ el trabajo. Sin embargo, hay un punto que siempre encuentro difícil, donde las configuraciones por defecto del framework no cumplen del todo con mis expectativas: validación de formularios y manejo de errores. En particular, al mostrar los errores de entrada de los campos.
 
 Si corremos el generador de _scaffold_ de Rails (que es una gran forma de arrancar una app pero no está pensado para código de _producción_), encontraremos en nuestros formularios el siguiente fragmento:
 
