@@ -4,7 +4,7 @@ date: 2021-02-11
 featured_image: /assets/img/berend-leupen-hbHKEB5m2xE-unsplash.png
 featured_image_alt: The streets of Guatapé, Antioquia, Colombia
 image_caption: <span>Photo by <a href="https://unsplash.com/@bcleupen?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Berend Leupen</a> on <a href="https://unsplash.com/s/photos/colombia?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Unsplash</a></span>
-description: "Sometimes you want your Rails app to be in another language. This doesn't mean you want to bring a full on i18n solution. Lets try to solve this using only what the framework provides."
+description: "Kick off your new Rails application with Active Storage, Action Text and UUIDs for primary keys as default."
 tags:
   - post
   - rails
@@ -51,21 +51,21 @@ end
 
 Next, we configure the rails generators to use UUIDs by default
 
-````ruby
+```ruby
 Rails.application.config.generators do |g|
   g.orm :active_record, primary_key_type: :uuid
-end```
-````
+end
+```
 
 From Rails 6 a new configuration option was introduced to control the default default ordering column in ActiveRecord. The default is to rely on IDs for ordering which would no longer work with random UUIDs and would break methods like `last` and `first`. Given that we want to make all tables use UUIDs by default, we can add the following to `ApplicationRecord`
 
-````ruby
+```ruby
 class ApplicationRecord < ActiveRecord::Base
   self.abstract_class = true
   self.implicit_order_column = "created_at"
   ...
-end```
-````
+end
+```
 
 If everything is wired up correctly, Rails generators should now pickup the new default. For example, after running the following command to create a new Listing model for my Jobs:
 
