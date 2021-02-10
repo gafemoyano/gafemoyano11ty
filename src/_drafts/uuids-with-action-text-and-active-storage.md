@@ -2,7 +2,7 @@
 title: UUIDs with Action Text and Active Storage
 date: 2021-02-11
 featured_image: /assets/img/berend-leupen-hbHKEB5m2xE-unsplash.png
-featured_image_alt: The streets of Guatapé, Antioquia, Colombia
+featured_image_alt: Tayrona National Park, Magdalena, Colombia
 image_caption: <span>Photo by <a href="https://unsplash.com/@bcleupen?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Berend Leupen</a> on <a href="https://unsplash.com/s/photos/colombia?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Unsplash</a></span>
 description: "Kick off your new Rails application with Active Storage, Action Text and UUIDs for primary keys as default."
 tags:
