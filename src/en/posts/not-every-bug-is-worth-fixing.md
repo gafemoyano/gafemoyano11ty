@@ -1,5 +1,5 @@
 ---
-title: Not every Bug is Worth Fixing
+title: Not Every Bug is Worth Fixing
 date: 2021-02-27
 featured_image: /assets/img/articles/jairo-alzate-B4i1UkLGvOo-unsplash.jpg
 featured_image_alt: Hairy caterpillar on a twig. El Salado, Envigado, Colombia.
@@ -16,12 +16,12 @@ On the early days of Savy, as we were building up the technology team and I did 
 
 The conversation would go something like this:
 
-- **What do you mean you're not going to fix it? SOMEBODY just sent me a screenshot of an error, it mu st be fixed! We can't let this happen again!**
-- **Why?** I would respond, **it's just that one person. Let's wait and see if it happens to someone else. Or maybe 10 other people, then we can see if it's worth fixing.**
+- _What do you mean you're not going to fix it? SOMEBODY just sent me a screenshot of an error, it mu st be fixed! We can't let this happen again!_
+- _Why?_ I would respond, _it's just that one person. Let's wait and see if it happens again to a couple more people then we can see if it's **worth** fixing._
 
-I'd say that 90% of the time it didn't end up happening. The bug didn't go anywhere, but it probably wasn't on a hot path on the application. It just wasn't that bad. Maybe it would come up later and get fixed down the line if it, but I certainly didn't need to look at it right away.
+I'd say that 90% of the time it wasn't. The bug did exist, but it probably wasn't on a hot path on the application. It just wasn't **that** bad. Maybe it would come up later and get fixed down the line if it, but I certainly didn't need to look at it right away.
 
-As a founder, it was easy for me to say no to bugs. But as the team grew, I wanted them to have the same benefit. Sure, we established a process around it, but as a general rule \*\*no bug was urgent. I believe this allowed us to focus on bigger, more ambitious projects even if it meant that bugs had to wait a bit more to get fixed, or maybe didn't get fixed at all.
+As a founder, it was easy for me to say **no** to bugs and challenge the status quo. But as the team grew, I wanted them to have the same benefit. Sure, we established a process around it, but as a general rule **no bug was urgent**. I believe this allowed us to focus on bigger, more ambitious projects even if it meant that bugs had to wait a bit more to get fixed, or maybe didn't get fixed at all.
 
 In my experience, people tend to treat all bugs as emergencies. But really, few of them are and even fewer require an immediate response. I believe there's two arguments to support that claim. The first one is that fixing bugs is _expensive_ for you and your team, probably much more than you realize. The second one, is that **it's probably not that big of a deal**.
 
@@ -71,21 +71,20 @@ These recommendations are mainly concerned with making sure that most of the thi
 
 - **Set automatic alarms for when things go really wrong**. This will get you on your feet when an emergency does happen. Having dealt with emergencies successfully will give you and your team the confidence to not panic when they arrive, and to handle future incidents calmly and promptly. Their also quite easy to set up, so that's a lot of value for little effort.
 
-- **Set automatic alarms for when things go really wrong**. They generally require little effort to set up and they serve a dual purpose. For one, they might prevent an issue from escalating into an emergency such as a server going down due to extreme load. If not, they'll make sure that your team can react on a timely manner and be the _first_ ones to know when an emergency arises. This will create trust amongst business areas and give the team the space it'll need in order to deal with the situation without added preassure. 
-  
+- **Set automatic alarms for when things go really wrong**. They generally require little effort to set up and they serve a dual purpose. For one, they might prevent an issue from escalating into an emergency such as a server going down due to extreme load. If not, they'll make sure that your team can react on a timely manner and be the _first_ ones to know when an emergency arises. This will create trust amongst business areas and give the team the space it'll need in order to deal with the situation without added preassure.
+
 ### Organizational Practices and Processes
 
 The following practices are not about technology but rather about processes and how work is organized and expectations set internally as a company. They intend to create a sustainable environment for product teams and establishing clear communication lines.
-
 
 - **Define what an emergency is and it's response.** As I said before, 95% of the time a bug shouldn't make you drop what you're doing. But then there's the remaining 5%. What does this percentage mean for your product? If you're upfront about the things that are _critical_ and will be treated as a _code red_ in case they fail you'll get reduce a lot of uncertainty for everyone at the company. Tech teams won't be troubled by non-emergencies, and management can have the ensurance to know that, when things go wrong, there's a plan for it.
 
 - **Let the dust settle** after releasing new features. Honestly, I blame the adoption of Scrum and two week cycles for this. They're so short that you barely get anything and then there's the promise to have a release by the end of it. And right away, another cycle starts on the third week with a new batch of tickets. I think a healthier approach is to have longer and more ambicious cycles, say 4-6 weeks and then leave one or two weeks of **unscheduled work**. This is a good time to schedule a release, address immediate feedback and _settle down_. Let the team catch their breath and the new features to settle in.
 
-- **Have bug cycles to clean up technical debt.** I've seen this one catching on popularity and it's quite effective in my experience. After two or three intense cycles working on new features, teams generally  welcome the chance to work on bugs or maybe pending tasks that they wouldn't get to do otherwise. This way you can change up the pace and avoid monotony and it's a good way to trim the backlogs every now and then.
+- **Have bug cycles to clean up technical debt.** I've seen this one catching on popularity and it's quite effective in my experience. After two or three intense cycles working on new features, teams generally welcome the chance to work on bugs or maybe pending tasks that they wouldn't get to do otherwise. This way you can change up the pace and avoid monotony and it's a good way to trim the backlogs every now and then.
 
 - **Promote bugs to scheduled work.** This is a continuation of the idea that bugs aren't really special or different from other kinds of work. Some bugs have root causes that are a symptom of a bigger issue like a bad architectural choice a while back, or an external service that's not quite working as expected. This is usually not a fix for one person to take in the form of a bug ticket, and should rather be scheduled as a project in it's own right and be put on the table against other ideas for the decision makers to consider the trade-offs and opportunity costs of working on it.
 
 ## Closing thoughts
 
-I hope these post will make you consider your view on what a bug is and the best way to deal with them. In the end, it's all about making great products that our users love and solving real problems for them. So if you feel like you're already fulfilling that mision, awesome! keep doing what's working for you. But if you're feeling like your product is not moving forward, please consider some of the ideas and practices written here. Maybe the way you're dealing with bugs is slowing you down. So next time you get a bug report, instead of saying **give me 15 minutes** you should reply, let's wait a few hours or until next week. Let's make sure that this bug is **worth fixing**.
+I hope these post will make you consider your view on what a bug is and the best way to deal with them. In the end, it's all about making great products that our users love and solving real problems for them. So if you feel like you're already fulfilling that mision, awesome! keep doing what's working for you. But if you're feeling like your product is not moving forward, please consider some of the ideas and practices written here. Maybe the way you're dealing with bugs is slowing you down. So next time you get a bug report, instead of saying _give me 15 minutes_ you could reply, let's wait a few hours or until next week. Let's make sure that this bug is **worth fixing**.
