@@ -33,9 +33,9 @@ Cuándo desarrollamos un producto digital van a existir bugs. Esto es algo [natu
 
 Si est ás en proceso de construir un nuevo producto seguramente estás desarrollando nuevos features para completar la visión del producto, probando algunas nuevas ideas para validar la viabilidad del mercado. Esto significa que estás escribiendo más código y, por lo tanto, creando nuevos bugs. ¡Y eso no tiene ningún problema! todo lo contrario, es parte del proceso. No tiene ningún sentido pulir una aplicación a la perfección si aún no has validado que existe un mercado para esta. Lo que importa es que estés progresando en el desarrollo del producto y resolviendo las necesidades de tus usuarios. Pero nadie en el equipo debería estar pasando noches en vela intentando mantener limpio un creciente backlog de errores.
 
-Sí, seguramente llegará una situación en la que un bug terrible aparece y un flujo importante de la aplicación se ve afectado, lo que será una verdadera emergencia de **código rojo** y todo el mundo tendrá que poner las manos a la obra e nsolucionarlo. Pero estas situaciones son la _excepción_ no la regla. No puedes permitir que cada vez que un usuario se encuentra con un error en la aplicación el equipo entre en modo de pánico.
+Sí, seguramente llegará una situación en la que un bug terrible aparece y un flujo importante de la aplicación se ve afectado, lo que será una verdadera emergencia de **código rojo** y todo el mundo tendrá que poner las manos a la obra en solucionarlo. Pero estas situaciones son la _excepción_ no la regla. No puedes permitir que cada vez que un usuario se encuentra con un error en la aplicación el equipo entre en modo de pánico.
 
-En resumen, no todos los bugs son iguales. Algunos aparecen en cirunstancias muy específicas o a una pequeñá cantidad de usuarios. Otros viven en algunos flujos de aplicación poco frecuentados o en funcionalidades de poco impacto. Así que en vez de correr a arreglarlos, es mejor esperar. Revisar los dashboards y los datos de usabilidad. Lo más posible es que la mayoría de los usuarios estén cumpliendo con su objetivo sin ningún problema.
+En resumen, no todos los bugs son iguales. Algunos aparecen en circunstancias muy específicas o a una pequeña cantidad de usuarios. Otros viven en algunos flujos de aplicación poco frecuentados o en funcionalidades de poco impacto. Así que en vez de correr a arreglarlos, es mejor esperar. Revisar los dashboards y los datos de usabilidad. Lo más posible es que la mayoría de los usuarios estén cumpliendo con su objetivo sin ningún problema.
 
 ## The real cost of fixing a bug
 
@@ -81,3 +81,9 @@ These points deal with working effectively as an organization, and setting up cl
 ## Closing thoughts
 
 I hope these post will at least make you consider your view on bugs and even your team's strategy towards how to deal with them. In the end, it's all about making great products that our users love and solving real problems. So if you're already on that path, then good for you! keep doing the things that work for you. But if you're feeling like you're not making substantial progress, do consider the points I made on this post. Maybe the way you're dealing with bugs it's slowing you down. So next time you get a bug report, instead of saying **give me 15 minutes** you should reply, let's wait a few hours or even a week. Let's make sure that this bug is **worth fixing**.
+
+---
+
+### Agradecimientos
+
+Gracias a mi incondicional amigo Felipe por ser siempre mi primer lector y crítico y a mi hermano David por su disposición y feedback oportuno. Sin la ayuda de ellos, mis pensamientos incoherentes difícilmente llegarían a convertirse en un artículo completo.

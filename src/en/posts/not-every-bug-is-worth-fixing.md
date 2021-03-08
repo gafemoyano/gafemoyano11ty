@@ -81,3 +81,9 @@ These recommendations are concerned with working effectively as an organization,
 ## Closing thoughts
 
 I hope these post will at least make you consider your view on bugs and even your team's strategy towards how to deal with them. In the end, it's all about making great products that our users love and solving real problems. So if you're already on that path, then good for you! keep doing the things that work for you. But if you're feeling like you're not making substantial progress, do consider the points I made on this post. Maybe the way you're dealing with bugs it's slowing you down. So next time you get a bug report, instead of saying **give me 15 minutes** you should reply, let's wait a few hours or even a week. Let's make sure that this bug is **worth fixing**.
+
+---
+
+### Acknowledgements
+
+I'd like to thank my great friend Felipe for always being my first reader and critic and my brother David for his timely and accurate feedback. Without them I would hardly be able to organize my ramblings into a coherent article.
