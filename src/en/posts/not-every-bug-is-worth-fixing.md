@@ -87,4 +87,10 @@ The following practices are not about technology but rather about processes and 
 
 ## Closing thoughts
 
-I hope these post will make you consider your view on what a bug is and the best way to deal with them. In the end, it's all about making great products that our users love and solving real problems for them. So if you feel like you're already fulfilling that mision, awesome! keep doing what's working for you. But if you're feeling like your product is not moving forward, please consider some of the ideas and practices written here. Maybe the way you're dealing with bugs is slowing you down. So next time you get a bug report, instead of saying _give me 15 minutes_ you could reply, let's wait a few hours or until next week. Let's make sure that this bug is **worth fixing**.
+I hope these post will make you consider your view on what a bug is and the best way to deal with them. In the end, it's all about making great products that our users love and solving real problems for them. So if you feel like you're already fulfilling that mission, awesome! keep doing what's working for you. But if you're feeling like your product is not moving forward, please consider some of the ideas and practices written here. Maybe the way you're dealing with bugs is slowing you down. So next time you get a bug report, instead of saying _give me 15 minutes_ you could reply, let's wait a few hours or until next week. Let's make sure that this bug is **worth fixing**.
+
+---
+
+### Acknowledgements
+
+I'd like to thank my great friend Felipe for always being my first reader and critic and my brother David for his timely and accurate feedback. Without them I would hardly be able to organize my ramblings into a coherent article.

@@ -88,3 +88,9 @@ These points deal with working effectively as an organization, and setting up cl
 ## Comentarios finales
 
 La intención de este post es reflexionar sobre la forma en la que vemos los bugs y las distintas estrategias que usamos para lidiar con ellos. Al final el objetivo de un equipo es construir grandes productos que nuestros usuarios amen y les resuelvan problemas reales. Si tu equipo está logrando esa misión con éxito usando otras técnicas, ¡felicitaciones! continúa haciendo lo que te está funcionando. Pero si sientes que no estás progresando, que semana tras semana lo único que haces es arreglar bugs y que el producto no progresa, entonces considera algunos de los puntos y estrategias descritos acá. De pronto la forma en la que estás manejando los bugs está frenando a tu equipo. En ese caso, la próxima vez que recibas un reporte de un error en lugar de decir _dame 15 minutos y lo miro_, podrías responder _esperemos un rato,_ _Asegurémonos que **vale la pena** arreglar este bug_.
+
+---
+
+### Agradecimientos
+
+Gracias a mi incondicional amigo Felipe por ser siempre mi primer lector y crítico y a mi hermano David por su disposición y feedback oportuno. Sin la ayuda de ellos, mis pensamientos incoherentes difícilmente llegarían a convertirse en un artículo completo.
