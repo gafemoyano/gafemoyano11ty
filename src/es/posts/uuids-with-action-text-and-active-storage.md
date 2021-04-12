@@ -1,10 +1,10 @@
 ---
-title: UUIDs with Action Text and Active Storage
+title: UUIDs con Action Text y Active Storage
 date: 2021-04-11
 featured_image: /assets/img/articles/juan-camilo-guarin-p-57SHaZUAOtQ-unsplash.jpg
-featured_image_alt: Red parrot. Cali, Valle del Cauca, Colombia.
+featured_image_alt: Loro rojo. Cali, Valle del Cauca, Colombia.
 image_caption: Photo by <a href="https://unsplash.com/@jcguarinpenaranda?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Juan Camilo Guarin P</a> on <a href="https://unsplash.com/s/photos/colombia?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
-description: Setup a fresh Rails app with Postgres UUIDs, Active Storage and Action Text.
+description: Configura una nueva instalación de Rails con Postgres, UUIDs, Active Storage y Action Text.
 tags:
   - rails
   - postgresql
@@ -12,14 +12,14 @@ tags:
 layout: layouts/post.njk
 ---
 
-In this article we'll learn how to use UUIDs as default primary key for a new Rails application using Postgres, Active Storage and Action Text.
+En este artículo aprenderemos como usar UUIDs por defecto para las llaves primarias de nuestra aplicación Rails usando Postgres, Active Storage y Action Text.
 
-Some time ago Rails shook the web development world by showing us the power of relying on convention over configuration. One of these conventions was that every table would have an ID column as primary key, and it would be an auto incremental integer. At the time, it was a very welcomed change. We no longer had to spend time thinking about what to name our primary key columns, if our tables should be named in singular or plural form or if we should use natural or surrogate keys on our tables.
+Hace un tiempo Rails sacudió el mundo del desarrollo web mostrándo el poder de la "convención" sobre "configuración". Una de estas convenciones fue que cada tabla tendría una columna `id` que sería numérica y auto incremental. En ese entonces fue un cambio bienvenido y nos liberó de decisiones de cómo debíamos llamar nuestras columnas de primary keys o si debíamos usar llaves naturales o sustitutas.
 
-At the time, Rails chose the default to give a surrogate key to every model and make it an incremental ID. Back then, this was mostly taken as a good practice by the community and it's still probably a good enough default for new apps, but nowadays you could make an argument for UUIDs as a better default given:
+Con el tiempo vale la pena revisar algunas de las convenciones que se adoptaron originalmente, en este caso, la decisión de usar enteros auto incrementales. Si bien siguen siendo una buena decisión para una gran variedad de aplicaciones hoy en día, se puede argumentar que usar UUIDs es un mejor punto de partida dados los siguientes puntos:
 
-- They don't expose information about your system
-- Accidentally accessing the wrong model by passing it another model's ID
+- No exponen información interna de tu sistema
+- Hacen imposible acceder a modelos
 - Frontend independence to create new IDs without a database roundtrip
 
 It's also worth noting the things that we'd be giving up by going all in on UUIDs:
