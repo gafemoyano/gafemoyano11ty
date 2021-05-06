@@ -20,21 +20,21 @@ Con el tiempo vale la pena revisar algunas de las convenciones que se adoptaron 
 
 - No exponen información interna de tu sistema
 - Hacen imposible acceder a modelos
-- Frontend independence to create new IDs without a database roundtrip
+- Le dan la independencia al frontend de crear nuevos IDs de registro sin necesidad de hacer un viaje de ida y vuelta a la base de datos.
 
-It's also worth noting the things that we'd be giving up by going all in on UUIDs:
+También vale la pena listar algunas de las cosas que se sacrifican al usar UUIDs por default:
 
-- Convenience to access a particular model in production
-- Logic for handling special cases (which you probably shouldn't be doing in your apps but it does happen often enough)
-- It's still the default, so it just works
+- La conveniencia de acceder modelos fácilmente en producción para debugging o tareas esporádicas.
+- Lógica de aplicación que maneje casos especiales (no es una buena práctica, pero lo he visto suficientes veces para que valga la pena mencionarlo)
+- Asumir una pequeña, pero existente, posibilidad de que se generen conflictos de llaves PKs.
 
-Taking into account the previous considerations, I think it's worth it for me to go with UUIDs as default for my future Rails applications. I'm currently working on a job board app and I'd like to allow users to edit job listings by clicking on a magic link sent to their E-mail instead of having to create an account and login. Using the default edit action with a sequential ID was out of the question since it could be guessed easily. With a UUID, I'd practically get this feature for free without having to write any extra code.
+Teniendo en cuenta las consideraciones previas, pienso que vale la pena usar UUIDs por defecto en mis nuevas aplicaciones Rails. Últimamente he estado trabajando en un tablero de empleos en tecnología y quisiera enviar links mágicos que permitan editar los registros sin requerir la creación de cuentas de usuario. Usar una acción de **edit** por defecto con IDs secuenciales está fuera de consideración por motivos de seguridad, por lo que tendría que generar tokens automáticamente. Sin embargo, usando UUIDs la implementación de esta funcionalidad sería trivial.
 
-## Making UUIDs the new default
+## Cambiar el default a UUIDs en ActiveRecord
 
-There's already a [great article](https://pawelurbanek.com/uuid-order-rails) covering the steps to setup your models with UUIDs on a Rails 6 app and PostgreSQL. I recommend checking it out if you want to know in depth what's going on to make this work, or if you're trying to migrate an existing table with data. For completeness, I'll add the steps here to get us going before moving onto the ActionText and ActiveStorage bits.
+Ya existe un [excelente artículo en inglés](https://pawelurbanek.com/uuid-order-rails) cubriendo los pasos para cambiar una aplicación de Rails 6 y Postgres. Si quieres conocer más en detalle lo que está pasando por detrás para que estos cambios funcionen, recomiendo darle una revisada o si deseas saber cómo migrar tablas existentes en producción a UUIDs. En este artículo, nos enfocaremos en los pasos necesarios para configurar una aplicación nueva.
 
-Let's start by enabling the `pgcrypto` extension on Postgres. Create a new migration with
+Lo primero es habilitar la extensión `pgcrypto` de Postgres. Para esto, debemos crear una nueva migración.
 
 ```shell
 bin/rails g migration enable_pgcrypto
@@ -48,7 +48,7 @@ class EnablePgcypto < ActiveRecord::Migration[6.0]
 end
 ```
 
-Next, we configure the rails generators to use UUIDs by default.
+A continuación, debemos decirle a Rails que cambie el tipo de llave que se va usar en los generadores de Active Record.
 
 ```ruby
 Rails.application.config.generators do |g|
@@ -56,7 +56,7 @@ Rails.application.config.generators do |g|
 end
 ```
 
-From Rails 6 a new configuration option was introduced to control the default ordering column in ActiveRecord. Normally it uses IDs for ordering which would be inconsistent with random UUIDs and could break methods like `last` and `first`. Given that we want to make all tables use UUIDs by default, we can add the following to `ApplicationRecord` to make the change global.
+En Rails 6 hay una nueva opción de configuración que nos permite controlar la columna por defecto utilizada para ordenar los registros de nuestras tablas. Normalmente usa los IDs, sin embargo al usar UUIDs obtendríamos resultados distintos cada vez lo cuál podría ser confuso para nuestros usuarios, además de que afectaría el comportamiento de métodos como `first` y `last`. Para esto, podemos sobre escribir el atributo `implicit_order_column` de nuestro `ApplicationRecord`.
 
 ```ruby
 class ApplicationRecord < ActiveRecord::Base
@@ -66,13 +66,13 @@ class ApplicationRecord < ActiveRecord::Base
 end
 ```
 
-If everything is wired up correctly, your generators should now pickup the new default. For example, after running the following command to create a new Listing model for my Jobs:
+Si todo está funcionando correctamente podríamos generar una nueva migración y validar la salida del comando. Siguiendo el ejemplo de una aplicación de empleos con sus respectivos anuncios:
 
-```shell
+```bash
 bin/rails generate model Listing job:references published:boolean
 ```
 
-The resulting migration should look like this (notice the `:uuid` tags on the table and the reference)
+La migración resultante de la operación debería verse algo así
 
 ```ruby/3
 class CreateListings < ActiveRecord::Migration[6.1]
@@ -86,19 +86,19 @@ class CreateListings < ActiveRecord::Migration[6.1]
 end
 ```
 
-As you can see, the migration adapters need to explicitly define that they'll be using `uuid` as primary key. It's easy to forget to add the extra arguments if you're doing migrations manually, so I generally try to always run the generators to avoid these kind of manual errors.
+Como podemos observar, es necesario que las migraciones especifiquen el tipo de columna de las llaves primarias y foráneas. Ya que es fácil olvidar agregar estos parámetros adicionales, mi recomendación es usar los generadores de rails tanto como sea posible y así evitar errores manuales.
 
-## Installing Active Storage
+## Instalar Active Storage
 
-Now that we've changed our defaults, we can move on to installing Active Storage. If you want to read the full details of the setup, I recommend checking out the offical rails guides [here](https://edgeguides.rubyonrails.org/active_storage_overview.html).
+Ahora que hemos cambiado las opciones por default, podemos continuar con la instalación de Active Storage. Si quieres revisar los detalles completos de configuración puedes revisar la guía oficial [aquí](https://edgeguides.rubyonrails.org/active_storage_overview.html).
 
-The first step is to run the following command:
+Para instalar Active Storage ejecutamos el comando:
 
 ```shell
 bin/rails active_storage:install
 ```
 
-This will generate a couple of migration tables. We now need to adjust the ActiveStorage migrations to look like the one on our listing model, making sure we adjust the table's `id` type and the references as well:
+Este va a generar un par de archivos de migración, los cuales tenemos que ajustar de forma similar al ejemplo de empleos y anuncios, asegurándonos que los `id`s y referencias a otra tables incluyan el tipo de dato `uuid`.
 
 ```ruby/3,15,18,19
 class CreateActiveStorageTables < ActiveRecord::Migration[5.2]
@@ -129,9 +129,9 @@ class CreateActiveStorageTables < ActiveRecord::Migration[5.2]
 end
 ```
 
-## Installing Action Text
+## Instalar Action Text
 
-Same story for Action Text. Let's run the installation script and modify the corresponding migration.
+Para este parte seguimos los mismos pasos del punto anterior. Ejecutamos el comando de instalación y ajustamos las migraciones según corresponda.
 
 ```shell
 bin/rails action_text:install
@@ -153,8 +153,10 @@ class CreateActionTextTables < ActiveRecord::Migration[6.0]
 end
 ```
 
-Don't forget to follow the rest of the installation steps for Action Text [here](https://edgeguides.rubyonrails.org/action_text_overview.html#installation)
+Para completar la instalación de Action Text _no olvides_ completar los demás pasos descritos [aquí](https://edgeguides.rubyonrails.org/action_text_overview.html#installation)
 
-## Closing thoughts
+## Conclusiones
 
-I hope this will help you get up and running on your new Rails app with UUIDs, Action Text and Active Storage. It's never been a better time to spin off new Rails apps and I've never felt more productive using the framework. It might have some opinions you don't agree with, but they're fairly easy to overwrite and replace with your own. As always, let me know if you try this out and how it went for you on (twitter)[https://twitter.com/gafemoyano] or writing to [felipe@gafemoyano.com](mailto:felipe@gafemoyano.com)
+Espero que esta guía sirva de referencia para lanzar una nueva aplicación de Rails usando UUIDs, Postgres, Action Text y Active Storage. Es un gran momento para iniciar nuevos proyectos en el mundo de Ruby on Rails y prácticamente todas las aplicaciones web que construyo hoy en día usan este par de gemas en algún punto. Si bien algunas configuraciones por defecto de Rails pueden ser debatibles, es bastante fácil sobre escribirlas y reemplazarlas. Como siempre, si hay alguna duda o comentario respecto al artículo y el procedimiento descrito me pueden contactar por [twitter](https://twitter.com/gafemoyano) o enviándome un correo a [felipe@gafemoyano.com](mailto:felipe@gafemoyano.com).
+
+I hope this will help you get up and running on your new Rails app with UUIDs, Action Text and Active Storage. It's never been a better time to spin off new Rails apps and I've never felt more productive using the framework. It might have some opinions you don't agree with, but they're fairly easy to overwrite and replace with your own. As always, let me know if you try this out and how it went for you on (twitter)[https://twitter.com/gafemoyano] or writing to [felipe@gafemoyano.com](mailto:felipe@gafemoyano.com).

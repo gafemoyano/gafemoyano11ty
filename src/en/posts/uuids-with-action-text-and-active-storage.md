@@ -26,7 +26,7 @@ It's also worth noting the things that we'd be giving up by going all in on UUID
 
 - Convenience to access a particular model in production
 - Logic for handling special cases (which you probably shouldn't be doing in your apps but it does happen often enough)
-- It's still the default, so it just works
+- A very small (but not negligible) chance of key clashes.
 
 Taking into account the previous considerations, I think it's worth it for me to go with UUIDs as default for my future Rails applications. I'm currently working on a job board app and I'd like to allow users to edit job listings by clicking on a magic link sent to their E-mail instead of having to create an account and login. Using the default edit action with a sequential ID was out of the question since it could be guessed easily. With a UUID, I'd practically get this feature for free without having to write any extra code.
 
@@ -90,7 +90,7 @@ As you can see, the migration adapters need to explicitly define that they'll be
 
 ## Installing Active Storage
 
-Now that we've changed our defaults, we can move on to installing Active Storage. If you want to read the full details of the setup, I recommend checking out the offical rails guides [here](https://edgeguides.rubyonrails.org/active_storage_overview.html).
+Now that we've changed our defaults, we can move on to installing Active Storage. If you want to read the full details of the setup, I recommend checking out the official rails guides [here](https://edgeguides.rubyonrails.org/active_storage_overview.html).
 
 The first step is to run the following command:
 
