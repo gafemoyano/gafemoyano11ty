@@ -157,4 +157,4 @@ Don't forget to follow the rest of the installation steps for Action Text [here]
 
 ## Closing thoughts
 
-I hope this will help you get up and running on your new Rails app with UUIDs, Action Text and Active Storage. It's never been a better time to spin off new Rails apps and I've never felt more productive using the framework. It might have some opinions you don't agree with, but they're fairly easy to overwrite and replace with your own. As always, let me know if you try this out and how it went for you on (twitter)[https://twitter.com/gafemoyano] or writing to [felipe@gafemoyano.com](mailto:felipe@gafemoyano.com)
+I hope this will help you get up and running on your new Rails app with UUIDs, Action Text and Active Storage. It's never been a better time to spin off new Rails apps and I've never felt more productive using the framework. It might have some opinions you don't agree with, but they're fairly easy to overwrite and replace with your own. As always, let me know if you try this out and how it went for you on (twitter)[https://twitter.com/gafemoyano] or writing to [felipe@gafemoyano.com](mailto:felipe@gafemoyano.com).
