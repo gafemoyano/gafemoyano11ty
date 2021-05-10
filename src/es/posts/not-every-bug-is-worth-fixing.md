@@ -4,11 +4,12 @@ date: 2021-02-27
 featured_image: /assets/img/articles/jairo-alzate-B4i1UkLGvOo-unsplash.jpg
 featured_image_alt: Oruga peluda en una rama. El Salado, Envigado, Colombia.
 image_caption: <span>Foto por <a href="https://unsplash.com/@jairoalzatedesign?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Jairo Alzate</a> on <a href="https://unsplash.com/?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Unsplash</a></span>
-description: Does it feel like your team is constantly putting out fires? That your product isn't moving forward because of constantly having to chase down bugs? Maybe it's time to reconsider your strategy, and start saying no to some of them.
+description: ¿Sientes que tu equipo de tecnología no está progresando en la visión de producto y siempre está arreglando bugs? Es hora de reconsiderar la estrategia para manejarlos, y empezar a decir NO más seguido.
 tags:
   - ingeniería
   - equipos
   - procesos
+  - producto
 layout: layouts/post.njk
 ---
 
