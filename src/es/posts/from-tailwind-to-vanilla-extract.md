@@ -1,5 +1,5 @@
 ---
-title: "From Tailwind to Vanilla Extract: the right CSS tool for the Design System job"
+title: "De Tailwind a Vanilla Extract: la herramienta correcta para un Sistema de Diseño"
 date: 2021-11-2
 featured_image: /assets/img/articles/saul-mercado-LFuFLGo_3ME-unsplash.jpg
 featured_image_alt: Colombia
@@ -16,13 +16,17 @@ layout: layouts/post.njk
 
 ## Intro
 
-Recently I came into a new organization that, given it's internal structure, would benefit from having it's own Design System. But it's still early days for product development and we're just getting a couple of MVPs of the ground with a small team. While it's not a priority by any means, we can plant a seed for a base component library that can evolve into a full fledged Design System in time.
+Recientemente empecé a trabajar en una organización que, dada su estructura interna, vería un gran valor en tener su propio Sistema de Diseño. Sin embargo, aún está en una etapa temprana de desarrollo de producto y el equipo es pequeño, lo que hace que invertir recursos dedicados en desarrollar una librería completa esté fuera de consideración pero igual podemos empezar a extraer una base de componentes y fundamentos que con el tiempo evolucionen en un Sistema de Diseño completo.
 
-The plan was to build the feature screens first and then extract common UI components as they revealed themselves. I've found this approach of "build then extract" to be a good balance of extracting base components while allowing the team to move forward with feature work. It does require some willingness to "let some things go", since there isn't always time to extract a component right then and there but the added benefit is that you can design the component's API that's, ideally, used in a couple different places.
+El plan consistió en construir las pantallas de funcionalidades e ir extrayendo componentes comunes de UI a medida que se fueran revelando. En mi opinión, esta aproximación permite tener un buen balance entre el tiempo invertido en extraer componentes base y al mismo tiempo permitirle al equipo avanzar en trabajo de funcionalidades
+
+But it's still early days for product development and we're just getting a couple of MVPs of the ground with a small team. While it's not a priority by any means, we can plant a seed for a base component library that can evolve into a full fledged Design System in time. For the first MVP we chose combination of React and Nextjs for the frontend and Tailwind as a styling solution.
+
+The main priority is getting the PoC ready, so we'd focus on building the screens and extract components as needed. I'd had previous success with this approach and found it to work well while allowing the team to move forward without being held back by 'missing' components. It does require some willingness to write **sub optimal** code, since there isn't always time to do the work of extracting a component right then and there but the added benefit is that you can design the component's API with the benefit of hindsight and, ideally, usage in a few different places.
 
 ## Extracting Tailwind Components
 
-For our tech stack we chose React and Nextjs with Tailwind as a styling solution. I'd found tailwind to work really well with component UI libraries I started using Tailwind since around 0.7 and I've probably included it in 80% of the projects I've worked on. I intend to write more about it, but for this project we picked it given the team's familiarity with it and because it makes it pretty straightforward to configure your design tokens from the get go. I had some worries about how this would play out but after reading an [encouraging article](https://www.netlify.com/blog/2021/03/23/from-semantic-css-to-tailwind-refactoring-the-netlify-ui-codebase/) by Netlify we decided to give it a shot.
+I started using Tailwind since around 0.7 and I've probably included it in 80% of the projects I've worked on. I intend to write more about it, but for this project we picked it given the team's familiarity with it and because it makes it pretty straightforward to configure your design tokens from the get go. I had some worries about how this would play out but after reading an [encouraging article](https://www.netlify.com/blog/2021/03/23/from-semantic-css-to-tailwind-refactoring-the-netlify-ui-codebase/) by Netlify we decided to give it a shot.
 
 However as we started extracting out some components we started bumping into some difficulties with the utility classes approach. As a disclaimer, I think tailwind is fine if you're extracting components inside your own app and are keeping the API of each component fairly restricted but since we were looking to extract a **design system** the constraints are a bit different.
 
