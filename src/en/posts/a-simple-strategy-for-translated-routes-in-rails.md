@@ -3,66 +3,54 @@ title: A Simple Strategy for Translated Routes in Rails
 date: 2020-11-02
 featured_image: /assets/img/daniel-vargas-ngrIs67UJEg-unsplash.png
 featured_image_alt: The streets of Guatapé, Antioquia, Colombia
-image_caption: <span>Photo by <a href="https://unsplash.com/@danielvargas?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Daniel Vargas</a> on <a href="https://unsplash.com/s/photos/colombia?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Unsplash</a></span>
-description: "Sometimes you want your Rails app to be in another language. This doesn't mean you want to bring a full on i18n solution. Lets try to solve this using only what the framework provides."
+image_caption: Photo by <a href="https://unsplash.com/@showingourplanet?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Niels van Altena</a> on <a href="https://unsplash.com/s/photos/colombia?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
+
+description: "Tailwind is a lot more than a CSS framework. It's an ecosystem of learning materials for CSS and web design."
 tags:
   - post
-  - rails
-  - i18n
+  - tailwind
+  - css
 layout: layouts/post.njk
 ---
 
-Recently I've been working on a new project, a job board focused on remote offerings. Admittedly this is not a novel idea, however I haven't seen anything like this targeted to the local job market in Colombia. My guess is that remote offerings are not that popular here (yet) and that most of the existing boards out there are not in spanish so I decided to give it a try.
+## Intro
 
-I decided to go with Rails for the stack since it would allow me to leverage [ActiveStorage](https://edgeguides.rubyonrails.org/active_storage_overview.html) for file uploads and [ActionText](https://edgeguides.rubyonrails.org/action_text_overview.html) for rich text editing, both of which I was going to need at some point for this.
+Recently [Tailwind](https://tailwindcss.com) has been gaining more popularity every day. It's a great framework and I'm happy to see it succeed given how much value I've gotten out of it personally and how much I've learned from the people behind it. It's success has also made it easier to get buy in from team members to include it on a project, as opposed to a few years back when it was still rather new and atomic css wasn't a widely used approach. While it's not intended to solve every possible problem in the styling space it's flexible enough that I've used it on almost every project I've started since 2016. However, some of my reasons go beyond CSS maintainabilityI'd like to explore them in this article.
 
-My hypothesis is that current remote job boards haven't caught on due to them being on a foreign language, so I want this app to be completely in spanish. Rails comes with built in [i18n](https://guides.rubyonrails.org/i18n.html), however it is targetted at content and does not cover one piece of the app, the URL. Also, I'm not really looking to internationalize this app I just want the public routes not to be in english.
+## How it all started
 
-Also, I'm not really looking to support multiple languages or internationalize this app, I just want the public facing routes not to be in english.
+On 2016 I started developing a new consumer product along with my partners at [Savy](https://savy.co). At the time it was pretty common to bring in Bootstrap to get going with styling primitives such as typography, colors and a few components. I chose not to include a template since I'd experience the pain of trying to break out of themes in the past. It was a [Rails](https://rubyonrails.org/) project, so I installed `bootstrap-sass`, changed the default theme's colors and got down to business. Naturally I quickly bumped into use cases where I wanted to change things up a bit. For example, adding some extra spacing to a Card component. To my delight, bootstrap included helper utilities where you could just _augment_ the HTML with clases like `mb-5` to add a bit of spacing between components. Throw in the padding, positioning, display, and color utilities I quickly realized that _most_ of what I needed to do was achievable without leaving my CSS. Turned out there was a framework that took this idea as it's basis and it was love at first sight.
 
-In the past, I've dealt with this in the following ways:
+## More than just utility classes
 
-- **Create your domain models in the target language** Since Rails is convention based, you can just create your models in spanish and by convention the routes themselves will be in spanish too. The downside, is that you'd have to start adding exceptions to Rails' [inflector](https://api.rubyonrails.org/classes/ActiveSupport/Inflector.html) so that it pluralizes your models correctly and even if you do there are still edge cases where it doesn't work as expected. Also, the rest of Rails is still in english, so you end up reading code with words mixed up in two languages. I'd rather keep all the code in english.
+Tailwind did so much more than provide a styling solution for an application developer. It created an ecosystem, of tools, learning materials and design defaults that made it easy to succeed while learning.
 
-- **Bring in an external gem**. There's some great gems out there for handling route translations. Most notable of them is [route_translator](https://github.com/enriclluelles/route_translator) which can handle multiple use cases for multilingual sites. This would allow me to set spanish as the default locale and wrap all my routes in a `localized` block. This seems like a good option, but it also feels like this gem does way more than what I actually need. I'd like a simpler solution, if possible.
-- **Ignore the URLs and let them be in english** This is what I've done most of the time. Despite common SEO advice I haven't seen much impact on having two routes be in english and user's don't really notice the URL or what language it's in.
+### It taught me CSS
 
-None of this options seemed very satisfying to me. There **must** be a simpler way to achieve this. After all, Rails is known for being a modular and flexible framework, although some people might argue with this statement.
+Seriously, I have to thank the Tailwind docs for finally making flexbox click in my brain. The pictures along with the code samples were so helpful in understanding the different properties at play in a flex container. The axis, flow, direction, wrap... it was all there. It's not like I learnt it overnight, I had to keep coming back to the docs basically every time I needed to create a layout. But the fact that I could look up the primitives of how to achieve something in flex instead of trying to copy paste some CSS classes of something that looked like what I wanted to build instead of creating my own was a turning point for me. This also applies to the display properties, positioning, margins and paddings and well.. so much more.
 
-Turns out there **is** a simpler way and it had been in front of me all along. I just needed to take a closer look into how rails routing works. When you define a resource or route in rails, it can take some keyword arguments. One of them is `path`, which according to the [docs](https://api.rubyonrails.org/classes/ActionDispatch/Routing/Mapper/Resources.html#method-i-resources) it allows you to change the path prefix of the resource. So we could do something like:
+> As an aside note I remember when, after having used tailwind for a couple of months, I could suddenly _see_ a UI and decompose it into it's individual properties. Being able to think this card component is just a flex container with rounded corners, a shadow and some padding inside felt like being Neo watching the matrix for the first time.
 
-```ruby
-resources :jobs, path: 'trabajos'
-# Generates the following routes:
-# jobs	   GET    /trabajos(.:format)
-#		   POST   /trabajos(.:format)
-# new_job  GET    /trabajos/new(.:format)
-# edit_job GET    /trabajos/:id/edit(.:format)
-# job 	   GET    /trabajos/:id(.:format)
-#	       PATCH  /trabajos/:id(.:format)
-#          PUT    /trabajos/:id(.:format)
-#	       DELETE /trabajos/:id(.:format)
-```
+### It gave me ownership of my CSS
 
-That's great, on the one hand we have now have our user facing routes (mostly) in Spanish and on the other hand we get to keep our code consistent by referring to the models in English in our route helpers.
+This is the part where we talk about maintainability. While it can be off putting to have so many classes on your HTML (and if your design is _very_ detailed such as tailwindUI's there are even more) being able to come back to a component and _know_ that you can replace everything in it without breaking something else is worth it on it's own.
 
-What about `new` and `edit`? Well it turns out that Rails also has an option to override those with the `path_names` keyword:
+### It's a win for developer productivity
 
-```ruby
-resources :jobs, path: 'trabajos', path_names: {new: "nuevo", edit: "editar"}
-```
+I place a lot or value around how the tailwind workflow enables you to quickly try out designs without having to jump between files. This is specially true for web design projects such as landing pages and marketing sites although it can get pretty repetitive on web apps that have more component reuse across the board. I also find it relatively straight forward to implement someone else's design, which is a big win for teams that have designers working in Figma.
 
-Furthermore, we could avoid having to pass `path_names` to every resource by defining a scope at the top of our routes:
+### It taught me (web) design fundamentals
 
-```ruby
-scope(:path_names => { :new => 'nuevo', :edit => 'editar' }) do
-    resources :jobs, path: 'trabajos'
-    resources :tags, path: 'etiquetas'
-  end
-# new_job  GET    /trabajos/nuevo(.:format)
-# edit_job GET    /trabajos/:id/editar(.:format)
-```
+This is part of Tailwind's ecosystem rather than the library itself, but following Steve and Adam taught me a lot about design. Their focus in putting out tips of design for developers was right up my alley and I consumed every bit of information they put out on twitter, medium, etc. All these tips eventually turned into Refactoring UI which is a great read if you haven't given it a try.
 
-And there you go! now every part of the URL should be in your language of choice, withouot having to include complex external dependencies or sacrificing hypothetical SEO points.
+### It introduced me to the idea of design as a system
 
-I hope this simple example is useful enough to illustrate that sometimes a simple solution might be enough and you sometimes have to look **into** the framework and the options it provides, instead of **outside** for dependencies that often include broader use cases.
+Okay kind of. The framework has grown a lot since the 0.7 days when you could say that the limiting set of utilities was a way to enforce design constraints but now a days there's so many utilities that the whole _Tailwind is a design system_ idea might be debatable. Then there's also the introduction of the JIT compiler, which allows you you to create one off utilities on the fly. Still, I'd argue that tailwind defaults push you in the right direction and make it easy for everyone on the project to enforce some design constraints.
+
+### It's easy to jump between projects
+
+Since the utilities remain consistent between older versions and projects, unless you use more semantic names which is generally fine, it's easy to come back to a project and pick up where you left off. This is specially true when it comes to modifying existing components since you can be sure not to break styling anywhere else.
+
+## The future
+
+I'll probably keep using Tailwind on my personal projects. It keeps pushing it's own boundaries so it's also been an interesting journey to keep up with it and what's possible beyond the initial idea of utility classes. But this space is in constant flux, and new paradigms emerge everyday as the web evolves. CSS variables have already unlocked some new approaches such as [Vanilla Extract](https://vanilla-extract.style) which I'm excited to explore for component based frameworks and widespread use of Custom Elements might need a different approach. It is, after all, still an exciting time for being a web developer.
