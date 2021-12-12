@@ -18,31 +18,29 @@ layout: layouts/post.njk
 
 Hace un buen tiempo que he sido un fiel usuario de [Tailwind](https://tailwindcss.com) y siento que en los últimos días se ha disparado en popularidad en el mundo del desarrollo web. Es una librería excelente y me encanta verla triunfar dado el mucho valor que le he sacado personalmente. Entre tanto se han publicado varios artículos acerca de sus ventajas y desventajas del lado técnico, sin embargo muchas de las razones por las cuales me siento tan adepto (incluso agradecido) a Tailwind son más personales que otra cosa y quisiera compartirlas en este artículo.
 
-## Como Tailwind llegó a mi
+## Como empezó todo
 
 En el 2016 estaba desarrollando una nueva aplicación web para consumidores con mis socios en [Savy](https://savy.co). En ese entonces no tenía mucha idea de como hacer una página visualmente agradable pero sabía que [Bootstrap](https://getbootstrap.com) era un buen punto de partida para tener unos textos y colores por defecto junto a algunos componentes de UI. Rápidamente me topé con escenarios en los que quería modificar los estilos por defecto de algunos componentes como la barra de navegación y las tarjetas. Para mi agradable sorpresa, esta versión de Bootstrap incluía algunas clases de utilidad, como `mb-5`, `px-4` and `bg-primary` que permitían personalizar los componentes sin salir del HTML. Sumando a esto otras clases para manejar color, posicionamiento y presentación me dí cuenta que podía lograr el `80%` de lo que necesitaba para maquetación sin escribir CSS adicional.
 
 Desde ese momento quedé enganchado en usar clases de utilidad, pero quería llegar más allá ese `80%`, quería poder hacer mucho más con clases atómicas, lo que últimamente me llevó a Tailwind v0.7 (si no estoy mal). Así empezó una de las relaciones más largas que he tenido en mi carrera con una librería, pero el cambio más importante para mi aún estaba por descubrirlo, gracias a Tailwind. El inicio de mi amor por el Diseño Web.
 
-## 5 cosas que aprendí usando Tailwind
+## Más que una librería de CSS
 
 Si bien es indiscutible que hay una cantidad inmensa de trabajo detrás de Tailwind, la librería, también es cierto que hay tanto o más trabajo detrás del ecosistema de recursos que construyeron sus creadores. Desde la excelente [documentación de la librería] (https://tailwindcss.com), [los streams](https://www.youtube.com/c/AdamWathan) donde construyen UIs complejas con Tailwind, [los tips de diseño](https://twitter.com/i/events/879086180909764608?lang=en) en Twitter y hasta un [libro de diseño para desarrolladores](https://www.refactoringui.com/book) se encargaron de crear todo un ecosistema de herramientas y materiales de aprendizaje para triunfar no solo en el uso de la herramienta sino en Diseño Web como disciplina.
 
-### Me enseñó a pensar en CSS
+### Me enseñó los fundamentos de CSS
 
 Para este punto llevaba usando y escribiendo CSS por años, pero creo que nunca lo había _entendido_ realmente. Debo agradecerle a la documentación de Tailwind finalmente haber entendido `flexbox` y todas sus propiedades. Los fragmentos de código y ejemplos visuales me ayudaron tremendamente a crear el modelo mental y retenerlo. No sucedió de un día para otro, pero poco a poco la necesidad de tener la documentación abierta como referencia me obligó a aprender las primitivas necesarias para implementar un diseño.
 
 Esto fue un punto de quiebre para mi. Tener la habilidad de ver un diseño y descomponer las distintas propiedades necesarias para implementarlo abrió, de repente, todo un mundo de posibilidades de exploración y creatividad.
 
-### Me enseñó a ser dueño de mis estilos de aplicación
+### Me ayudó a apropiarme de los estilos de mis aplicaciones
 
 Anteriormente cambiar los estilos de una aplicación existente se sentía completamente intimidante. No era sólo la falta de conocimiento, hacer cambios en hojas de estilos podía tener resultados muy inesperados. En consecuencia, siempre tuve la sensación de estar adivinando y esperando que no ocurriera nada que afectara el diseño en un lugar sorpresivo. Con Tailwind, a pesar de que en principio puede ser difícil interpretar elementos HTML con muchas clases, tenemos la seguridad que los cambios que se realizan afectan únicamente los elementos que están en la plantilla. Por lo tanto, eres libre de editar todo lo que quieras sin temor de dañar el diseño de la aplicación.
 
 ### Me ayudó a ser más productivo
 
-El workflow de tailwind es uno de los más rápidos que conozco (aparte de contar con un sistema de diseño personalizado) para implementar prototipos de diseño rápidamente. Eliminar el paso de tener que saltar entre archivos de CSS y HTML evita estar cambiando de contexto y puedes explorar dentro del mismo archivo distintas posibilidades. Por otro lado, no tener que ponerle nombre a las clases de cada elemento ahorra varios ciclos de pensamiento que ahora
-
-I place a lot or value around how the tailwind workflow enables you to quickly try out designs without having to jump between files. This is specially true for web design projects such as landing pages and marketing sites although it can get pretty repetitive on web apps that have more component reuse across the board. I also find it relatively straight forward to implement someone else's design, which is a big win for teams that have designers working in Figma.
+Personalmente valoro mucho el flujo de trabajo de Tailwind y la forma en la que permite implementar diseños sin saltar entre archivos. Tener retroalimentación casi instantánea de los estilos evitando tener que cambiar entre archivos de HTML y CSS es fantástico tanto para experimentar con un nuevo diseño como para implementar uno existente desde una herramienta como figma. También elimina la necesidad de crear nombres para cada clase o componente HTML lo que permite concentrarse únicamente en los estilos. Aunque es cierto que las plantillas se pueden congestionar un poco de clases, Tailwind promueve la idea de extraer parciales/componentes en sus propios archivos lo que permite enfocarse en un elemento a la vez.
 
 ### It taught me (web) design fundamentals
 

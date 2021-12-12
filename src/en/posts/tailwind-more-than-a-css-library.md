@@ -24,23 +24,23 @@ On 2016 I started developing a new consumer product along with my partners at [S
 
 I was hooked on utility classes from that point on, but `80%` wasn't enough, I wanted to have more of them which eventually lead me to Tailwind v0.7(IIRC). Thus it began one of my longest lasting relationship's with a library. But there was something bigger in store for me behind that library, something that changed my career for the better, I just didn't know it at the time. It was also the beginning of my love for Web Design.
 
-## Beyond styling libraries
+## Beyond a CSS library
 
 There's a lot of work that was put behind Tailwind as a library but there's just as much, if not more, work put around it's ecosystem and development. I'm talking about [the awesome docs](https://tailwindcss.com/), [the streams](https://www.youtube.com/c/AdamWathan) implementing UIs with the library, [the design tips](https://twitter.com/i/events/879086180909764608?lang=en), [the book](https://www.refactoringui.com/book) on design for developers, and more. All of these added up to an ecosystem that made it easy to not only succeed with the library but also learn Web Design as a whole at the same time.
 
-### It taught me to think in CSS
+### It taught me CSS basics
 
 I'd been using CSS for years but I don't think I'd ever truly _understood_ it up to that point. Seriously, I have to thank the Tailwind docs for finally making `flexbox` click in my brain (and I don't think I'm alone here). The pictures along with the code samples were so helpful in understanding the different properties at play in a flex container. It wasn't an overnight process, but the way tailwind forces you to think in primitives made it so that I had to learn the properties in order to implement a layout.
 
 This was a turning point for me. I could see a design and decompose in my mind the individual properties that would need to be implemented. Suddenly a whole new world of creative exploration was available to me.
 
-### It taught me to own my application styles
+### It helped me take ownership of application styles
 
 I used to feel very insecure when editing the stylesheets of an existing application. It wasn't just lack of knowledge but also that the way styles were written changing a property could lead to very unexpected results. So I'd generally feel like I was guessing and then hoping things wouldn't break. With Tailwind, even though elements with lots of classes might be difficult to parse specially at first, you _know_ that it's all scoped to that single element. You're free to change everything up without fear of breaking other parts of the layout.
 
 ### It helped me be more productive
 
-I place a lot or value around how the tailwind workflow enables you to quickly try out designs without having to jump between files. This is specially true for web design projects such as landing pages and marketing sites although it can get pretty repetitive on web apps that have more component reuse across the board. I also find it relatively straight forward to implement someone else's design, which is a big win for teams that have designers working in Figma.
+I greatly value how the Tailwind workflow enables you to implement designs without having to jump between files. The quick feedback loop is great for iteration, if you're experimenting, or for implementing an existing design from a tool like figma. It also removes the step of having to come up with names for every HTML element and lets you focus just on the styling. While the markup may get pretty crowded and might be difficult to navigate you're encouraged to extract components or partials which let you focus on one piece of your design at a time.
 
 ### It taught me (web) design fundamentals
 
