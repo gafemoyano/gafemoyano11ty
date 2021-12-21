@@ -1,11 +1,11 @@
 ---
 title: "Tailwind: more than a CSS library"
-date: 2020-11-02
+date: 2021-12-20
 featured_image: /assets/img/daniel-vargas-ngrIs67UJEg-unsplash.png
 featured_image_alt: Minca, Atlántico, Colombia
 image_caption: Photo by <a href="https://unsplash.com/@showingourplanet?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Niels van Altena</a> on <a href="https://unsplash.com/s/photos/colombia?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
 
-description: "Tailwind is a lot more than a CSS framework. It's an ecosystem of learning materials for CSS and web design."
+description: "Tailwind is more than a CSS framework. It's an ecosystem of learning materials for CSS and web design."
 tags:
   - post
   - tailwind
@@ -38,22 +38,18 @@ This was a turning point for me. I could see a design and decompose in my mind t
 
 I used to feel very insecure when editing the stylesheets of an existing application. It wasn't just lack of knowledge but also that the way styles were written changing a property could lead to very unexpected results. So I'd generally feel like I was guessing and then hoping things wouldn't break. With Tailwind, even though elements with lots of classes might be difficult to parse specially at first, you _know_ that it's all scoped to that single element. You're free to change everything up without fear of breaking other parts of the layout.
 
-### It helped me be more productive
+### It made me more productive
 
 I greatly value how the Tailwind workflow enables you to implement designs without having to jump between files. The quick feedback loop is great for iteration, if you're experimenting, or for implementing an existing design from a tool like figma. It also removes the step of having to come up with names for every HTML element and lets you focus just on the styling. While the markup may get pretty crowded and might be difficult to navigate you're encouraged to extract components or partials which let you focus on one piece of your design at a time.
 
 ### It taught me (web) design fundamentals
 
-This is part of Tailwind's ecosystem rather than the library itself, but following Steve and Adam taught me a lot about design. Their focus in putting out tips of design for developers was right up my alley and I consumed every bit of information they put out on twitter, medium, etc. All these tips eventually turned into Refactoring UI which is a great read if you haven't given it a try.
+This is part of Tailwind's ecosystem rather than the library itself, but following Steve's design tips on [twitter](https://twitter.com/i/events/994601867987619840) helped me understand design basics for building UIs. On top of that Adam's screencasts on [youtube](https://www.youtube.com/c/AdamWathan) were a terrific walk-through on how to implement a designer's vision with CSS. By making design fundamentals more approachable a new world was opened up to me, which ended up playing a big role in my career as a web developer and eventually as an entrepreneur.
 
-### It introduced me to the idea of design as a system
+### It showed me the value of a design system
 
-Okay kind of. The framework has grown a lot since the 0.7 days when you could say that the limiting set of utilities was a way to enforce design constraints but now a days there's so many utilities that the whole _Tailwind is a design system_ idea might be debatable. Then there's also the introduction of the JIT compiler, which allows you you to create one off utilities on the fly. Still, I'd argue that tailwind defaults push you in the right direction and make it easy for everyone on the project to enforce some design constraints.
-
-### It's easy to jump between projects
-
-Since the utilities remain consistent between older versions and projects, unless you use more semantic names which is generally fine, it's easy to come back to a project and pick up where you left off. This is specially true when it comes to modifying existing components since you can be sure not to break styling anywhere else.
+Okay kind of, this one is a bit of a stretch. A Design System goes beyond tokens and the way the framework has grown since the 0.7 days when you could call the limiting set of utilities an advantage to enforce consistency. Yet, Tailwind does point you in the right direction: tokenizing spacing scales, colors, borders, shadows and typography set you up for success specially with the great defaults given by the library itself. I don't consider Tailwind to be a Design System by itself (and it's not one of the libraries objectives) but it is a stepping stone for creating one.
 
 ## The future
 
-I'll probably keep using Tailwind on my personal projects. It keeps pushing it's own boundaries so it's also been an interesting journey to keep up with it and what's possible beyond the initial idea of utility classes. But this space is in constant flux, and new paradigms emerge everyday as the web evolves. CSS variables have already unlocked some new approaches such as [Vanilla Extract](https://vanilla-extract.style) which I'm excited to explore for component based frameworks and widespread use of Custom Elements might need a different approach. It is, after all, still an exciting time for being a web developer.
+I'll probably keep using Tailwind on my personal projects. It keeps pushing it's own boundaries and it's been an interesting journey to discover what's possible beyond the idea of utility classes and atomic CSS. But this space is in constant flux, and new paradigms emerge everyday as the web evolves. CSS variables have already unlocked some new approaches such as [Vanilla Extract](https://vanilla-extract.style) and [Stitches](https://stitches.dev) which I'm excited to explore for building Design Systems. It is, after all, still an exciting time for being a web developer.
