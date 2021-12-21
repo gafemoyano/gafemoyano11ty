@@ -1,7 +1,7 @@
 ---
 title: "Tailwind: more than a CSS library"
 date: 2021-12-20
-featured_image: /assets/img/daniel-vargas-ngrIs67UJEg-unsplash.png
+featured_image: /assets/img/niels-van-altena-baUqXWWvN1c-unsplash.jpg
 featured_image_alt: Minca, Atlántico, Colombia
 image_caption: Photo by <a href="https://unsplash.com/@showingourplanet?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Niels van Altena</a> on <a href="https://unsplash.com/s/photos/colombia?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
 
