@@ -24,11 +24,27 @@ El plan consistió en construir las pantallas de funcionalidades e ir extrayendo
 
 Para este MVP usamos una combinación de [React](https://reactjs.org/) (con [Next.js](https://nextjs.org/)) y [Tailwind](https://tailwindcss.com) para los estilos. En mi experiencia, Tailwind funciona bastante bien con librerías de componentes ya que crean una frontera natural para reutilizar estilos y evita algunas aproximaciones problemáticas como el uso de `@apply`. Sin embargo, construir componentes para un sistema de diseño es lo mismo que construir componentes de aplicación. Los primeros tienden a necesitar mucha mayor flexibilidad: pueden implementar temas distintos, incluyen componentes de más bajo nivel para maquetación y espaciado basados en los tokens de diseño. A pesar que el equipo tenía dudas de lograr esta transición efectivamente decidimos seguir adelante con tailwind e ir resolviendo problemas en el camino. Algunas [palabras adicionales](https://www.netlify.com/blog/2021/03/23/from-semantic-css-to-tailwind-refactoring-the-netlify-ui-codebase/) del equipo de [Netlify](https://www.netlify.com/) nos reafirmaron que la idea no era descabellada después de todo.
 
-However as we started extracting out some components we started bumping into some difficulties with the utility classes approach. As a disclaimer, I think tailwind is fine if you're extracting components inside your own app and are keeping the API of each component fairly restricted but since we were looking to extract a **design system** the constraints are a bit different.
+Sin embargo a medida que comenzamos a extraer algunos componentes nos topamos con dificultades relacionadas a la técnica de clases atómicas. Quisiera notar en este punto que Tailwind es una solución perfectamente válida para extraer componentes reutilizables de **aplicación**, sin embargo en este caso en particular estabamos buscando extraer la base de un Sistema de Diseño para el cual los requerimientos son diferentes. Dicho esto, miremos algunos de los problemas que encontramos.
 
-**It's awkward to map tailwind classes to props**
+**No es natural traducir clases de tailwind a propiedades de React**
 
-This is somewhat true for the utility classes that have multiple values such as margins, paddings, withs, etc.
+Una de las primeras decisiones a las que nos enfrentamos es de qué forma exponer propiedades de estilos para los componentes compartidos. Por ejemplo, supongamos que tenemos un component que recibe una propiedad de _background_ para cambiar su color de fondo. ¿Los consumidores del componentes deberían pasar la clase de tailwind o el nombre del color? El primero se siente extraño pues estaríamos repitiendonos un poco  `background="bg-blue-400"`. El segundo le deja al componente la responsabilidad de reconstruir la clase apropiada para aplicar el color de fondo, además de traer otros problemas adicionales que discutiremos en otro punto.
+
+```javascript
+// Esto se siente un poco extraño
+function Card({ background = "bg-white", ...rest }) {
+  return <div className={background} {...rest} />
+}
+
+// Esto necesita trabajo adicional
+function Card({ background = "white", ...rest }) {
+  const backgroundClass = `bg-${background}` // No type safety
+
+  return <div className={topSpace} {...rest} />
+}
+```
+
+Esto aplica para todas las propiedades de estilos que se quieran exponer del componente y se convierte en una tarea abrumadora rápidamente
 
 **You have to keep the tailwind config in sync with component props**
 

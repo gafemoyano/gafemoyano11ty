@@ -24,11 +24,27 @@ The plan was to build the feature screens first and then extract common UI compo
 
 For our tech stack we chose React and Nextjs with Tailwind as a styling solution. I'd found tailwind to work really well with component UI libraries since it creates a natural boundary for style reuse instead of going down the road of using `@apply`. However building components for a design system is quite a different story from building application components. The former tend to need more flexibility: they are often times themable and include lower level utilities for layouts and spacing based on design tokens. While we had some doubts about being able to pull out this transition we felt confident enough to keep using tailwind to get things of the ground and figure it out down the road. Some encouraging [words](https://www.netlify.com/blog/2021/03/23/from-semantic-css-to-tailwind-refactoring-the-netlify-ui-codebase/) from the [Netlify](https://www.netlify.com/) team also reassured us that the idea wasn't too crazy after all.
 
-However as we started extracting out some components we started bumping into some difficulties with the utility classes approach. As a disclaimer, I think tailwind is fine if you're extracting components inside your own app and are keeping the API of each component fairly restricted but since we were looking to extract a **design system** the constraints are a bit different.
+However as we started extracting out some components we started bumping into some difficulties with the utility classes approach. As a disclaimer, I think tailwind is fine if you're extracting components inside your own app and are keeping the API of each component fairly restricted but since we were looking to extract a **design system** the constraints are a bit different. That said, let's dive into some of the problems we found.
 
 **It's awkward to map tailwind classes to props**
 
-This is somewhat true for the utility classes that have multiple values such as margins, paddings, withs, etc.
+The first decision that we bumped into is how we should expose styling props for some components. For example imagine a component that exposes background property that accepts a color from your palette. Do consumers of the component pass in the class that contains the style or a string with the color value?. The former feels a bit odd, since you'd be repeating yourself by using the class `background="bg-blue-400"`. The latter would take in the value, such as `blue-400` and the component would rebuild the appropriate class dynamically which brings it's own set of issues which we'll discuss later.
+
+```javascript
+// This feels odd
+function Card({ background = "bg-white", ...rest }) {
+  return <div className={background} {...rest} />
+}
+
+// This needs more work
+function Card({ background = "white", ...rest }) {
+  const backgroundClass = `bg-${background}` // No type safety
+
+  return <div className={topSpace} {...rest} />
+}
+```
+
+This is also the case for any other property that the component might expose and can get overwhelming pretty quickly.
 
 **You have to keep the tailwind config in sync with component props**
 
@@ -36,7 +52,7 @@ Generally you'll have some special semantics around your design system to make i
 
 **Dynamically generating classNames won't work with PurgeCSS**
 
-I don't think this is that big of a deal, but you have to be careful when concatanating classes with props to avoid writing explicit mappings, since PurgeCSS needs to find the actual classname string or it will remove it from the final bundle. We tried to figure out a few ways around this, like messing with the PurgeCSS config, explicitly mapping the values to classes instead of interpolating strings and having code comments with the used classes but none of them felt like a longterm solution.
+I don't think this is that big of a deal, but you have to be careful when concatenating classes with props to avoid writing explicit mappings, since PurgeCSS needs to find the actual classname string or it will remove it from the final bundle. We tried to figure out a few ways around this, like messing with the PurgeCSS config, explicitly mapping the values to classes instead of interpolating strings and having code comments with the used classes but none of them felt like a longterm solution.
 
 ```javascript
 function Spacer({ top = "16", ...rest }) {
