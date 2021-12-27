@@ -46,12 +46,37 @@ function Card({ background = "white", ...rest }) {
 
 This is also the case for any other property that the component might expose and can get overwhelming pretty quickly.
 
-**You have to keep the tailwind config in sync with component props**
+**You have to keep the Tailwind config in sync with component props**
 
-Generally you'll have some special semantics around your design system to make it easier to communicate intent. You can configure your `tailwind.config.js` to reflect something semantic like `tones` such as `primary`, `secondary`, `accent` and then create a `Tone` type that can be reused on your components, but it's a manual step and extra effort needed to keep your component types in sync with the tailwind config. If you've ever worked with something like [Styled System](https://styled-system.com/) before, you're probably familiar with a `Box` component that can take styling tokens as props. This is such a powerful API and I found it strikes the perfect balance of enforcing consistency at the token level while allowing engineers to work on screens without being held back by missing components. Unfortunately, trying to come up with something similar while using tailwind classes felt like bending the library beyond it's intended use case.
+There's no real integration between React and Tailwind, meaning that they're not **aware** of each other, so every time you add or remove a value from Tailwind's config you have to remember to update or expose the corresponding props in your components. It's easy to forget this step and end up with out of date props and styles.
 
-**Dynamically generating classNames won't work with PurgeCSS**
+```javascript
+// tailwind.config.js
+module.exports = {
+  extend: {
+    spacing: {
+      // New values
+      72: "18rem",
+      84: "21rem",
+    },
+  },
+}
 
+// Must update types that map to the new values
+type SpacingProps = {
+  // New values
+  72: number,
+  84: number,
+}
+
+function Spacer({ top }: { top: SpacingProps }) {
+  return <div className={topSpace} {...rest} />
+}
+```
+
+**Dynamically generating classNames don't get purged or generated (with JIT)**
+
+In a previous point we debated the choice of eweather 
 I don't think this is that big of a deal, but you have to be careful when concatenating classes with props to avoid writing explicit mappings, since PurgeCSS needs to find the actual classname string or it will remove it from the final bundle. We tried to figure out a few ways around this, like messing with the PurgeCSS config, explicitly mapping the values to classes instead of interpolating strings and having code comments with the used classes but none of them felt like a longterm solution.
 
 ```javascript

@@ -28,7 +28,7 @@ Sin embargo a medida que comenzamos a extraer algunos componentes nos topamos co
 
 **No es natural traducir clases de tailwind a propiedades de React**
 
-Una de las primeras decisiones a las que nos enfrentamos es de qué forma exponer propiedades de estilos para los componentes compartidos. Por ejemplo, supongamos que tenemos un component que recibe una propiedad de _background_ para cambiar su color de fondo. ¿Los consumidores del componentes deberían pasar la clase de tailwind o el nombre del color? El primero se siente extraño pues estaríamos repitiendonos un poco  `background="bg-blue-400"`. El segundo le deja al componente la responsabilidad de reconstruir la clase apropiada para aplicar el color de fondo, además de traer otros problemas adicionales que discutiremos en otro punto.
+Una de las primeras decisiones a las que nos enfrentamos es de qué forma exponer propiedades de estilos para los componentes compartidos. Por ejemplo, supongamos que tenemos un component que recibe una propiedad de _background_ para cambiar su color de fondo. ¿Los consumidores del componentes deberían pasar la clase de tailwind o el nombre del color? El primero se siente extraño pues estaríamos repitiendonos un poco `background="bg-blue-400"`. El segundo le deja al componente la responsabilidad de reconstruir la clase apropiada para aplicar el color de fondo, además de traer otros problemas adicionales que discutiremos en otro punto.
 
 ```javascript
 // Esto se siente un poco extraño
@@ -46,11 +46,35 @@ function Card({ background = "white", ...rest }) {
 
 Esto aplica para todas las propiedades de estilos que se quieran exponer del componente y se convierte en una tarea abrumadora rápidamente
 
-**You have to keep the tailwind config in sync with component props**
+**Debes sincronizar manualmente las propiedades de los componentes con el archivo de configuración de Tailwind**
 
-Generally you'll have some special semantics around your design system to make it easier to communicate intent. You can configure your `tailwind.config.js` to reflect something semantic like `tones` such as `primary`, `secondary`, `accent` and then create a `Tone` type that can be reused on your components, but it's a manual step and extra effort needed to keep your component types in sync with the tailwind config. If you've ever worked with something like [Styled System](https://styled-system.com/) before, you're probably familiar with a `Box` component that can take styling tokens as props. This is such a powerful API and I found it strikes the perfect balance of enforcing consistency at the token level while allowing engineers to work on screens without being held back by missing components. Unfortunately, trying to come up with something similar while using tailwind classes felt like bending the library beyond it's intended use case.
+Ya que no existe una integración real entre Tailwind y React, en el sentido que ambos coexisten sin la noción del otro, así que cada vez que cambiemos una llave de la configuración de Tailwind debemos recordar actualizar las propiedades de los distintos componentes que lo consumen. Este paso es fácil de olvidar y puede llevar a estilos y propiedades desactualizados.
 
-**Dynamically generating classNames won't work with PurgeCSS**
+```javascript
+// tailwind.config.js
+module.exports = {
+  extend: {
+    spacing: {
+      // New values
+      72: "18rem",
+      84: "21rem",
+    },
+  },
+}
+
+// Must update types that map to the new values
+type SpacingProps = {
+  // New values
+  72: number,
+  84: number,
+}
+
+function Spacer({ top }: { top: SpacingProps }) {
+  return <div className={topSpace} {...rest} />
+}
+```
+
+**Construir clases dinámicamente no permite purgar o generar (con JIT) las clases en producción**
 
 I don't think this is that big of a deal, but you have to be careful when concatanating classes with props to avoid writing explicit mappings, since PurgeCSS needs to find the actual classname string or it will remove it from the final bundle. We tried to figure out a few ways around this, like messing with the PurgeCSS config, explicitly mapping the values to classes instead of interpolating strings and having code comments with the used classes but none of them felt like a longterm solution.
 
