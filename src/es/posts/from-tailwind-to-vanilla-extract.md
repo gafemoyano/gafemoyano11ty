@@ -26,17 +26,17 @@ Para este MVP usamos una combinación de [React](https://reactjs.org/) (con [Nex
 
 Sin embargo a medida que comenzamos a extraer algunos componentes nos topamos con dificultades relacionadas a la técnica de clases atómicas. Quisiera notar en este punto que Tailwind es una solución perfectamente válida para extraer componentes reutilizables de **aplicación**, sin embargo en este caso en particular estabamos buscando extraer la base de un Sistema de Diseño para el cual los requerimientos son diferentes. Dicho esto, miremos algunos de los problemas que encontramos.
 
-**No es natural traducir clases de tailwind a propiedades de React**
+**No es ergonómico traducir clases de tailwind a propiedades de React**
 
 Una de las primeras decisiones a las que nos enfrentamos es de qué forma exponer propiedades de estilos para los componentes compartidos. Por ejemplo, supongamos que tenemos un component que recibe una propiedad de _background_ para cambiar su color de fondo. ¿Los consumidores del componentes deberían pasar la clase de tailwind o el nombre del color? El primero se siente extraño pues estaríamos repitiendonos un poco `background="bg-blue-400"`. El segundo le deja al componente la responsabilidad de reconstruir la clase apropiada para aplicar el color de fondo, además de traer otros problemas adicionales que discutiremos en otro punto.
 
 ```javascript
-// Esto se siente un poco extraño
+// Esto se siente extraño
 function Card({ background = "bg-white", ...rest }) {
   return <div className={background} {...rest} />
 }
 
-// Esto necesita trabajo adicional
+// Esto necesita trabajo adicional para cada propiedad
 function Card({ background = "white", ...rest }) {
   const backgroundClass = `bg-${background}` // No type safety
 
@@ -48,7 +48,7 @@ Esto aplica para todas las propiedades de estilos que se quieran exponer del com
 
 **Debes sincronizar manualmente las propiedades de los componentes con el archivo de configuración de Tailwind**
 
-Ya que no existe una integración real entre Tailwind y React, en el sentido que ambos coexisten sin la noción del otro, así que cada vez que cambiemos una llave de la configuración de Tailwind debemos recordar actualizar las propiedades de los distintos componentes que lo consumen. Este paso es fácil de olvidar y puede llevar a estilos y propiedades desactualizados.
+Ya que no existe una integración entre Tailwind y React, en el sentido que ambos coexisten sin la noción del otro, cada vez que se cambie la configuración de Tailwind debemos recordar actualizar las propiedades de los distintos componentes que la consumen. Este paso es fácil de olvidar y puede llevar a estilos y propiedades desactualizados.
 
 ```javascript
 // tailwind.config.js
@@ -76,36 +76,37 @@ function Spacer({ top }: { top: SpacingProps }) {
 
 **Construir clases dinámicamente no permite purgar o generar (con JIT) las clases en producción**
 
-I don't think this is that big of a deal, but you have to be careful when concatanating classes with props to avoid writing explicit mappings, since PurgeCSS needs to find the actual classname string or it will remove it from the final bundle. We tried to figure out a few ways around this, like messing with the PurgeCSS config, explicitly mapping the values to classes instead of interpolating strings and having code comments with the used classes but none of them felt like a longterm solution.
+En un punto anterior comenté que interpolar texto con valores de Tailwind se siente un poco incómodo, sin embargo hay un problema adicional, las clases generadas de esta forma no serán generadas por el JIT y puede que en producción falten algunos estilos esperados. Esto puede ser un poco confuso pero tiene una solución sencilla, incluir un _whitelist_ de las clases que se deben incluir en el bundle.
 
 ```javascript
 function Spacer({ top = "16", ...rest }) {
-  const topSpace = `mt-${top}` // mt-16 will be absent on the prod bundle since PurgeCSS couldn't find it
+  const topSpace = `mt-${top}` // mt-16 no va a estar incluida en el bundle de producción 
   return <div className={topSpace} {...rest} />
 }
 ```
 
-**There's no escape hatch**
+**Deduplicación y especificidad de clases CSS**
 
-What are your options to allow a Component to be modified beyond it's own props? Generally you'd use the `className` or `style` prop directly. The problem here is that if you expose the `className` prop any consumer can potentially override some of the components 'base' classes. This can cause unexpected behavior, since overriding a property will cause the utility that's defined later on the `CSS` file to win, which many people are unaware of. Then could think about doing things like de duping at the utility level which seems like a lot of added complexity.
+Al momento de sobreescribir o modificar las clases base de un componente y asegurarnos que no se incluyan 2 clases que modifiquen una misma propiedad estamos por nuetra cuenta. Generalmente los componentes de un sistema de diseno aplican algunos estilos por defecto y exponen algunas propiedades para modificar su apariencia o comportamiento. Escribir la lógica condicional para hacer funcionar todo esto está en nuetras manos y en algunos componentes complejos puede llegar a ser un poco compleja.
 
 **There's no good way to break out of tailwind**
 
-Lastly, there's a good chance that you'll get to a point where you need to implement something outside of tailwind's utilities. Although the library is huge by now and you can do a _lot_ with when the time comes you'll need a way to breakout. The alternatives here are to use plain old CSS with `@apply` so you can keep using your tokens which works fine but I find that since `className` is already overloaded with utilities it's easy to miss when and where custom CSS was used.
+Probablemente llegará el momento en el que tengas que implementar alguna funcionalidad más allá de las utilidades de tailwind. La alternativa más común acá es usar clases sencilla de CSS y la utilidad de `@apply` para tener acceso a los tokens existentes. Si bien esto funciona en mi experiencia es difícil notar que se está haciendo algo 'personalizado' ya que `classNames` está sobrecargado de utilidades y es difícil ver que se agregó una clase 'custom' que, como implementador, preferiría que fuera algo que se destaca al consultar el código.
+
 
 ## Switching to Vanilla Extract
 
-Given the previous considerations it felt like we needed to stop bending tailwind backwards and use a different underlying library to power our growing component library. Ideally we'd go for something that would let us use our design tokens directly, as utility classes do, since I've found (and I've seen this argument around for a while) that naming every single tag slows you down. Also we wanted to provide good typing support to expose subset of utilities as component props. Turns out Vanilla Extract provides just that with it's excellent Typescript support as well as atomic styles extracted at build time.
+Dados los puntos anteriores sentimos que estabamos forzando los casos de uso de tailwind y deberíamos cambiar la herramienta base de nuetra creciente librería de componentes. Idealmente buscamos algo que permitiera el uso de tokens de diseno directamente como propiedades de React. Vanilla Extract permite hacer esto a través del aditamento de Sprinkles además de tener un gran soporte de Typescript.
 
 **The switch**
 
-We decided to do the switch progressively, converting one component at a time as we needed to add functionality. Setting up the library was somewhat easy but it was helpful to see a couple reference implementations from [Shopify's Polaris](https://github.com/Shopify/foundational-design-system-proto) and [Seek's Braid](https://github.com/seek-oss/braid-design-system). Basically, you create your theme object, pass it to the `sprinkles` function that creates the atomic classes and export the`Atoms` generic type to be able to map parts of the theme to component props.
+Decidimos hacer un cambio progresivo y convertir un componente a la vez a medida que ibamos necesitando agregar funcionalidad a la librería. Hacer la instalación inicial es relativamente fácil sin embargo fue útil tener las implementaciones de referencia de [Shopify's Polaris](https://github.com/Shopify/foundational-design-system-proto) and [Seek's Braid](https://github.com/seek-oss/braid-design-system) ya que era necesario escribir código adicional para exponer las clases de utilidad como propiedades de React.
 
 **The good things**
 
-The `Atom` type makes it as simple as it can get to map low level CSS concepts to component properties along with typescript's autocomplete. If you update your theme object, your types get updated along with it and if something gets removed it will yield a type error. This is a great way to avoid breaking components without relying solely on tests.
+Al ser una librería basada en Typescript los consumidores cuentan con autocompletar y los autores con chequeo de errores de tipo. Esto agrega una capa adicional de confianza al equipo para evolucionar el Sistema de Diseno y evitar errores en componentes de aplicación. 
 
-The mental model while working with Vanilla Extract is a bit different than Tailwind. While it provides atomic classes it doesn't expect you to write your whole application with it. Thus, it feels more naturally to drop down to `css in ts` and finish the job. You still get to mix and match regular CSS properties with your atomic classes and it all gets extracted to static CSS at buildtime.
+El modelo mental de Vanilla Extract es diferente a Tailwind ya que este último te guía a construir toda la aplicación a partir de claes de utilidad mientras que el primero te lleva a definir clases atómicas para los estilos más comunes y recurrir a `CSS in TS para complementar los estilos más complejos. En la práctica esta mezcla permite aprovechar el modelo de composición de React y partir de unos componentes base que reciben propiedades de bajo nivel y reutilizarlos para construir componentes más complejos.
 
 Working with Vanilla Extract allowed us to define flexible low level components that could be composed into more complex ones. Libraries like [Dessert Box](https://github.com/TheMightyPenguin/dessert-box) are a wonderful starting point to map your theme to a `Box` component that can be used as basis for layout components such as `Flex`, `Center`, `Grid` and even `Cards`, `Button` and more. This was very much inline with the approach of extracting base components as we built the main application.
 

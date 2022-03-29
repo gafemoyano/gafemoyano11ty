@@ -36,7 +36,7 @@ function Card({ background = "bg-white", ...rest }) {
   return <div className={background} {...rest} />
 }
 
-// This needs more work
+// This needs more work for every property
 function Card({ background = "white", ...rest }) {
   const backgroundClass = `bg-${background}` // No type safety
 
@@ -74,10 +74,9 @@ function Spacer({ top }: { top: SpacingProps }) {
 }
 ```
 
-**Dynamically generating classNames don't get purged or generated (with JIT)**
+**Dynamically generating classNames don't get generated with JIT**
 
-In a previous point we debated the choice of eweather 
-I don't think this is that big of a deal, but you have to be careful when concatenating classes with props to avoid writing explicit mappings, since PurgeCSS needs to find the actual classname string or it will remove it from the final bundle. We tried to figure out a few ways around this, like messing with the PurgeCSS config, explicitly mapping the values to classes instead of interpolating strings and having code comments with the used classes but none of them felt like a longterm solution.
+Previously we discussed the awkwardness of interpolating values into strings to generate tailwind classes. Another issue is that there's no way for the JIT to know if a certain class needs to be generated or not, so you might get production bundles that don't include the classes that you're expecting. This might be confusing at first but the easy way to get around it is to whitelist the classes you want to be included in the bundle.
 
 ```javascript
 function Spacer({ top = "16", ...rest }) {
@@ -86,25 +85,25 @@ function Spacer({ top = "16", ...rest }) {
 }
 ```
 
-**There's no escape hatch**
+**Deduping and CSS specificity issues**
 
-What are your options to allow a Component to be modified beyond it's own props? Generally you'd use the `className` or `style` prop directly. The problem here is that if you expose the `className` prop any consumer can potentially override some of the components 'base' classes. This can cause unexpected behavior, since overriding a property will cause the utility that's defined later on the `CSS` file to win, which many people are unaware of. Then could think about doing things like de duping at the utility level which seems like a lot of added complexity.
+When it comes to overriding base styles for a component or ensuring that you don't apply 2 different classes that target the same CSS property you're on your own. Generally components in a Design System will have some default classes and allow expose some props to modify their appearance/behaviour. It's ultimately up to you to write the conditional logic that makes this work and it can get a bit hairy in some cases.
 
-**There's no good way to break out of tailwind**
+**Sometimes you need to break out of tailwind**
 
-Lastly, there's a good chance that you'll get to a point where you need to implement something outside of tailwind's utilities. Although the library is huge by now and you can do a _lot_ with when the time comes you'll need a way to breakout. The alternatives here are to use plain old CSS with `@apply` so you can keep using your tokens which works fine but I find that since `className` is already overloaded with utilities it's easy to miss when and where custom CSS was used.
+There's a good chance that you'll get to a point where you need to implement something outside of tailwind's utilities. The alternatives here are to use plain old CSS with `@apply` so you can keep using your tokens. This works fine but I've found that since `className` is already overloaded with utilities it's easy to miss when and where custom CSS was used which is something I'd rather see stand out in the code as an implementor.
 
 ## Switching to Vanilla Extract
 
-Given the previous considerations it felt like we needed to stop bending tailwind backwards and use a different underlying library to power our growing component library. Ideally we'd go for something that would let us use our design tokens directly, as utility classes do, since I've found (and I've seen this argument around for a while) that naming every single tag slows you down. Also we wanted to provide good typing support to expose subset of utilities as component props. Turns out Vanilla Extract provides just that with it's excellent Typescript support as well as atomic styles extracted at build time.
+Given the previous points we felt that we needed to stop bending tailwind backwards and use a different underlying tool to power our growing component library. Ideally we'd go for something that allows the use of design tokens directly as props. Vanilla Extract provides just with it's Sprinkles addon plust it comes with good Typescript support.
 
 **The switch**
 
-We decided to do the switch progressively, converting one component at a time as we needed to add functionality. Setting up the library was somewhat easy but it was helpful to see a couple reference implementations from [Shopify's Polaris](https://github.com/Shopify/foundational-design-system-proto) and [Seek's Braid](https://github.com/seek-oss/braid-design-system). Basically, you create your theme object, pass it to the `sprinkles` function that creates the atomic classes and export the`Atoms` generic type to be able to map parts of the theme to component props.
+We decided to do the switch progressively, converting one component at a time as we needed to add functionality. Setting up the library was somewhat easy but it was helpful to see a couple reference implementations from [Shopify's Polaris](https://github.com/Shopify/foundational-design-system-proto) and [Seek's Braid](https://github.com/seek-oss/braid-design-system) given that you need to do some plumbing in order to expose your atomic classes as props.
 
 **The good things**
 
-The `Atom` type makes it as simple as it can get to map low level CSS concepts to component properties along with typescript's autocomplete. If you update your theme object, your types get updated along with it and if something gets removed it will yield a type error. This is a great way to avoid breaking components without relying solely on tests.
+First class Typescript support gives you autocomplete for consumers and type errors for authors. This added an extra layer of confidence for the team to continue growing the Design System while avoiding unintentionally breaking application components.
 
 The mental model while working with Vanilla Extract is a bit different than Tailwind. While it provides atomic classes it doesn't expect you to write your whole application with it. Thus, it feels more naturally to drop down to `css in ts` and finish the job. You still get to mix and match regular CSS properties with your atomic classes and it all gets extracted to static CSS at buildtime.
 
