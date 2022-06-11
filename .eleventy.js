@@ -46,6 +46,7 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy("src/assets/fonts")
   eleventyConfig.addPassthroughCopy("src/assets/javascript")
   eleventyConfig.addPassthroughCopy({
+    "./src/admin/config.yml": "./admin/config.yml",
     "node_modules/chartist/dist/chartist.min.css": "assets/chartist.min.css",
     "node_modules/chartist/dist/chartist.min.js": "assets/chartist.min.js",
   })
