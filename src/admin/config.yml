@@ -4,7 +4,8 @@ backend:
 local_backend: true
 media_folder: "src/assets/img"
 public_folder: "/assets/img"
-# publish_mode: editorial_workflow
+site_url: https://gafemoyano.com
+publish_mode: editorial_workflow
 collections:
   - label: "English Posts"
     name: "english-posts"

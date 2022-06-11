@@ -2,8 +2,8 @@
 title: My happy place
 date: 2020-12-08
 featured_image: /assets/img/articles/team-savy.jpg
-featured_image_alt: /#TeamSavy on Secret Santa day.
-image_caption: /#TeamSavy on Secret Santa day.
+featured_image_alt: "/#TeamSavy on Secret Santa day."
+image_caption: "/#TeamSavy on Secret Santa day."
 description: "Some parting thoughts about Savy, what it meant to me
 and some of the things that made it such a special place during
 the past few years."
