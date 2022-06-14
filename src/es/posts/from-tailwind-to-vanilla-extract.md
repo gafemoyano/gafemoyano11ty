@@ -14,13 +14,13 @@ tags:
 layout: layouts/post.njk
 ---
 
-## Intro
+## Introducción
 
 Recientemente empecé a trabajar en una organización cuyo modelo es un buen fit para implementar su propio Sistema de Diseño. A pesar de que aún está en una etapa temprana de desarrollo de producto y el equipo es pequeño, lo que hace que invertir recursos dedicados en un proyecto de este estilo fuera de consideración, como equipo de producto podemos extraer unos componentes base que a futuro se conviertan en un Sistema de Diseño completo.
 
 El plan consistió en construir las pantallas de funcionalidades e ir extrayendo componentes comunes de UI a medida que se fueran revelando. Esta aproximación permite tener un buen balance entre el tiempo invertido en extraer componentes reutilizables y al mismo tiempo avanzar en la implementación del MVP.
 
-## Extracting Tailwind Components
+## Extracción de componentes de Tailwind
 
 Para este MVP usamos una combinación de [React](https://reactjs.org/) (con [Next.js](https://nextjs.org/)) y [Tailwind](https://tailwindcss.com) para los estilos. En mi experiencia, Tailwind funciona bastante bien con librerías de componentes ya que crean una frontera natural para reutilizar estilos y evita algunas aproximaciones problemáticas como el uso de `@apply`. Sin embargo, construir componentes para un sistema de diseño es lo mismo que construir componentes de aplicación. Los primeros tienden a necesitar mucha mayor flexibilidad: pueden implementar temas distintos, incluyen componentes de más bajo nivel para maquetación y espaciado basados en los tokens de diseño. A pesar que el equipo tenía dudas de lograr esta transición efectivamente decidimos seguir adelante con tailwind e ir resolviendo problemas en el camino. Algunas [palabras adicionales](https://www.netlify.com/blog/2021/03/23/from-semantic-css-to-tailwind-refactoring-the-netlify-ui-codebase/) del equipo de [Netlify](https://www.netlify.com/) nos reafirmaron que la idea no era descabellada después de todo.
 
@@ -94,27 +94,27 @@ Al momento de sobreescribir o modificar las clases base de un componente y asegu
 Probablemente llegará el momento en el que tengas que implementar alguna funcionalidad más allá de las utilidades de tailwind. La alternativa más común acá es usar clases sencilla de CSS y la utilidad de `@apply` para tener acceso a los tokens existentes. Si bien esto funciona en mi experiencia es difícil notar que se está haciendo algo 'personalizado' ya que `classNames` está sobrecargado de utilidades y es difícil ver que se agregó una clase 'custom' que, como implementador, preferiría que fuera algo que se destaca al consultar el código.
 
 
-## Switching to Vanilla Extract
+## Cambio a Vanilla Extract
 
 Dados los puntos anteriores sentimos que estabamos forzando los casos de uso de tailwind y deberíamos cambiar la herramienta base de nuetra creciente librería de componentes. Idealmente buscamos algo que permitiera el uso de tokens de diseno directamente como propiedades de React. Vanilla Extract permite hacer esto a través del aditamento de Sprinkles además de tener un gran soporte de Typescript.
 
-**The switch**
+**La transición**
 
 Decidimos hacer un cambio progresivo y convertir un componente a la vez a medida que ibamos necesitando agregar funcionalidad a la librería. Hacer la instalación inicial es relativamente fácil sin embargo fue útil tener las implementaciones de referencia de [Shopify's Polaris](https://github.com/Shopify/foundational-design-system-proto) and [Seek's Braid](https://github.com/seek-oss/braid-design-system) ya que era necesario escribir código adicional para exponer las clases de utilidad como propiedades de React.
 
-**The good things**
+**Las cosas buenas**
 
 Al ser una librería basada en Typescript los consumidores cuentan con autocompletar y los autores con chequeo de errores de tipo. Esto agrega una capa adicional de confianza al equipo para evolucionar el Sistema de Diseno y evitar errores en componentes de aplicación. 
 
 El modelo mental de Vanilla Extract es diferente a Tailwind ya que este último te guía a construir toda la aplicación a partir de claes de utilidad mientras que el primero te lleva a definir clases atómicas para los estilos más comunes y recurrir a `CSS in TS para complementar los estilos más complejos. En la práctica esta mezcla permite aprovechar el modelo de composición de React y partir de unos componentes base que reciben propiedades de bajo nivel y reutilizarlos para construir componentes más complejos.
 
-Working with Vanilla Extract allowed us to define flexible low level components that could be composed into more complex ones. Libraries like [Dessert Box](https://github.com/TheMightyPenguin/dessert-box) are a wonderful starting point to map your theme to a `Box` component that can be used as basis for layout components such as `Flex`, `Center`, `Grid` and even `Cards`, `Button` and more. This was very much inline with the approach of extracting base components as we built the main application.
+Vanilla Extract nos permitió definir componentes de bajo nivel que se puedan reutilizar para construir unos más complejos. [Dessert Box](https://github.com/TheMightyPenguin/dessert-box) fue una gran librería para exponer las variables del tema en un cpomponente genérico `Box` o `Div`. Con estos bloques base pudimos desarrollar nuevos elementos como `Flex`, `Grid`, `Card`, `Button` y otros. 
 
-We've found that having a first class variant support simplifies a lot of conditional code we used to have around components and provides a natural queue for when it's time to move some of the styling logic to `css.ts` files.
+Estos componentes podían ser utilizados en nuevas funcionalidades o incluso para reimplementar algunos componentes base escritos con Tailwind. Ya que Vanilla Extract tiene soporte para variantes, pudimos simplificar la lógica condicional para aplicar clases según las propiedades del componente. Si el componente es particularmente compleja, los archivos `.css.ts` son un lugar natural para alojar la lógica de estilos.
 
-**The not so good things**
+**Las cosas no tan buenas**
 
-Previously I listed dealing PurgeCSS when creating classNames dynamically as a problem. That's not really fair in this comparison since Vanilla Extract doesn't do any purging at all. But Vanilla Extract doesn't **want you** to map as much of CSS to utilities, so while in theory you could end up with unused CSS it's unlikely this will become a problem in practice.
+Anteriormente mencioné el problema de lidiar con PurgeCSS para crear clases dinámicamente. La comparación es un poco injusta, ya que Vanilla Extract no tiene ningún tipo de limpieza de CSS inutilizado. La diferencia es que Vanilla Extract no pretende que _toda_ la aplicación sea escrita con clases de utilidad sino las propiedades más comunes, por lo que en la práctica es poco probable que el tamaño del CSS atómico sea problemático.
 
 While one of the initial value propositions of Vanilla Extract is that CSS in TS is closer to CSS than other approaches it's early to tell if this will be the case. So far I find that `css.ts` files tend to feel more like typescript files than style sheets. This is fine for developers and you get to have the full power of typescript at your disposal, but ideally you'd want designers to share ownership of this files and they might feel a bit daunting at first:
 

@@ -107,9 +107,9 @@ First class Typescript support gives you autocomplete for consumers and type err
 
 The mental model while working with Vanilla Extract is a bit different than Tailwind. While it provides atomic classes it doesn't expect you to write your whole application with it. Thus, it feels more naturally to drop down to `css in ts` and finish the job. You still get to mix and match regular CSS properties with your atomic classes and it all gets extracted to static CSS at buildtime.
 
-Working with Vanilla Extract allowed us to define flexible low level components that could be composed into more complex ones. Libraries like [Dessert Box](https://github.com/TheMightyPenguin/dessert-box) are a wonderful starting point to map your theme to a `Box` component that can be used as basis for layout components such as `Flex`, `Center`, `Grid` and even `Cards`, `Button` and more. This was very much inline with the approach of extracting base components as we built the main application.
+Defining low level components proved relatively simple, which in turn could be composed into more complex ones. [Dessert Box](https://github.com/TheMightyPenguin/dessert-box) was a great starting point to map your theme variables to a `Box` component that could later be used as basis for components such as `Flex`, `Center`, `Grid`, `Cards`, `Button` and more. 
 
-We've found that having a first class variant support simplifies a lot of conditional code we used to have around components and provides a natural queue for when it's time to move some of the styling logic to `css.ts` files.
+These components could be used to develop new features or to reimplement existing ones extracted with Tailwind. Since Vanilla Extract has first class variant support we could simplify a lot of conditional code to apply classes according to props. If a component get's particularly convoluted 'css.ts' files provide an obvious place to write styling logic.
 
 **The not so good things**
 
@@ -148,7 +148,7 @@ export const openAnimation = style({
 
 You're restricted to one kind of variant per property. In tailwind you can get multiple kind's of variants for a single property. Think of how you can have `hover:text-sm` and `md:text-lg` at the same time. On Vanilla Extract + Sprinkles, as far as I can tell, you can only have one type of variant per property. This is fine 90% of the time and, as I mentioned before, since Vanilla Extract doesn't encourage to have every single style as an atomic property, it's best to pull out a `css.ts` if you're looking for multiple modifiers, but I do miss it some times.
 
-## The takeaways
+## Takeaways
 
 This article isn't by any means meant to bash on Tailwind. While it was a very real possibility that it wasn't going to be the right fit to build a Component Library it was still a good way to get the ball rolling given the team's size and constraints . I think it's valuable to write about the experience of hitting some of the walls that you might encounter with these libraries in the context of a real life application since I find that most articles focus on shallow use cases that don't give you the full picture in order to understand some of the trade offs of a library.
 
