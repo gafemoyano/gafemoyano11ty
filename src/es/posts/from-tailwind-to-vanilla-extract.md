@@ -16,7 +16,7 @@ layout: layouts/post.njk
 
 ## Introducción
 
-Recientemente empecé a trabajar en una organización cuyo modelo es un buen fit para implementar su propio Sistema de Diseño. A pesar de que aún está en una etapa temprana de desarrollo de producto y el equipo es pequeño, lo que hace que invertir recursos dedicados en un proyecto de este estilo fuera de consideración, como equipo de producto podemos extraer unos componentes base que a futuro se conviertan en un Sistema de Diseño completo.
+Recientemente empecé a trabajar en una organización cuyo modelo es un buen fit para implementar su propio Sistema de Diseño. A pesar de que aún está en una etapa temprana del ciclo de producto y que la capacidad del equipo es limitada, decidimos extraer unos componentes de UI base que sirvieran de fundación para un Sistema de Diseño.
 
 El plan consistió en construir las pantallas de funcionalidades e ir extrayendo componentes comunes de UI a medida que se fueran revelando. Esta aproximación permite tener un buen balance entre el tiempo invertido en extraer componentes reutilizables y al mismo tiempo avanzar en la implementación del MVP.
 
