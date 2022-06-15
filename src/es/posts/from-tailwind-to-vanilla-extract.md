@@ -1,6 +1,6 @@
 ---
 title: "De Tailwind a Vanilla Extract: la herramienta correcta para un Sistema de Diseño"
-date: 2021-12-22
+date: 2022-06-14
 featured_image: /assets/img/articles/saul-mercado-LFuFLGo_3ME-unsplash.jpg
 featured_image_alt: En algún lugar de Colombia
 image_caption: Photo by <a href="https://unsplash.com/@mercadomuses?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Saul Mercado</a> on <a href="https://unsplash.com/?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
