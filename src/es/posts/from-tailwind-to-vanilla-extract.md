@@ -80,7 +80,7 @@ En un punto anterior comenté que interpolar texto con valores de Tailwind se si
 
 ```javascript
 function Spacer({ top = "16", ...rest }) {
-  const topSpace = `mt-${top}` // mt-16 no va a estar incluida en el bundle de producción 
+  const topSpace = `mt-${top}` // mt-16 no va a estar incluida en el bundle de producción
   return <div className={topSpace} {...rest} />
 }
 ```
@@ -93,7 +93,6 @@ Al momento de sobreescribir o modificar las clases base de un componente y asegu
 
 Probablemente llegará el momento en el que tengas que implementar alguna funcionalidad más allá de las utilidades de tailwind. La alternativa más común acá es usar clases sencilla de CSS y la utilidad de `@apply` para tener acceso a los tokens existentes. Si bien esto funciona en mi experiencia es difícil notar que se está haciendo algo 'personalizado' ya que `classNames` está sobrecargado de utilidades y es difícil ver que se agregó una clase 'custom' que, como implementador, preferiría que fuera algo que se destaca al consultar el código.
 
-
 ## Cambio a Vanilla Extract
 
 Dados los puntos anteriores sentimos que estabamos forzando los casos de uso de tailwind y deberíamos cambiar la herramienta base de nuetra creciente librería de componentes. Idealmente buscamos algo que permitiera el uso de tokens de diseno directamente como propiedades de React. Vanilla Extract permite hacer esto a través del aditamento de Sprinkles además de tener un gran soporte de Typescript.
@@ -104,11 +103,11 @@ Decidimos hacer un cambio progresivo y convertir un componente a la vez a medida
 
 **Las cosas buenas**
 
-Al ser una librería basada en Typescript los consumidores cuentan con autocompletar y los autores con chequeo de errores de tipo. Esto agrega una capa adicional de confianza al equipo para evolucionar el Sistema de Diseno y evitar errores en componentes de aplicación. 
+Al ser una librería basada en Typescript los consumidores cuentan con autocompletar y los autores con chequeo de errores de tipo. Esto agrega una capa adicional de confianza al equipo para evolucionar el Sistema de Diseno y evitar errores en componentes de aplicación.
 
 El modelo mental de Vanilla Extract es diferente a Tailwind ya que este último te guía a construir toda la aplicación a partir de claes de utilidad mientras que el primero te lleva a definir clases atómicas para los estilos más comunes y recurrir a `CSS in TS para complementar los estilos más complejos. En la práctica esta mezcla permite aprovechar el modelo de composición de React y partir de unos componentes base que reciben propiedades de bajo nivel y reutilizarlos para construir componentes más complejos.
 
-Vanilla Extract nos permitió definir componentes de bajo nivel que se puedan reutilizar para construir unos más complejos. [Dessert Box](https://github.com/TheMightyPenguin/dessert-box) fue una gran librería para exponer las variables del tema en un cpomponente genérico `Box` o `Div`. Con estos bloques base pudimos desarrollar nuevos elementos como `Flex`, `Grid`, `Card`, `Button` y otros. 
+Vanilla Extract nos permitió definir componentes de bajo nivel que se puedan reutilizar para construir unos más complejos. [Dessert Box](https://github.com/TheMightyPenguin/dessert-box) fue una gran librería para exponer las variables del tema en un cpomponente genérico `Box` o `Div`. Con estos bloques base pudimos desarrollar nuevos elementos como `Flex`, `Grid`, `Card`, `Button` y otros.
 
 Estos componentes podían ser utilizados en nuevas funcionalidades o incluso para reimplementar algunos componentes base escritos con Tailwind. Ya que Vanilla Extract tiene soporte para variantes, pudimos simplificar la lógica condicional para aplicar clases según las propiedades del componente. Si el componente es particularmente compleja, los archivos `.css.ts` son un lugar natural para alojar la lógica de estilos.
 
@@ -116,10 +115,10 @@ Estos componentes podían ser utilizados en nuevas funcionalidades o incluso par
 
 Anteriormente mencioné el problema de lidiar con PurgeCSS para crear clases dinámicamente. La comparación es un poco injusta, ya que Vanilla Extract no tiene ningún tipo de limpieza de CSS inutilizado. La diferencia es que Vanilla Extract no pretende que _toda_ la aplicación sea escrita con clases de utilidad sino las propiedades más comunes, por lo que en la práctica es poco probable que el tamaño del CSS atómico sea problemático.
 
-While one of the initial value propositions of Vanilla Extract is that CSS in TS is closer to CSS than other approaches it's early to tell if this will be the case. So far I find that `css.ts` files tend to feel more like typescript files than style sheets. This is fine for developers and you get to have the full power of typescript at your disposal, but ideally you'd want designers to share ownership of this files and they might feel a bit daunting at first:
+Aunque una de las propuestas iniciales de valor de Vanilla Extract es que es más cercano a CSS que otras librerías, haciéndolo más accesible para diseñadores (como SASS), todavía es muy temprano para saber si ese será el caso. Hasta ahora los archivos de `css.ts` parecen más Typescript que una hoja de estilos. Contar con el poder de un lenguaje de programación es una ventaja para desarrolladores pero idealmente la responsabilidad del sistema de diseño se comparte con el equipo de diseñadores y estos estilos se pueden sentir un poco abrumadores al principio:
 
 ```typescript
-// A sample css.ts file that's rather simple.
+// Un ejemplo de un archivo css.ts.
 export const step = styleVariants({
   default: {},
   active: {
@@ -147,10 +146,10 @@ export const openAnimation = style({
 })
 ```
 
-You're restricted to one kind of variant per property. In tailwind you can get multiple kind's of variants for a single property. Think of how you can have `hover:text-sm` and `md:text-lg` at the same time. On Vanilla Extract + Sprinkles, as far as I can tell, you can only have one type of variant per property. This is fine 90% of the time and, as I mentioned before, since Vanilla Extract doesn't encourage to have every single style as an atomic property, it's best to pull out a `css.ts` if you're looking for multiple modifiers, but I do miss it some times.
+La restricción más importante de Vanilla Extract hasta el momento es el límite de una variante por propiedad. En tailwind es posible tener varios modificadores para una propiedad, por ejemplo es posible escribir `hover:text-lg` y `md:text-lg` al mismo tiempo. Con Sprinkles estamos limitados a escoger una de las dos condiciones para las variantes de clases de utilidad. Sin embargo, como mencioné anteriormente, Vanilla Extract no fomenta el uso de utilidades para todos los estilos por lo que la forma de evitar este problema, de nuevo, es usando los archivos `css.ts` en estos casos.
 
-## The takeaways
+## Conclusiones
 
-This article isn't by any means meant to bash on Tailwind. While it was a very real possibility that it wasn't going to be the right fit to build a Component Library it was still a good way to get the ball rolling given the team's size and constraints . I think it's valuable to write about the experience of hitting some of the walls that you might encounter with these libraries in the context of a real life application since I find that most articles focus on shallow use cases that don't give you the full picture in order to understand some of the trade offs of a library.
+Este artículo no pretende ser una crítica contra Tailwind. Aunque sabíamos desde el principio que podía no ser la mejor elección para construir una librería de componentes, nos permitió construir la primera iteración del producto dado el tamaño del equipo y sus habilidades. De todas formas considero valioso escribir acerca de la experiencia de enfrentarse a las limitaciones que se pueden encontrar con estas librerías en el contexto de un producto real ya que muchas veces los artículos comparativos se enfocan en casos de uso superficiales que no alcanzan a dar una foto completa de las ventajas y desventajas de una librería.
 
-On a personal note, I am very impressed by Vanilla Extract and I feel like I'll be reaching for it more often on projects that require a component based approach, while keeping tailwind as my preferred solution for server side templates. I'm particularly excited to see how Web Components continue to mature and I think Vanilla Extract, being statically extracted at build time, fits into that ecosystem.
+En una nota personal, estoy muy impresionado con Vanilla Extract y considero que la estaré usando como default en proyectos que ameriten una arquitectura de UI basada en componentes, mientras reservo a Tailwind como herramienta por defecto para sitios web que generan el HTML desde el servidor. Siento que Vanilla Extract aún está en sus inicios y me emociona ver como evoluciona a futuro y se integra con nuevos tecnologías como Web Components.
