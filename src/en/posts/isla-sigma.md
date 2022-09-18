@@ -2,7 +2,7 @@
 layout: layouts/post.njk
 title: Isla Sigma
 date: 2022-09-18T17:18:21.795Z
-featured_image: /assets/img/daniel-vargas-ngrIs67UJEg-unsplash.png
+featured_image: /assets/img/img_20220319_145006.jpg
 featured_image_alt: Temp
 image_caption: Temp
 description: Temp
