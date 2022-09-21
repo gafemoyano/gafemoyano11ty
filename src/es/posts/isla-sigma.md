@@ -6,12 +6,14 @@ featured_image_alt: El camino a Isla Sigma
 image_caption: El camino a Isla Sigma
 description: Memorias del sur. No todos los caminos conducen a Isla Sigma, pero
   una decisión a la vez se abre paso el camino a lugares inesperados.
+layout: layouts/post.njk
 ---
+
 La tarde terminó con delfines nadando a nuestro lado mientras corríamos por una playa junto al mar a la que llegamos inesperadamente. Me gustaría decir que nadamos con ellos, y por poco fue así, pero la historia es otra.
 
 Amanecimos en Puyuhuapi después de una noche que se iba yendo por las ramas. Agotados de un día de caminata en el glaciar Ventisquero Colgante los viajeros del camping se habían reunido a la hora de la cena para comer, conversar y tomar unos tragos hasta bien entrada noche. Fuimos a dormir sin pactar una hora de salida. Es una de esas reglas no escritas de este viaje: arrancamos cuando nos levantemos. No tiene mucho sentido establecer hora de salida cuando no existe una de llegada.
 
-Tomamos un desayuno sencillo y nos pusimos en la tarea de *armar la moto*, ese ritual de encaramar el equipaje encima de la moto de formas infinitamente creativas. En esas se nos acercó Silvi, una de las personas con las que habíamos compartido la caminata del día anterior y que habían rematado la jornada hasta las últimas consecuencias. -¿Ya comieron algo chiquillos? preguntó. -Sí, respondimos. No debimos sonar muy convincentes ya que 15 minutos después regresó para ofrecernos algo de pasta con jurel. Intercambiamos una mirada rápida con Sergio, sabiendo que la respuesta iba a ser afirmativa. No teníamos hambre, en realidad, pero más que la comida ambos sabíamos que no íbamos a rechazar una invitación para compartir.
+Tomamos un desayuno sencillo y nos pusimos en la tarea de _armar la moto_, ese ritual de encaramar el equipaje encima de la moto de formas infinitamente creativas. En esas se nos acercó Silvi, una de las personas con las que habíamos compartido la caminata del día anterior y que habían rematado la jornada hasta las últimas consecuencias. -¿Ya comieron algo chiquillos? preguntó. -Sí, respondimos. No debimos sonar muy convincentes ya que 15 minutos después regresó para ofrecernos algo de pasta con jurel. Intercambiamos una mirada rápida con Sergio, sabiendo que la respuesta iba a ser afirmativa. No teníamos hambre, en realidad, pero más que la comida ambos sabíamos que no íbamos a rechazar una invitación para compartir.
 
 Estuvimos listos para salir a las 12:30, tarde, incluso para nuestros laxos estándares motoqueros. Igual teníamos ganas de avanzar más hacia el norte por la carretera austral y el día estaba lindo. Queríamos aprovechar los cada vez más escasos días de sol ya que el otoño se aproximaba amenazante la lluvia. Así que arrancamos con dirección a Chaitén, disfrutando a paso tranquilo los paisajes inexplicables que acompañan la carretera, lienzos verdes que se extienden a lo lejos hasta convertirse en picos rocosos azules cubiertos de nieve.
 
@@ -30,8 +32,6 @@ Me paré en la moto y empecé a fluir con la carretera, probando los límites de
 ![Selva Patagónica](/assets/img/isla-sigma-3.jpg "Selva Patagónica")
 
 Esperé a Sergio unos minutos hasta que lo vi aparecer, mirándome desde dentro del casco con la cara abultada por la sonrisa que ll vana debajo, incrédulo del lugar al que habíamos llegado. Soltamos un par de carcajadas y nos abrazamos para liberar la adrenalina del momento. Sacamos un par de fotos de esas que fallan en capturar la magnitud del lugar y aprovechamos para intercambiar comentarios de la ruta y las motos. --Esto está muy bueno. Sigamos, creo que todavía nos falta la mejor parte. Dijo Sergio.
-
-
 
 ![El camino a Isla Sigma](/assets/img/isla-sigma-4.png "El camino a Isla Sigma")
 
@@ -72,3 +72,4 @@ Nos cruzamos unos cuantos minutos después caminando la playa en direcciones opu
 Sergio empezó a correr rio arriba para perseguirlos, una parte de él quería nadar detrás de ellos a pesar de la futilidad de tratar de perseguir un delfín nadando contra corriente. Yo corrí detrás de él, sintiendo que los estabamos alcanzando a pesar que cada 20 segundos las aletas se mostraban ligeramente más distantes, como si quisieran que los persiguieramos dejando claro que nunca los ibamos a alcanzar. Desistimos después de correr al menos una cancha de fútbol mientras recuperabamos el aire y los veíamos adentrarse en el continente.
 
 Volvimos al campamento, contemplamos el lugar, brindamos de nuevo, nos abrazamos. Alguno repitió nuestro mantra ¿A qué vinimos?. No recuerdo la respuesta, en este momento pero sí tengo muy claro, por qué llegamos a este lugar, por qué vivimos este día, y por qué lo nombramos Isla Sigma: una parte era filosofía de viaje y la otra un estado mental. Apertura y aceptación. De estar más atentos del camino que del destino, de apreciar que un obstáculo que cierra una puerta puede abrir tres. De arriesgarse a recorrer los caminos que se presentan y dejar ir los que estabamos buscando. De fluir con la inifinta aleatoreidad de la vida en lugar de resistirla. Porque es al final de esos caminos no buscados, de las selvas inesperadas, de los barcos que no sabíamos que no estaban esperando, de los pantanos que cruzan a playas escondidas, que se encuentra Isla Sigma. Y en Isla Sigma, hay delfines.
+
