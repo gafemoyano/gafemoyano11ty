@@ -1,18 +1,19 @@
 ---
+layout: layouts/post.njk
 title: Isla Sigma
 date: 2022-09-19T15:24:22.900Z
 featured_image: /assets/img/img_20220319_145006.jpg
 featured_image_alt: El camino a Isla Sigma
 image_caption: El camino a Isla Sigma
-description: Memorias del sur. No hay un camino que conduzca a Isla Sigma, es más bien el rechazo del camino preestablecido y la decisión cruzar las puertas que se abren sin saber qué hay detrás de ellas las que finalmente llevan allí.
-layout: layouts/post.njk
+description: Memorias del sur. No hay un camino que conduzca a Isla Sigma, es
+  más bien el rechazo del camino preestablecido y la decisión cruzar las puertas
+  que se abren sin saber qué hay detrás de ellas las que finalmente llevan allí.
 ---
-
 La tarde terminó con delfines nadando a nuestro lado mientras corríamos por una playa junto al mar a la que llegamos inesperadamente. Me gustaría decir que nadamos con ellos, y por poco fue así, pero la historia es otra.
 
 Amanecimos en Puyuhuapi después de una noche que se iba yendo por las ramas. Agotados de un día de caminata en el glaciar Ventisquero Colgante los viajeros del camping se habían reunido a la hora de la cena para comer, conversar y tomar unos tragos hasta bien entrada noche. Fuimos a dormir sin pactar una hora de salida. Es una de esas reglas no escritas de este viaje: arrancamos cuando nos levantemos. No tiene mucho sentido establecer hora de salida cuando no existe una de llegada.
 
-Tomamos un desayuno sencillo y nos pusimos en la tarea de _armar la moto_, ese ritual de encaramar el equipaje encima de la moto de formas infinitamente creativas. En esas se nos acercó Silvi, una de las personas con las que habíamos compartido la caminata del día anterior y que habían rematado la jornada hasta las últimas consecuencias. -¿Ya comieron algo chiquillos? preguntó. -Sí, respondimos. No debimos sonar muy convincentes ya que 15 minutos después regresó para ofrecernos algo de pasta con jurel. Intercambiamos una mirada rápida con Sergio, sabiendo que la respuesta iba a ser afirmativa. No teníamos hambre, en realidad, pero más que la comida ambos sabíamos que no íbamos a rechazar una invitación para compartir.
+Tomamos un desayuno sencillo y nos pusimos en la tarea de *armar la moto*, ese ritual de encaramar el equipaje encima de la moto de formas infinitamente creativas. En esas se nos acercó Silvi, una de las personas con las que habíamos compartido la caminata del día anterior y que habían rematado la jornada hasta las últimas consecuencias. -¿Ya comieron algo chiquillos? preguntó. -Sí, respondimos. No debimos sonar muy convincentes ya que 15 minutos después regresó para ofrecernos algo de pasta con jurel. Intercambiamos una mirada rápida con Sergio, sabiendo que la respuesta iba a ser afirmativa. No teníamos hambre, en realidad, pero más que la comida ambos sabíamos que no íbamos a rechazar una invitación para compartir.
 
 Estuvimos listos para salir a las 12:30, tarde, incluso para nuestros laxos estándares motoqueros. Igual teníamos ganas de avanzar más hacia el norte por la carretera austral y el día estaba lindo. Queríamos aprovechar los cada vez más escasos días de sol ya que el otoño se aproximaba amenazante la lluvia. Así que arrancamos con dirección a Chaitén, disfrutando a paso tranquilo los paisajes inexplicables que acompañan la carretera, lienzos verdes que se extienden a lo lejos hasta convertirse en picos rocosos azules cubiertos de nieve.
 
@@ -32,7 +33,7 @@ Me paré en la moto y empecé a fluir con la carretera, probando los límites de
 
 Esperé a Sergio unos minutos hasta que lo vi aparecer, mirándome desde dentro del casco con la cara abultada por la sonrisa que ll vana debajo, incrédulo del lugar al que habíamos llegado. Soltamos un par de carcajadas y nos abrazamos para liberar la adrenalina del momento. Sacamos un par de fotos de esas que fallan en capturar la magnitud del lugar y aprovechamos para intercambiar comentarios de la ruta y las motos. --Esto está muy bueno. Sigamos, creo que todavía nos falta la mejor parte. Dijo Sergio.
 
-![El camino a Isla Sigma](/assets/img/isla-sigma-4.png "El camino a Isla Sigma")
+![Hojas del tamaño de personas](/assets/img/isla-sigma-5.png "Hojas del tamaño de personas")
 
 La siguiente hora transitó de una forma similar, períodos de concentración intensa en la ruta y dificultad seguida de momentos de contemplación del espacio que estábamos transitando. El rio, cada vez más grande a nuestra derecha y la montaña mostrándose caprichosamente curvas, siempre sin destaparse enteramente ante nosotros.
 
@@ -54,17 +55,17 @@ Unos metros más adelante encontramos el siguiente obstáculo. -Ahora le toca a 
 
 Paramos en un aviso que leía --Solo vehículos 4x4. Nos encogimos de hombros al unísono de los motores sin detener y continuamos empujando nuestra suerte, pero el camino rápidamente se convirtió en arena fina arenoso y se lo estrechó al punto de que las maletas rozaban contra la vegetación. Fin del camino, hora de dar media vuelta. Hacía un calor, sofocante y húmedo, no sólo del ambiente sino del esfuerzo físico. --Yo no sé usted, pero yo voy a ir a darme un chapuzón en ese claro que pasamos hace unos minutos. Gran idea, pensé yo un tanto aliviado que finalmente habíamos terminado de avanzar.
 
-Volvimos unos cuantos metros a un claro en el que se entraba a una playa de arena. Corría un río caudaloso con una corriente fuerte, sin embargo el color era mucho más oscuro que el verde esmeralda que nos había acompañado siempre a nuestra derecha. Del otro lado se veían unas montañas y acantalidos cubiertos de la misma vegatión intensa y en el fondo se alcanzaba ver una enorme montaña chata cubierta de nieve. Pájaros de distintas especies llenaban el ambiente con sus ruidos, pasando interminablemente hacia arriba y abajo del río. No había rastros de ninguna otra persona.
+Retrocedimos un poco a un claro por donde se entraba a una playa de arena. Corría un río caudaloso con una corriente fuerte, sin embargo el color era mucho más oscuro que el verde esmeralda que nos había acompañado siempre a nuestra derecha. Del otro lado se veían unas montañas y acantilados cubiertos de la misma vegetación intensa y en el fondo se alcanzaba ver una enorme montaña chata cubierta de nieve. Pájaros de distintas especies llenaban el ambiente con sus ruidos, pasando interminablemente hacia arriba y abajo del río. No había rastros de ninguna otra persona. 
 
 ![Una playa, un nevado, una selva](/assets/img/isla-sigma-11.png "Una playa, un nevado, una selva")
 
-Dejamos las motos, la ropa y el kit de manejo colgado en los manubrios como un perchero y nos preparamos para entrar al agua. Yo cargaba una botella de ron escondida hace unos días, esperando el momento indicado para revelársela a mi compañero en el momento preciso. Me acerqué con ella y le brindé un trago del ron re-envasado en botella de plástico a un Sergio Andrés que contemplaba el paisaje al que acababamos de llegar. -Qué belleza. Estos son ese tipo de lugares a los que uno solo llega en moto. Dijo conmocionado por el lugar.
+Dejamos las motos, la ropa y el kit de manejo colgado en los manubrios como un perchero y nos preparamos para entrar al agua. Yo cargaba una botella de ron escondida hace unos días, esperando el momento indicado para revelársela a mi compañero en el momento preciso. Me acerqué con ella y le brindé un trago del ron re-envasado en botella de plástico a un Sergio Andrés que contemplaba el paisaje al que acabábamos de llegar. -Qué belleza. Estos son ese tipo de lugares a los que uno solo llega en moto. Dijo conmocionado por el lugar.
 
 Salí corriendo al agua y salté en ella para no alargar la agonía de descubrir qué temperatura tenía, pero lo sorprendente no fue lo fría que estaba, sino el sabor salado que tenía. Es agua de mar? me pregunté. Debíamos de estar muy cerca a la desembocadura. Nos dejamos arrastrar un rato por la corriente fuerte que llevaba, seguramente, al mar. Sergio se adelantó, presumiendo sus dotes de buen nadador. Ojalá no se ahogue ese desgraciado, pensé.
 
-Me dejé llevar por la corriente unos metros más hasta que el agua, hace unos minutos refrescante, ahora empezaba a hacerme a sentirse helada. Sabiendo que mi compañero iba a tardar un rato más en terminar su experiencia náutica, decidí salir a calentarme con un poco de ron, un cigarrillo y jugar a capturar con la cámara lo inexplicable de este lugar.
+Me dejé llevar por la corriente hasta que el agua, hace unos minutos refrescante, ahora empezaba a sentirse helada. Sabiendo que mi compañero iba a tardar un rato en terminar su experiencia náutica, decidí salir a calentarme con un poco de ron, un cigarrillo y jugar a capturar con la cámara lo inexplicable del lugar.
 
-Nos cruzamos unos cuantos minutos después caminando la playa en direcciones opuestas. La cara de mi compañero era de éxtasis, como si el lugar le diera energía de vida. - Hay un ruido extraño, de un animal distinto a un pájaro - dijo Sergio. - Sí, he notado un ruido extraño, contesté. - Solo falta que se nos aparezca una ballena, dijo. Me reí por poco tiempo de la hiperbólica idea hasta que me interrumpió un grito - ¡Marica un delfín! Sergio señaló con el dedo el lugar, donde no vi más que unas ondas casi indistinguibles sobre el agua. Alisté el teléfono y empecé a grabar anticipadamente, sabiendo que los delfines tienden a mostrarse más de una vez. Unos segundos después un par de aletas trazaron una medialuna sobre el agua cerca a la orilla casi en frente de nosotros.
+Nos cruzamos unos minutos después caminando la playa en direcciones opuestas. La cara de mi compañero era de éxtasis, como si el lugar le diera energía de vida. - Hay un ruido extraño, de un animal distinto a un pájaro - dijo Sergio. - Sí, he notado un ruido extraño, contesté. - Solo falta que se nos aparezca una ballena, dijo. Me reí por poco tiempo de la hiperbólica idea hasta que me interrumpió un grito - ¡Marica un delfín! Sergio señaló con el dedo el lugar, donde no vi más que unas ondas casi indistinguibles sobre el agua. Alisté el teléfono y empecé a grabar anticipadamente, sabiendo que los delfines tienden a mostrarse más de una vez. Unos segundos después un par de aletas trazaron una medialuna sobre el agua cerca a la orilla casi en frente de nosotros.
 
 ![Arenita playita](/assets/img/isla-sigma-12.jpg "Arenita playita")
 
