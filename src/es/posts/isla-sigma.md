@@ -33,7 +33,7 @@ Me paré en la moto y empecé a fluir con la carretera, probando los límites de
 
 Esperé a Sergio unos minutos hasta que lo vi aparecer, mirándome desde dentro del casco con la cara abultada por la sonrisa que ll vana debajo, incrédulo del lugar al que habíamos llegado. Soltamos un par de carcajadas y nos abrazamos para liberar la adrenalina del momento. Sacamos un par de fotos de esas que fallan en capturar la magnitud del lugar y aprovechamos para intercambiar comentarios de la ruta y las motos. --Esto está muy bueno. Sigamos, creo que todavía nos falta la mejor parte. Dijo Sergio.
 
-![Hojas del tamaño de personas](/assets/img/isla-sigma-5.png "Hojas del tamaño de personas")
+![Hojas del tamaño de personas](/assets/img/camacho-dazzled.png "Hojas del tamaño de personas")
 
 La siguiente hora transitó de una forma similar, períodos de concentración intensa en la ruta y dificultad seguida de momentos de contemplación del espacio que estábamos transitando. El rio, cada vez más grande a nuestra derecha y la montaña mostrándose caprichosamente curvas, siempre sin destaparse enteramente ante nosotros.
 
