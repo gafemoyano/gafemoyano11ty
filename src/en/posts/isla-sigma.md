@@ -6,6 +6,7 @@ featured_image_alt: El camino a Isla Sigma
 image_caption: El camino a Isla Sigma
 description: Memorias del sur. No todos los caminos conducen a Isla Sigma, pero
   una decisión a la vez se abre paso el camino a lugares inesperados.
+layout: layouts/post.njk
 ---
 
 Translation Pending.
