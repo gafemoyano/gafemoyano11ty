@@ -13,7 +13,7 @@ description: "Acompáñame en esta experiencia de aprender en público acerca de
           Felipe Moyano
         </h1>
         <h2 class="max-w-xl mt-6 text-lg font-bold leading-6 text-center text-gray-800 md:leading-8 md:text-2xl">
-          Construyo productos de tecnología, escribo código y lidero equipos de ingeniería.          
+          Construyo productos de tecnología, escribo código y lidero equipos de ingeniería.
         </h2>
       </div>
     </div>
@@ -28,7 +28,7 @@ description: "Acompáñame en esta experiencia de aprender en público acerca de
         Mi nombre es Felipe Moyano. Soy ingeniero de sistemas, desarrollador web y emprendedor en una vida pasada.
       </p>
       <p>
-        Actualmente me encuentro liderando el equipo de producto en <a href="https://sumz.co">Sumz</a> construyendo aplicaciones con los datos de uno de los grupos empresariales más grandes de Colombia.        
+        Actualmente me encuentro liderando el equipo de producto en <a href="https://sumz.co">Sumz</a> construyendo aplicaciones con los datos de uno de los grupos empresariales más grandes de Colombia.
       </p>
       <p>
         Antes de eso estuve estuve trabajando como uno de los co-fundadores de
@@ -54,21 +54,11 @@ description: "Acompáñame en esta experiencia de aprender en público acerca de
         Recent Articles
       </h2>
       <ul class="mt-2 ml-4 list-disc">
-        {%- for post in collections.spanishPosts | head(-3) | reverse -%}
+        {%- for post in collections.spanishPosts | head(-6) | reverse -%}
           <li class="mt-2">
             <a class="text-lg text-gray-700" href="{{post.url | url}}">{{ post.data.title }}</a>
           </li>
         {%- endfor -%}
-        <li class="mt-2">
-          <a class="text-lg text-gray-700" target="_blank" rel="noopener noreferrer" href="https://www.fullstacklabs.co/blog/building-a-responsive-filter-component-on-react">Cómo construir un popup responsive en React</a>
-        </li>
-        <li class="mt-2">
-          <a class="text-lg text-gray-700" target="_blank" rel="noopener noreferrer" href="https://www.fullstacklabs.co/blog/create-box-component-react-native-styled-system">Como crear un componente Box con Style System
-          </a>
-        </li>
-        <li class="mt-2">
-          <a class="text-lg text-gray-700" target="_blank" rel="noopener noreferrer" href="https://www.fullstacklabs.co/blog/optimizing-graphql-query-problems-ruby-on-rails">Optimizar problemas de N+1 queries con GraphQL y Ruby on Rails</a>
-        </li>
       </ul>
   </ul>
 </div>

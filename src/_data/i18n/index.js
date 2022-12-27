@@ -6,15 +6,12 @@ module.exports = {
   },
   signup: {
     title: {
-      en: "Let's learn together about about coding, products, teams.",
-      es:
-        "Aprendamos juntos acerca de desarrollo, productos, equipos de tecnología.",
+      en: "Want to receive updates when I post something new?",
+      es: "¿Quiere recibir un mensaje cuando haya nuevos artículos?",
     },
     description: {
-      en:
-        "You'll receive notifications about new articles. I'll never spam you and you can unsuscribe whenever you want.",
-      es:
-        "Recibe notificacionese sobre nuevos artículos. Nunca voy a enviar spam y te puedes desuscribir cuando quieras.",
+      en: "I don't do it as often as I'd like and probably less than you'd expect. But still, if you liked what you read, why not?",
+      es: "Deja tu correo y tu nombre. No escribo tanto como quisiera y seguramente menos de lo que esperarías. Pero, si te ha gustado lo que has leído hasta el momento, ¿por qué no?",
     },
   },
   nav: {

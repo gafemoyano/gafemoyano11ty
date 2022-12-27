@@ -38,7 +38,7 @@ description: "Join me on my journey to learnin public about web development, des
       <p>
         I'm currently a leading the product team at <a href="https://sumz.co">Sumz</a> where we're building experiences with data from one of the largest business groups in Colombia.
       </p>
-      <p>      
+      <p>
         Before that I spent my last couple of years as CTO and co-founder of
         <a href="https://savy.co">Savy</a>, a Fitness and wellness marketplace that aimed to provide maximum flexibility to users and gyms by charging hourly based on a simple demand/offer model. Unfurtunately, due to COVID-19 we were forced to shut down.
       </p>
@@ -62,21 +62,11 @@ description: "Join me on my journey to learnin public about web development, des
         Recent Articles
       </h2>
       <ul class="mt-6 ml-4 list-disc">
-        {%- for post in collections.englishPosts | head(-3) | reverse -%}
+        {%- for post in collections.englishPosts | head(-6) | reverse -%}
           <li class="mt-2">
             <a class="text-lg text-gray-700" href="{{post.url | url}}">{{ post.data.title }}</a>
           </li>
         {%- endfor -%}
-        <li class="mt-2">
-          <a class="text-lg text-gray-700" target="_blank" rel="noopener noreferrer" href="https://www.fullstacklabs.co/blog/building-a-responsive-filter-component-on-react">Building a Responsive Filter Component on React</a>
-        </li>
-        <li class="mt-2">
-          <a class="text-lg text-gray-700" target="_blank" rel="noopener noreferrer" href="https://www.fullstacklabs.co/blog/create-box-component-react-native-styled-system">How to Create a Box Component in React Native with Styled System
-          </a>
-        </li>
-        <li class="mt-2">
-          <a class="text-lg text-gray-700" target="_blank" rel="noopener noreferrer" href="https://www.fullstacklabs.co/blog/optimizing-graphql-query-problems-ruby-on-rails">Optimizing GraphQL N+1 query problems in Ruby on Rails</a>
-        </li>
       </ul>
     </div>
   </section>
