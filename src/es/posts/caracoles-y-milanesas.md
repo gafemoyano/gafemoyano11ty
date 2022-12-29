@@ -14,7 +14,7 @@ tags:
 
 ## 11 de marzo de de 2022
 
-De hoy no tengo casi fotos. De por sí es difícil capturar **momentos** en la ruta. El problema no es que sea difícil detenerse y sacar la cámara. El problema es que es demasiado fácil hacerlo. El verdadero problema es que así uno pare cada 100 metros es imposible capturar algunos lugares porque simplemente no caben en una imagen. Lugares Inconmesurables, como llegaría a llamarlos un amigo. Pero este día particularmente, fue más difícil. Y ya que no contamos con imágenes para recordarlo, bastarán las palabras.
+De hoy no tengo casi fotos. De por sí es difícil capturar **momentos** en la ruta. El problema no es que sea difícil detenerse y sacar la cámara. El problema es que es demasiado fácil hacerlo. Y es que así uno pare cada 100 metros es imposible capturar algunos lugares porque simplemente no caben en una imagen. Lugares Inconmesurables, como llegaría a llamarlos un amigo. Pero este día particularmente, fue más difícil. Y ya que no contamos con imágenes para recordarlo, bastarán las palabras.
 
 El día empezó, con el sinsabor de una despedida y pintaba que iba a ser un día de ruta largo. El plan era salir de Calafate y llagar a Gobernador Gregores o incluso Bajo Caracoles, si nos iba bien por el ripio de los 73 malditos. Eran kilómetros que ya habíamos recorrido y paisajes que ya habíamos visto, en el sentido contrario. No tenía mucha expectativa más que llegar a la estación de Bajo Caracoles y pedir el sánguche de milanesa más salvaje que conozco.
 
