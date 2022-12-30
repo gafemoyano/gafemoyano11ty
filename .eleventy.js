@@ -6,6 +6,7 @@ const markdownItAnchor = require("markdown-it-anchor")
 const pluginSyntaxHighlight = require("@11ty/eleventy-plugin-syntaxhighlight")
 const i18n = require("eleventy-plugin-i18n")
 const translations = require("./src/_data/i18n")
+const markdownItFootnote = require("markdown-it-footnote")
 
 module.exports = function (eleventyConfig) {
   // Plugins
@@ -78,11 +79,13 @@ module.exports = function (eleventyConfig) {
     html: true,
     breaks: true,
     linkify: true,
-  }).use(markdownItAnchor, {
-    permalink: true,
-    permalinkClass: "direct-link",
-    permalinkSymbol: "#",
   })
+    .use(markdownItAnchor, {
+      permalink: true,
+      permalinkClass: "direct-link",
+      permalinkSymbol: "#",
+    })
+    .use(markdownItFootnote)
   eleventyConfig.setLibrary("md", markdownLibrary)
 
   //Collections

@@ -8,4 +8,4 @@ description: Memorias del sur. No hay un camino que conduzca a Isla Sigma, es m√
 layout: layouts/post.njk
 ---
 
-Translation Pending. Article only available in a.href="/es/isla-sigma"
+I'll probably write this translation _some day_. In the meantime, this article is only available in [spanish](/es/posts/isla-sigma/).

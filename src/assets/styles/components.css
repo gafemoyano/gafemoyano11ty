@@ -1,5 +1,5 @@
 a {
-  @apply text-gray-900 font-medium;
+  @apply font-medium text-gray-900;
   &:hover {
     @apply text-red-700;
   }
@@ -9,7 +9,7 @@ a {
 }
 
 .content {
-  @apply text-gray-700 text-base leading-normal;
+  @apply text-base leading-normal text-gray-700;
 
   > * + *:not(:first-child) {
     @apply mt-4;
@@ -28,7 +28,7 @@ a {
   }
 
   ul {
-    @apply list-disc pl-6;
+    @apply pl-6 list-disc;
 
     li {
       @apply mb-2;
@@ -36,7 +36,7 @@ a {
   }
 
   ol {
-    @apply list-decimal pl-6;
+    @apply pl-6 list-decimal;
   }
 
   strong {
@@ -48,6 +48,10 @@ a {
     box-decoration-break: clone;
     @apply inline-block px-1 rounded-sm;
   }
+
+  .footnotes {
+    @apply text-sm;
+  }
 }
 @screen md {
   .content {
@@ -58,7 +62,7 @@ a {
     }
 
     h2 {
-      @apply leading-loose text-3xl;
+      @apply text-3xl leading-loose;
     }
 
     h3 {
