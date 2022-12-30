@@ -2,7 +2,7 @@
 layout: layouts/post.njk
 title: Caracoles y Milanesas
 date: 2022-12-26
-featured_image: /assets/img/articles/camino-a-bajo-caracoles.jpg
+featured_image: /assets/img/img_20220319_145006.jpg
 featured_image_alt: Un atardecer de todos los colores
 image_caption: "Esta es una foto con historia. En su momento, imaginé que sería parte de una serie. Múltiples fotos de momentos que llevan una historia detrás. Pero debo admitirme a mi mismo que solo habrá esta foto con esta historia. Fue tomada por @sergio2146 y es el único registro del atardecer más espectacular que he vivido.
 description: Memorias del sur. Al final del atardecer hay un sánguche esperando."
@@ -14,11 +14,9 @@ tags:
 
 ## 11 de marzo de de 2022
 
-De hoy no tengo casi fotos. De por sí es difícil capturar momentos en la ruta. El problema no es que sea difícil detenerse y sacar la cámara. El problema es que es demasiado fácil. Y es que así uno pare cada 100 metros es imposible capturar algunos lugares porque simplemente no caben en una imagen. Lugares Inconmesurables, como llegaría a llamarlos mi compañero Sergio. Pero este momento en particular me fue imposible. Esta foto fue tomada por Sergio y ya que no contamos con otras imágenes para recordarlo bastarán las palabras.
+De hoy no tengo casi fotos. De por sí es difícil capturar **momentos** en la ruta. El problema no es que sea difícil detenerse y sacar la cámara. El problema es que es demasiado fácil hacerlo. Y es que así uno pare cada 100 metros es imposible capturar algunos lugares porque simplemente no caben en una imagen. Lugares Inconmesurables, como llegaría a llamarlos un amigo. Pero este día particularmente, fue más difícil. Y ya que no contamos con imágenes para recordarlo, bastarán las palabras.
 
-El día empezó con el sinsabor de una despedida. Nos separábamos de una compañera con la que compartimos las últimas dos semanas de viaje, tal vez menos. Una eternidad en todo caso. Ella seguía su rumbo a Ushuaia y nosotros daríamos media vuelta hacia el norte, buscando cruzar a Chile.
-
-Pintaba que iba a ser un día de ruta largo. Después de unos cuantos días de quietud, estábamos bien descansados y las motos listas para arrancar. El plan era salir de Calafate y llagar al menos a Gobernador Gregores. Incluso Bajo Caracoles, si nos iba bien por el ripio de los 73 malditos. Eran kilómetros que ya habíamos recorrido y paisajes que ya habíamos visto, en el sentido contrario. No tenía mucha expectativa más que llegar a la estación de Bajo Caracoles y pedir el sánguche de milanesa más salvaje que conozco.
+El día empezó, con el sinsabor de una despedida y pintaba que iba a ser un día de ruta largo. El plan era salir de Calafate y llagar a Gobernador Gregores o incluso Bajo Caracoles, si nos iba bien por el ripio de los 73 malditos. Eran kilómetros que ya habíamos recorrido y paisajes que ya habíamos visto, en el sentido contrario. No tenía mucha expectativa más que llegar a la estación de Bajo Caracoles y pedir el sánguche de milanesa más salvaje que conozco.
 
 Saliendo de Calafate fue evidente que el paisaje que tenía en frente no era el mismo que había visto al llegar. El día estaba completamente despejado y se podían ver todos los picos nevados frente a Calafate hasta el distintivo cuerno del Fitz Roy al norte. Los lagos brillaban de un color verde esmeralda intenso por el reflejo del sol y vimos volar un cóndor a lo lejos. Con el tiempo es fácil distinguirlos: figuras inmóviles que se mueven a toda velocidad en el aire. Después pasó uno más por encima de la carretera, un macho según lo indica su collar blanco. Me pareció una gran despedida de un lugar al que estuvimos tratando de llegar durante semanas.
 
