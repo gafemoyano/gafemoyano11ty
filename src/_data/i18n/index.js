@@ -7,7 +7,7 @@ module.exports = {
   signup: {
     title: {
       en: "Want to receive updates when I post something new?",
-      es: "¿Quiere recibir un mensaje cuando haya nuevos artículos?",
+      es: "¿Te gustaría recibir un mensaje cuando haya nuevos artículos?",
     },
     description: {
       en: "I don't do it as often as I'd like and probably less than you'd expect. But still, if you liked what you read, why not?",
