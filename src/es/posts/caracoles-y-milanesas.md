@@ -14,7 +14,7 @@ tags:
 
 ## 11 de marzo de de 2022
 
-De hoy no tengo casi fotos. De por sí es difícil capturar momentos en la ruta. El problema no es que sea difícil detenerse y sacar la cámara. El problema es que es demasiado fácil. Y es que así uno pare cada 100 metros es imposible capturar algunos lugares porque simplemente no caben en una imagen. Lugares Inconmesurables, como llegaría a llamarlos mi compañero Sergio. Pero este momento en particular me fue imposible. Esta foto fue tomada por Sergio y ya que no contamos con otras imágenes para recordarlo bastarán las palabras.
+De hoy no tengo casi fotos. De por sí es difícil capturar momentos en la ruta. El problema no es que sea difícil detenerse y sacar la cámara. El problema es que es demasiado fácil. Y es que así uno pare cada 100 metros es imposible capturar algunos lugares porque simplemente no caben en una imagen. Lugares Inconmesurables, como llegaría a llamarlos mi compañero Sergio. Pero este momento en particular me fue imposible. Esta foto fue tomada por Sergio y ya que no cuento con otras imágenes para recordarlo bastarán las palabras.
 
 El día empezó con el sinsabor de una despedida. Nos separábamos de una compañera con la que compartimos las últimas dos semanas de viaje, tal vez menos. Una eternidad en todo caso. Ella seguía su rumbo a Ushuaia y nosotros daríamos media vuelta hacia el norte, buscando cruzar a Chile.
 
