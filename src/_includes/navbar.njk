@@ -26,16 +26,14 @@
             <a href="/{{ locale }}/about" class="px-3 py-2 mt-2 text-sm font-medium leading-5 text-gray-700 duration-150 ease-in-out border-b-4 border-transparent hover:border-b-4 hover:border-red-600 focus:outline-none focus:border-red-600 tansition">{{"nav.about" | i18n}}</a>
 
             <div class="relative" x-data="{ open: false}" @mouseenter="open = true" @mouseleave=" open = false" @click.away="open = false">
-              <button class="px-3 py-2 mt-2 text-sm font-medium leading-5 text-gray-700 duration-150 ease-in-out border-b-4 border-transparent hover:border-b-4 focus:outline-none tansition">
-                <img class="w-4 h-4" src="/assets/img/{{icon}}" alt="">
-              </svg>
-            </button>
+              <button class="px-3 py-2 mt-2 text-sm font-medium leading-5 duration-150 ease-in-out border-b-4 border-transparent hover:border-b-4 focus:outline-none tansition">
+                <span class="inline-flex items-center justify-center w-7 h-7 text-xs font-semibold uppercase rounded-full bg-red-100 text-red-600 transition-all duration-150 hover:bg-red-200 hover:text-red-700">{{ locale }}</span>
+              </button>
             <div x-show="open" class="absolute right-0 z-10 w-48 rounded-md shadow-lg" x-transition:enter="transition ease-out duration-100" x-transition:enter-start="transform opacity-0 scale-95" x-transition:enter-end="transform opacity-100 scale-100" x-transition:leave="transition ease-in duration-75" x-transition:leave-start="transform opacity-100 scale-100" x-transition:leave-end="transform opacity-0 scale-95">
               <div class="py-1 bg-white rounded-md shadow-xs">
                 {% for locale in locales -%}
-                  <a class="flex items-center px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" href="/{{ locale.code }}/{{ pageUrl }}" rel="alternate" hreflang="{{ locale.code }}">
-                    <img class="w-4 h-4" src="/assets/img/{{locale.icon}}" alt="">
-                    <span class="ml-2">{{ locale.label | capitalize }}</span>
+                  <a class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" href="/{{ locale.code }}/{{ pageUrl }}" rel="alternate" hreflang="{{ locale.code }}">
+                    {{ locale.label | capitalize }}
                   </a>
                 {% endfor -%}
               </div>
@@ -75,8 +73,7 @@
 
       {% for locale in locales -%}
         <a class="block px-3 py-2 text-base font-medium text-red-600 rounded-md hover:text-white hover:bg-red-600 focus:outline-none focus:text-white focus:bg-red-700" href="/{{ locale.code }}/{{ pageUrl }}" rel="alternate" hreflang="{{ locale.code }}">
-          <img class="w-4 h-4" src="/assets/img/{{locale.icon}}" alt="">
-          <span class="ml-2">{{ locale.label | capitalize }}</span>
+          {{ locale.label | capitalize }}
         </a>
       {% endfor -%}
     </div>
