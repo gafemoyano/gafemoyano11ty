@@ -7,6 +7,7 @@ const pluginSyntaxHighlight = require("@11ty/eleventy-plugin-syntaxhighlight")
 const i18n = require("eleventy-plugin-i18n")
 const translations = require("./src/_data/i18n")
 const markdownItFootnote = require("markdown-it-footnote")
+const Image = require("@11ty/eleventy-img")
 
 module.exports = function (eleventyConfig) {
   // Plugins
@@ -16,6 +17,26 @@ module.exports = function (eleventyConfig) {
     fallbackLocales: {
       "*": "en",
     },
+  })
+
+  eleventyConfig.addShortcode("image", function(src, alt, widths = [400, 800, 1200], sizes = "(min-width: 768px) 50vw, 100vw") {
+    let imageSrc = src.startsWith("/") ? "." + src : src
+    let options = {
+      widths: widths,
+      formats: ["webp", "jpeg"],
+      outputDir: "./_site/assets/img/",
+      urlPath: "/assets/img/"
+    }
+
+    Image(imageSrc, options)
+      .then(data => {
+        let largestImage = data.jpeg[data.jpeg.length - 1]
+        return `<img src="${largestImage.url}" alt="${alt}" class="w-full h-auto" loading="lazy">`
+      })
+      .catch(err => {
+        console.error("Error generating image:", err)
+        return `<img src="${src}" alt="${alt}" class="w-full h-auto" loading="lazy">`
+      })
   })
 
   // Filters
