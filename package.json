@@ -9,7 +9,7 @@
     "eleventy": "npx @11ty/eleventy --serve",
     "css": "npx @tailwindcss/cli -i src/assets/styles/tailwind.css -o _site/assets/styles/tailwind.css -w",
     "browsersync": "browser-sync start --server '_site' --files '_site' --port 8080 --no-notify --no-open",
-    "build": "cross-env ELEVENTY_ENV=production npx @11ty/eleventy & npx @tailwindcss/cli -i src/assets/styles/tailwind.css -o _site/assets/styles/tailwind.css --minify",
+    "build": "cross-env ELEVENTY_ENV=production npx @11ty/eleventy && npx @tailwindcss/cli -i src/assets/styles/tailwind.css -o _site/assets/styles/tailwind.css --minify",
     "clean": "npx rimraf _site"
   },
   "keywords": [],
