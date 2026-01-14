@@ -23,7 +23,6 @@
 
             <a href="/{{ locale }}/projects" class="px-3 py-2 mt-2 text-sm font-medium leading-5 text-gray-700 duration-150 ease-in-out border-b-4 border-transparent hover:border-b-4 hover:border-lime-600 focus:outline-none focus:border-lime-600 tansition font-sans">{{"nav.projects" | i18n}}</a>
 
-            <a href="/{{ locale }}/about" class="px-3 py-2 mt-2 text-sm font-medium leading-5 text-gray-700 duration-150 ease-in-out border-b-4 border-transparent hover:border-b-4 hover:border-lime-600 focus:outline-none focus:border-lime-600 tansition font-sans">{{"nav.about" | i18n}}</a>
 
             <div class="relative" x-data="{ open: false}" @mouseenter="open = true" @mouseleave=" open = false" @click.away="open = false">
               <button class="px-3 py-2 mt-2 text-sm font-medium leading-5 duration-150 ease-in-out border-b-4 border-transparent hover:border-b-4 focus:outline-none tansition font-sans">
