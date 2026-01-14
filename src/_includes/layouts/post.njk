@@ -12,14 +12,14 @@
 {% block content %}
 
   <div class="w-full max-w-3xl px-6 mx-auto md:px-0">
-    <h1 class="mt-6 text-2xl font-bold leading-6 md:leading-tight md:text-4xl">{{ title }}</h1>
+    <h1 class="mt-6 text-2xl font-bold leading-6 md:leading-loose md:text-4xl">{{ title }}</h1>
     <div class="mt-2">
       <div class="inline-flex space-x-2">
         {% for l in locales -%}
           {% if locale == l.code %}
-            {% set classNames = "text-lime-800 underline hover:bg-gray-100 font-bold" %}
+            {% set classNames = "text-lime-800 underline hover:bg-gray-100 font-bold font-sans" %}
           {% else %}
-            {% set classNames = "text-lime-600 hover:text-lime-800 hover:underline" %}
+            {% set classNames = "text-lime-600 hover:text-lime-800 hover:underline font-sans" %}
           {% endif %}
           <a class="{{classNames}}" href="/{{ l.code }}/{{ pageUrl }}" rel="alternate" hreflang="{{ l.code }}">
             {{ l.label | capitalize }}

@@ -11,58 +11,40 @@ dir: "ltr"
       <h1 class="text-4xl font-bold text-gray-900 font-display">
         Articles
       </h1>
-      <ul class="mt-12 space-y-12">
+
+      <div class="mt-12 space-y-6">
         {%- for post in collections.englishPosts | reverse -%}
-          <li class="group relative">
-            <div class="absolute -inset-y-4 -inset-x-6 z-0 scale-95 bg-gray-100 opacity-0 transition group-hover:scale-100 group-hover:opacity-100 sm:rounded-2xl"></div>
-
-            <article class="relative z-10 flex flex-col sm:flex-row gap-2 sm:gap-8">
-              <!-- Date Column -->
-              <div class="sm:w-32 shrink-0">
-                <time datetime="{{ post.data.date | htmlDateString }}" class="text-sm font-body text-gray-400 group-hover:text-lime-700 transition-colors pl-3 border-l-2 border-transparent group-hover:border-lime-500">
-                  {{ post.data.date | readableDate }}
-                </time>
-              </div>
-
-              <!-- Content -->
-              <div class="flex-1">
-                <h2 class="font-display text-2xl font-bold text-gray-800 tracking-tight transition-colors group-hover:text-lime-700">
-                  <a href="{{ post.url | url }}" class="focus:outline-none">
-                    <span class="absolute inset-0"></span>
-                    {{ post.data.title }}
-                  </a>
-                </h2>
-                {% if post.data.description %}
-                  <p class="mt-3 font-body text-gray-600 leading-relaxed line-clamp-2">
-                    {{ post.data.description }}
-                  </p>
-                {% endif %}
-                <div class="mt-4 flex items-center gap-2 text-sm font-medium text-lime-700 opacity-0 -translate-x-2 transition-all group-hover:opacity-100 group-hover:translate-x-0">
-                  Read article <span>&rarr;</span>
+        <a href="{{ post.url | url }}" class="group block font-normal">
+          <div class="flex flex-col sm:flex-row gap-3 sm:gap-6 items-start p-4 -mx-4 rounded-2xl transition-all duration-300 hover:bg-white hover:shadow-lg hover:shadow-gray-200/50">
+            <div class="sm:w-28 shrink-0 flex flex-col gap-3">
+              {% if post.data.featured_image %}
+                <div class="overflow-hidden rounded-lg aspect-video w-full">
+                  <img src="{{ post.data.featured_image }}"
+                       alt="{{ post.data.featured_image_alt }}"
+                       class="w-full h-full object-cover"
+                       loading="lazy">
                 </div>
-              </div>
-            </article>
-          </li>
+              {% endif %}
+              <time class="text-sm font-mono text-gray-500 group-hover:text-gray-800 transition-colors">
+                {{ post.data.date | readableDate }}
+              </time>
+            </div>
+
+            <div class="flex-1 gap-2 flex flex-col">
+              <h3 class="font-body text-xl font-bold text-gray-800 group-hover:text-lime-700 transition-colors mb-2" style="text-box-trim: trim-both; text-box-edge: cap alphabetic;">
+                {{ post.data.title }}
+              </h3>
+
+              {% if post.data.description %}
+              <p class="font-sans text-gray-600 leading-relaxed line-clamp-2">
+                {{ post.data.description }}
+              </p>
+              {% endif %}
+            </div>
+          </div>
+        </a>
         {%- endfor -%}
-      </ul>
+      </div>
 
-      <hr class="mt-16">
-      <h2 class="mt-8 text-3xl font-bold text-gray-800 font-display">
-        Other stuff I've written
-      </h2>
-      <ul class="mt-2 ml-4 list-disc">
-
-        <li class="mt-2">
-          <a class="text-lg text-gray-700" target="_blank" rel="noopener noreferrer" href="https://www.fullstacklabs.co/blog/building-a-responsive-filter-component-on-react">Building a Responsive Filter Component on React</a>
-        </li>
-        <li class="mt-2">
-          <a class="text-lg text-gray-700" target="_blank" rel="noopener noreferrer" href="https://www.fullstacklabs.co/blog/create-box-component-react-native-styled-system">How to Create a Box Component in React Native with Styled System
-          </a>
-        </li>
-        <li class="mt-2">
-          <a class="text-lg text-gray-700" target="_blank" rel="noopener noreferrer" href="https://www.fullstacklabs.co/blog/optimizing-graphql-query-problems-ruby-on-rails">Optimizing GraphQL N+1 query problems in Ruby on Rails</a>
-        </li>
-      </ul>
-    </div>
   </section>
 {% endblock %}
