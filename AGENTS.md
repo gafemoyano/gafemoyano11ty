@@ -91,7 +91,8 @@ gafemoyano11ty/
   - `htmlDateString`: Formats dates as "yyyy-LL-dd"
   - `head`: Returns first n elements of a collection
 - **Custom Shortcodes**:
-  - `version`: Returns current timestamp (for cache busting)
+  - `version`: Returns `Date.now()` (timestamp) for cache busting
+  - `image`: Generates responsive WebP/JPEG images using `@11ty/eleventy-img` with lazy loading
 - **Passthrough Copies**:
   - `robots.txt`, `netlify.toml`
   - `src/assets/img`, `src/assets/fonts`, `src/assets/javascript`
@@ -272,6 +273,33 @@ Language-specific collections in `.eleventy.js`:
 
 ---
 
+## Asset Management
+
+### Image Organization
+- **Source**: `src/assets/img/`
+- **Usage**: Directly referenced in Markdown or templates (e.g., `featured_image`)
+- **Optimization**: An `image` shortcode using `@11ty/eleventy-img` is defined in `.eleventy.js` for generating responsive WebP/JPEG images
+- **CMS**: Images uploaded via CMS are placed in `src/assets/img/`
+
+### Fonts
+- **Local**: "Canela Deck" and "Canela Text" families are stored in `src/assets/fonts/` and defined via `@font-face` in `tailwind.css`
+- **CDN**: "Inter" is loaded via Google Fonts in `base.njk`, though local definitions also exist in `typography.css`
+
+### Cache Busting
+- **CSS**: Linked with a version parameter: `<link rel="stylesheet" href="/assets/styles/tailwind.css?v={% version %}"/>`
+- The `{% version %}` shortcode in `.eleventy.js` returns `Date.now()`, ensuring users always get the latest styles after a redeploy
+
+### Passthrough Copies
+All files in the following directories are copied directly to `_site/`:
+- `src/assets/img`
+- `src/assets/fonts`
+- `src/assets/javascript`
+- `robots.txt`, `netlify.toml`
+- `src/admin/config.yml` → `admin/config.yml`
+- Chartist.js files from `node_modules`
+
+---
+
 ## Content Types
 
 ### Blog Posts
@@ -379,9 +407,17 @@ Extends `base.njk` and includes:
 ### Setup
 
 **Entry Point**: `src/assets/styles/tailwind.css`
+
 ```css
 @import "tailwindcss";
+@import "./typography.css";
+@import "./components.css";
 ```
+
+**CSS Architecture**:
+- **tailwind.css**: Core imports and theme definitions (including @font-face for Canela fonts, @theme block for custom palette)
+- **typography.css**: Local @font-face definitions for "Inter" (though Inter is also loaded via Google Fonts)
+- **components.css**: Uses `@layer components` for global base styles and the `.content` utility (Markdown styling)
 
 **Build Process**:
 ```bash
@@ -394,12 +430,21 @@ npx @tailwindcss/cli -i src/assets/styles/tailwind.css -o _site/assets/styles/ta
 
 ### Design System
 
-**Colors**: Lime green as primary (`lime-600`, `lime-700`, `lime-800`)
-**Fonts**:
-- Body: Inter
-- Display/Headings: Kanit
-**Typography**: `font-body` (Inter), `font-display` (Kanit)
-**Background**: `bg-gray-50`
+**Colors**:
+- Primary accent: Lime green (`lime-600`, `lime-700`, `lime-800`)
+- Neutral grays: Custom warm stone palette using oklch values (overrides default Tailwind grays for a warmer tone)
+
+**Fonts** (defined in `@theme` block):
+- `--font-display`: Canela Deck (serif) - for headings and display text
+- `--font-body`: Canela Text (serif) - for long-form content and body text
+- `--font-sans`: Inter - for UI elements (navigation, buttons, labels)
+
+**Typography**:
+- `font-display`: Headings and display elements
+- `font-body`: Blog posts and article content
+- `font-sans`: Navigation, buttons, form elements
+
+**Background**: `bg-gray-50` (warm stone variant)
 **Text**: `text-gray-800`
 
 ### Common Patterns
@@ -420,6 +465,18 @@ npx @tailwindcss/cli -i src/assets/styles/tailwind.css -o _site/assets/styles/ta
   </div>
 </section>
 ```
+
+**Markdown Content Styling (`.content` class)**:
+The `.content` class defines how Markdown-generated elements are styled:
+- **Typography**: `font-body` with responsive sizing (base on mobile, lg on desktop)
+- **Headings**: Custom sizing with `font-display`, proper line heights
+- **Links**: Lime green (`lime-700`) with underline
+- **Lists**: Proper spacing and indentation
+- **Strong**: Gradient background with subtle gray tone, rounded corners
+- **Spacing**: Consistent vertical spacing between elements (responsive)
+- **Footnotes**: Smaller font size for footnote sections
+
+**Usage**: Wrap Markdown content in `<div class="content">` (already applied in `post.njk`)
 
 ---
 
@@ -689,6 +746,7 @@ eleventyConfig.addShortcode("myShortcode", (arg1, arg2) => {
 - **Tailwind v4**: Import-based (no config file needed)
 - **Modular**: Separate files for typography, components (imported into main)
 - **Cache Busting**: `?v={% version %}` query param on CSS link
+- **@theme Block**: Custom color palette (warm stone grays using oklch) and font family definitions
 
 ### Code Style
 
@@ -770,4 +828,4 @@ DEBUG=* npm run build
 
 ---
 
-*This document serves as a comprehensive reference for understanding and working with the gafemoyano11ty codebase. Last updated: January 9, 2026*
+*This document serves as a comprehensive reference for understanding and working with the gafemoyano11ty codebase. Last updated: January 14, 2026*
