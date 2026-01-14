@@ -1,11 +1,11 @@
+[[redirects]]
+  from = "/"
+  to = "/en"
+  status = 301
+
 [build]
   publish = "_site"
   command = "DEBUG=* npm run build"
 
 [build.environment]
   NODE_VERSION = "22"
-
-[[redirects]]
-  from = "/"
-  to = "/en"
-  status = 301
