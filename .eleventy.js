@@ -41,36 +41,36 @@ module.exports = function (eleventyConfig) {
       })
   })
 
-  eleventyConfig.addShortcode("figure", function(src, alt, caption = "") {
-    let imageSrc = src.startsWith("/") ? "." + src : src
-    let options = {
-      widths: [800, 1200, 1600],
-      formats: ["webp", "jpeg"],
-      outputDir: "./_site/assets/img/",
-      urlPath: "/assets/img/"
-    }
+  eleventyConfig.addShortcode("figure", async function(src, alt, caption = "") {
+    try {
+      let imageSrc = src.startsWith("/") ? "./src" + src : src
+      let options = {
+        widths: [800, 1200, 1600],
+        formats: ["webp", "jpeg"],
+        outputDir: "./_site/assets/img/",
+        urlPath: "/assets/img/"
+      }
 
-    return Image(imageSrc, options)
-      .then(data => {
-        let largestImage = data.jpeg[data.jpeg.length - 1]
-        if (caption) {
-          return `<figure class="my-8">
-            <img src="${largestImage.url}" alt="${alt}" class="w-full h-auto rounded-lg shadow-md" loading="lazy">
-            <figcaption class="mt-3 text-sm text-gray-600 italic text-center">${caption}</figcaption>
-          </figure>`
-        }
-        return `<img src="${largestImage.url}" alt="${alt}" class="w-full h-auto rounded-lg shadow-md" loading="lazy">`
-      })
-      .catch(err => {
-        console.error("Error generating image:", err)
-        if (caption) {
-          return `<figure class="my-8">
-            <img src="${src}" alt="${alt}" class="w-full h-auto rounded-lg shadow-md" loading="lazy">
-            <figcaption class="mt-3 text-sm text-gray-600 italic text-center">${caption}</figcaption>
-          </figure>`
-        }
-        return `<img src="${src}" alt="${alt}" class="w-full h-auto rounded-lg shadow-md" loading="lazy">`
-      })
+      let data = await Image(imageSrc, options)
+      let largestImage = data.jpeg[data.jpeg.length - 1]
+      
+      if (caption) {
+        return `<figure class="my-8">
+          <img src="${largestImage.url}" alt="${alt}" class="w-full h-auto rounded-lg shadow-md" loading="lazy">
+          <figcaption class="mt-3 text-sm text-gray-600 italic text-center">${caption}</figcaption>
+        </figure>`
+      }
+      return `<img src="${largestImage.url}" alt="${alt}" class="w-full h-auto rounded-lg shadow-md" loading="lazy">`
+    } catch (err) {
+      console.error("Error generating image:", err)
+      if (caption) {
+        return `<figure class="my-8">
+          <img src="${src}" alt="${alt}" class="w-full h-auto rounded-lg shadow-md" loading="lazy">
+          <figcaption class="mt-3 text-sm text-gray-600 italic text-center">${caption}</figcaption>
+        </figure>`
+      }
+      return `<img src="${src}" alt="${alt}" class="w-full h-auto rounded-lg shadow-md" loading="lazy">`
+    }
   })
 
   // Filters

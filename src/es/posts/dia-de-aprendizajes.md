@@ -2,8 +2,8 @@
 layout: layouts/post.njk
 title: Día de aprendizajes
 date: 2025-12-06
-featured_image: /assets/img/articles/camino-a-bajo-caracoles.jpeg
-featured_image_alt: Cómo se llamará ese cerro de la izquierda
+featured_image: /assets/img/articles/dia-de-aprendizajes.jpg
+featured_image_alt: Un despertar como cualquiera
 image_caption: "Esta es una foto con historia. En su momento, imaginé que sería parte de una serie. Múltiples fotos de momentos que llevan una historia detrás. Pero debo admitirme a mi mismo que solo habrá esta foto con esta historia. Fue tomada por @sergio2146 y es el único registro del atardecer más espectacular que he vivido."
 description: "Memorias del sur. Esta es una foto con historia. En su momento, imaginé que sería parte de una serie. Múltiples fotos de momentos que llevan una historia detrás. Pero debo admitirme a mi mismo que solo habrá esta foto con esta historia. Fue tomada por @sergio2146 y es el único registro del atardecer más espectacular que he vivido."
 tags:
@@ -20,7 +20,7 @@ Al salir de la casa me encontré a Sergio Andrés trabajando en su moto con esa 
 
 Una hora después estábamos listos para arrancar, maletas montadas en las motos, cadena lubricada (la de él, yo estaba tomando mate), y ruta planificada. Iríamos en dirección norte con intención de llegar a Bariloche, sin afán, pero con ansias de volver. Sentíamos en el cuerpo el cansancio de los últimos días largos de ruta y necesitábamos descanso, quietud y caras familiares. Sin embargo, Sergio propuso un desvío en Trevelín para recorrer un tramo del parque nacional Los Alerces, hoy sería nuestra última oportunidad de visitarlo.
 
- ![El paisaje del arranque del día](/assets/img/articles/arrancando-el-viaje.jpg "Paisaje al arrancar el día de ruta")
+ {% figure "/assets/img/articles/arrancando-el-viaje.jpg", "El paisaje del arranque del día", "Paisaje al arrancar el día de ruta" %}
 
 Justo antes de arrancar, ya que la suerte no nos había acompañado mucho en los últimos días, Sergio nos encomendó al universo para que tuviéramos un día tranquilo. 
 
@@ -31,7 +31,7 @@ Unos 15 minutos después la cadena saltó nuevamente. Esta vez se había enredad
 
 Inspeccionamos la gravedad del daño: no podía andar más así. La única esperanza era intentar enderezar el eslabón. Saqué mi navaja de pinzas, que hasta ese día había sido invaluable para cortar quesos y salames, y después de múltiples intentos concluimos que no era la herramienta adecuada para esta tarea, mucho menos en nuestras inexpertas manos uniandinas.
 
- ![Un buen lugar para bararse](/assets/img/articles/buen-lugar-para-bararse.jpg "Buen lugar para barrse")
+ {% figure "/assets/img/articles/buen-lugar-para-bararse.jpg", "Un buen lugar para bararse", "Buen lugar para barrse" %}
  
 Afortunadamente, no tardó demasiado en manifestarse la famosa solidaridad argentina hacia los moteros en forma de un par de un camión antiquísimo de transporte que paró a ver si necesitábamos ayuda. Sus dos ocupantes, el copiloto de alrededor 20 años y el piloto de unos 40 venían de dejar una mercancía en la frontera Chilena y estaban disfrutando de una birra dominguera mientras conducían de regreso a casa. Al explicarles la situación, el conductor sacó una pinza gigante de unos 50 cm y con un solo movimiento ajustó el eslabón. 
 El nuevo plan era andar la moto, lentamente, hasta un lugar que ellos conocían de carga de ganado para poder subir la moto a la altura del camión y así llevarla remolcada hasta el siguiente pueblo donde pudiéramos buscar si un mecánico nos atendía, pues normalmente descansan los domingos.
@@ -90,6 +90,5 @@ Empezamos a tomar sorbos. Tal vez seguíamos cargados de la adrenalina del día,
 
 La vista al despertar fue inesperada. Sabía que estábamos cerca al lago, pero en la noche no se lograba apreciar del todo. Salí por la ventana para pararme en el techo a recibir la vista y el aire de la mañana. Brillaba un sol resplandeciente con una brisa fresca de otoño. El agua azúl oscuro reflejaba los destellos de luz hacia todos lados. Respiré el aire frío de otoño y reflexioné, nuevamente, sobre una de las lecciones más importante del día anterior: 
 A las francesas, lo que hay que regalarles es vino.
-
 
  ![El despertar](/assets/img/articles/el-despertar.jpg "El despertar")
