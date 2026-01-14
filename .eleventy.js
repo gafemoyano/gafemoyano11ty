@@ -5,9 +5,11 @@ const markdownIt = require("markdown-it")
 const markdownItAnchor = require("markdown-it-anchor")
 const pluginSyntaxHighlight = require("@11ty/eleventy-plugin-syntaxhighlight")
 const i18n = require("eleventy-plugin-i18n")
+const { feedPlugin } = require("@11ty/eleventy-plugin-rss")
 const translations = require("./src/_data/i18n")
 const markdownItFootnote = require("markdown-it-footnote")
 const Image = require("@11ty/eleventy-img")
+const site = require("./src/_data/site")
 
 module.exports = function (eleventyConfig) {
   // Plugins
@@ -36,6 +38,38 @@ module.exports = function (eleventyConfig) {
       .catch(err => {
         console.error("Error generating image:", err)
         return `<img src="${src}" alt="${alt}" class="w-full h-auto" loading="lazy">`
+      })
+  })
+
+  eleventyConfig.addShortcode("figure", function(src, alt, caption = "") {
+    let imageSrc = src.startsWith("/") ? "." + src : src
+    let options = {
+      widths: [800, 1200, 1600],
+      formats: ["webp", "jpeg"],
+      outputDir: "./_site/assets/img/",
+      urlPath: "/assets/img/"
+    }
+
+    return Image(imageSrc, options)
+      .then(data => {
+        let largestImage = data.jpeg[data.jpeg.length - 1]
+        if (caption) {
+          return `<figure class="my-8">
+            <img src="${largestImage.url}" alt="${alt}" class="w-full h-auto rounded-lg shadow-md" loading="lazy">
+            <figcaption class="mt-3 text-sm text-gray-600 italic text-center">${caption}</figcaption>
+          </figure>`
+        }
+        return `<img src="${largestImage.url}" alt="${alt}" class="w-full h-auto rounded-lg shadow-md" loading="lazy">`
+      })
+      .catch(err => {
+        console.error("Error generating image:", err)
+        if (caption) {
+          return `<figure class="my-8">
+            <img src="${src}" alt="${alt}" class="w-full h-auto rounded-lg shadow-md" loading="lazy">
+            <figcaption class="mt-3 text-sm text-gray-600 italic text-center">${caption}</figcaption>
+          </figure>`
+        }
+        return `<img src="${src}" alt="${alt}" class="w-full h-auto rounded-lg shadow-md" loading="lazy">`
       })
   })
 
@@ -124,6 +158,42 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addCollection("spanishProjects", function (collection) {
     return collection.getFilteredByGlob("./src/es/projects/*.md")
   })
+
+  eleventyConfig.addPlugin(feedPlugin, {
+    type: "atom",
+    outputPath: "/en/feed.xml",
+    collection: {
+      name: "englishPosts",
+      limit: 0,
+    },
+    metadata: {
+      language: "en",
+      title: `${site.title} - English Blog`,
+      subtitle: site.description,
+      base: site.url,
+      author: {
+        name: site.author,
+      }
+    }
+  });
+
+  eleventyConfig.addPlugin(feedPlugin, {
+    type: "atom",
+    outputPath: "/es/feed.xml",
+    collection: {
+      name: "spanishPosts",
+      limit: 0,
+    },
+    metadata: {
+      language: "es",
+      title: `${site.title} - Blog en Español`,
+      subtitle: site.description,
+      base: site.url,
+      author: {
+        name: site.author,
+      }
+    }
+  });
 
   return {
     dir: {

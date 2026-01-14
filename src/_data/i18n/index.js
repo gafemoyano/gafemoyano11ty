@@ -6,12 +6,20 @@ module.exports = {
   },
   signup: {
     title: {
-      en: "Get notified whenever I post",
-      es: "Recibe una notificación cuando publique",
+      en: "Subscribe via RSS",
+      es: "Suscríbete vía RSS",
     },
     description: {
-      en: "I don't do it as often as I'd like and probably less than you'd expect. But still, if you liked what you read, why not?",
-      es: "Deja tu correo y tu nombre. No escribo tanto como quisiera y seguramente menos de lo que esperarías. Pero, si te ha gustado lo que has leído hasta el momento, ¿por qué no?",
+      en: "Get my latest posts in your favorite RSS reader. Available in English and Spanish.",
+      es: "Recibe mis últimas publicaciones en tu lector de RSS favorito. Disponible en inglés y español.",
+    },
+    english_feed: {
+      en: "English Feed",
+      es: "Feed en inglés",
+    },
+    spanish_feed: {
+      en: "Spanish Feed",
+      es: "Feed en español",
     },
   },
   nav: {
