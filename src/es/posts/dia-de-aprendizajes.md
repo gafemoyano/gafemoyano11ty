@@ -1,4 +1,16 @@
-# Article/Dia de aprendizajes
+---
+layout: layouts/post.njk
+title: Día de aprendizajes
+date: 2025-12-06
+featured_image: /assets/img/articles/camino-a-bajo-caracoles.jpeg
+featured_image_alt: Cómo se llamará ese cerro de la izquierda
+image_caption: "Esta es una foto con historia. En su momento, imaginé que sería parte de una serie. Múltiples fotos de momentos que llevan una historia detrás. Pero debo admitirme a mi mismo que solo habrá esta foto con esta historia. Fue tomada por @sergio2146 y es el único registro del atardecer más espectacular que he vivido."
+description: "Memorias del sur. Esta es una foto con historia. En su momento, imaginé que sería parte de una serie. Múltiples fotos de momentos que llevan una historia detrás. Pero debo admitirme a mi mismo que solo habrá esta foto con esta historia. Fue tomada por @sergio2146 y es el único registro del atardecer más espectacular que he vivido."
+tags:
+  - memorias-del-sur
+  - milanesa
+  - viajes
+---
 
 Me desperté en una cama doble. Eso, de por sí, ya era un cambio drástico de las noches en carpa que habíamos pasado las últimas semanas en la Patagonia Chilena. Acabábamos de cruzar la frontera de regreso Argentina hacía un par de días y aún estábamos acostumbrándonos a los lujos que nos permitía el cambio favorable del dólar.
 

@@ -1,66 +1,55 @@
 ---
-title: "Pensamientos y escritos de Felipe Moyano."
-description: "Mis temas son armar equipos de tecnología, crear productos, desarrollo web y viajar. A veces escribo sobre eso."
+locale: "es"
+dir: "ltr"
+title: "Escritos de Felipe Moyano."
+description: "Soy Felipe. Soy muy apasionado por construir productos, desarrollo web y viajar. A veces escribo sobre estas cosas."
 ---
-{% extends "layouts/base.njk" %}
-{% block title %}Felipe Moyano | Sitio personal y blog
-{% endblock %}
-{% block content %}
-  <section class="hero-background" style="height: 30vh; min-height: 200px;">
-    <div class="w-full h-full max-w-6xl mx-auto">
-      <div class="flex flex-col items-center justify-center h-full px-2">
-        <h1 class="max-w-lg text-4xl font-bold leading-none text-center text-lime-600 md:text-6xl font-display">
-          Felipe Moyano
-        </h1>
-        <h2 class="max-w-xl mt-6 text-lg font-bold leading-6 text-center text-gray-800 md:leading-8 md:text-2xl">
-          Construyo productos de tecnología, escribo código y lidero equipos de ingeniería.
-        </h2>
-      </div>
-    </div>
-  </section>
 
-  <section class="w-full max-w-3xl mx-auto">
-    <div class="px-4 mt-6 content">
-      <h2 class="text-4xl font-bold text-gray-900 font-display">
-        ¡Hola!
-      </h2>
-      <p>
-        Mi nombre es Felipe Moyano. Soy ingeniero de sistemas, desarrollador web y emprendedor en una vida pasada.
-      </p>
-      <p>
-        Actualmente me encuentro liderando el equipo de producto en <a href="https://sumz.co">Sumz</a> construyendo aplicaciones con los datos de uno de los grupos empresariales más grandes de Colombia.
-      </p>
-      <p>
-        Antes de eso estuve estuve trabajando como uno de los co-fundadores de
-        <a href="https://savy.co">Savy</a>, un marketplace de Fitneses y Welnness que tenía la intención de dar máxima flexibilidad a los usuarios y a los centros deportivos al cobrar por horas con un sistema de precios on demand según la oferta y la demanda del momento. Desafortunadamente tuvimos que cerrar debido al COVID-19 y ahora ando explorando nuevas ideas.
-      </p>
-      <p>
-        Este sitio web es donde planeo explorar algunas cosas nuevas y compartir lo que vaya aprendiendo en el camino. También compartiré algunas de las lecciones aprendidas durante mi emprendimiento pasado, acerca de como construir un producto de tecnología, ser un desarrollador, ser manager de un equipo y construir una empresa en Colombia. Puedes darle una mirada al código de está página en [github](https://github.com/gafemoyano/gafemoyano11ty).
-      </p>
+{% extends "layouts/base.njk" %} {% block head %}
+<meta property="og:type" content="website" />
+{% endblock %} {% block title %}Felipe Moyano | Pensamientos y Escritos{%
+endblock %} {% block content %}
 
-      <p>
-        Muchas gracias por leer, espero que disfrutes el contenido de este blog, suscríbete si quieres recibir notificacionese cuando publico algo nuevo.
-      </p>
-      <p>
-        Si quieres contactarme no dudes en hacerlo a través de twitter en
-        <a href="https://twitter.com/gafemoyano">twitter</a>.
-      </p>
-    </div>
-  </section>
+<section class="w-full max-w-3xl mx-auto mt-12">
+  <div class="px-4 mt-6 content">
+    <h2 class="text-4xl font-bold text-gray-900 font-display">Acerca</h2>
+    <p>
+      Hola, soy Felipe. Principalmente me dedico a desarrollar productos de
+      tecnología, especialmente en desarrollo web pero he pasado por muchas
+      industrias, roles y tecnologías. También fundé Savy, una startup con la
+      misión de acercar servicios de fitness y wellness a los consumidores, que
+      murió durante el Covid.
+    </p>
+    <p>
+      Hoy soy un líder de ingeniería en
+      <a href="https://trii.com">trii</a>, una fintech colombiana donde estamos
+      construyendo la plataforma de inversión más grande de América Latina.
+    </p>
+    <p>
+      Me gusta construir. A veces eso significa software, otras veces significa
+      equipos o procesos. Este es el lugar donde escribo sobre esas cosas. Si
+      quieres contactarme no dudes en enviarme un DM en
+      <a href="https://x.com/gafemoyano">twitter - X</a>
+      o en
+      <a href="https://bsky.app/profile/gafemoyano.bsky.social">Bluesky</a>.
+    </p>
+  </div>
+</section>
 
-  <section class="w-full max-w-3xl mx-auto">
-    <div class="px-4 mt-6">
-      <h2 class="text-4xl font-bold text-gray-900 font-display">
-        Recent Articles
-      </h2>
-      <ul class="mt-2 ml-4 list-disc">
-        {%- for post in collections.spanishPosts | head(-6) | reverse -%}
-          <li class="mt-2">
-            <a class="text-lg text-gray-700" href="{{post.url | url}}">{{ post.data.title }}</a>
-          </li>
-        {%- endfor -%}
-      </ul>
-  </ul>
-</div>
+<section class="w-full max-w-3xl mx-auto">
+  <div class="px-4 mt-6">
+    <h2 class="text-4xl font-bold text-gray-900 font-display">
+      Artículos Recientes
+    </h2>
+    <ul class="mt-6 ml-4 list-disc">
+      {%- for post in collections.spanishPosts | head(-6) | reverse -%}
+      <li class="mt-2">
+        <a class="text-lg text-gray-700" href="{{post.url | url}}"
+          >{{ post.data.title }}</a
+        >
+      </li>
+      {%- endfor -%}
+    </ul>
+  </div>
 </section>
 {% endblock %}

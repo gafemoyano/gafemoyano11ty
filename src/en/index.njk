@@ -2,54 +2,60 @@
 locale: "en"
 dir: "ltr"
 title: "Felipe Moyano's writings."
-description: "I'm Felipe. I'm passionate about building teams, creating products, web dev and traveling. I write those things sometimes."
+description: "I'm Felipe. I'm a developer who likes building products, teams and traveling."
 ---
 
-{% extends "layouts/base.njk" %}
+{% extends "layouts/base.njk" %} {% block head %}
+<meta property="og:type" content="website" />
+{% endblock %} {% block title %}Felipe Moyano | Toughts and Writings{% endblock
+%} {% block content %}
 
-{% block head %}
-  <meta property="og:type" content="website">
-{% endblock %}
+<section class="w-full max-w-3xl mx-auto mt-12">
+  <div class="px-4 mt-6 content">
+    <h2 class="text-4xl font-bold text-gray-900 font-display">About Me</h2>
+    <p>
+      I'm Felipe. I' like building products, mostly as a developer, but I've
+      been a bit all over the place. I love web development and spent some time
+      as a startup founder.
+    </p>
+    <p>
+      Currently I'm an engineering lead at <a href="https://trii.co">trii</a> a
+      fintech where we're building the greatest investment platform in LatAm.
+      Before that I helped kick-off <a href="https://sumz.co">Sumz</a> a company
+      focused on helping one of the largest business group in colombia make the
+      most out of their data.
+    </p>
+    <p>
+      Before COVID I was a co-founder at Savy, a consumer app looking to bring
+      fitness to everyone by introducing dynamic pricing to fitness and welness
+      venues. It was a lot of fun and I learnt a lot.
+    </p>
+    <p>
+      I like to build. Sometime's that means software, othertimes it means teams
+      or processes. This is the place where I write about those things.
+    </p>
+    <p>
+      If you'd like to talk to me feel free to reach out via
+      <a href="https://x.com/gafemoyano">twitter / X</a> or
+      <a href="https://bsky.app/profile/gafemoyano.bsky.social">Bluesky</a>.
+    </p>
+  </div>
+</section>
 
-{% block title %}Felipe Moyano | Toughts and Writings{% endblock %}
-
-{% block content %}
-
-  <section class="w-full max-w-3xl mx-auto mt-12">
-    <div class="px-4 mt-6 content">
-      <h2 class="text-4xl font-bold text-gray-900 font-display">
-        Felipe Moyano
-      </h2>
-      <p>
-        I'm Felipe. I'm very passionate about building products, mostly from the development side but I've been a bit all over the place. I'm very passionate about web development and previously a startup founder.
-      </p>
-      <p>
-      Currently I'm an engineering lead at a fintech called (trii)[https://trii.com], we're trying to become the greatest investment platform in LatAm. 
-      Before that I helped kick-off the tech team at (Sumz)[https://sumz.co] a company focused on helping companies with Big Data make the most of it. I was also a co-founder at Savy, a consumer app looking to bring fitness to everyone by introducing dynamic pricing to fitness and welness venues.
-      </p>
-      <p>
-        I like to build. Sometime's that means software, othertimes it means teams or processes. This is the place where I write about those things. 
-      </p>
-      <p>
-        Thank you for reading, I hope you enjoy the content here. If you want to reach out to me feel free to DM on
-        <a href="https://x.com/gafemoyano">twitter - X</a>
-        or subscribe to get notifications when I post new things.
-      </p>
-    </div>
-  </section>
-
-  <section class="w-full max-w-3xl mx-auto">
-    <div class="px-4 mt-6">
-      <h2 class="text-4xl font-bold text-gray-900 font-display">
-        Recent Articles
-      </h2>
-      <ul class="mt-6 ml-4 list-disc">
-        {%- for post in collections.englishPosts | head(-6) | reverse -%}
-          <li class="mt-2">
-            <a class="text-lg text-gray-700" href="{{post.url | url}}">{{ post.data.title }}</a>
-          </li>
-        {%- endfor -%}
-      </ul>
-    </div>
-  </section>
+<section class="w-full max-w-3xl mx-auto">
+  <div class="px-4 mt-6">
+    <h2 class="text-4xl font-bold text-gray-900 font-display">
+      Recent Articles
+    </h2>
+    <ul class="mt-6 ml-4 list-disc">
+      {%- for post in collections.englishPosts | head(-6) | reverse -%}
+      <li class="mt-2">
+        <a class="text-lg text-gray-700" href="{{post.url | url}}"
+          >{{ post.data.title }}</a
+        >
+      </li>
+      {%- endfor -%}
+    </ul>
+  </div>
+</section>
 {% endblock %}
