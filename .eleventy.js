@@ -21,57 +21,85 @@ module.exports = function (eleventyConfig) {
     },
   })
 
-  eleventyConfig.addShortcode("image", function(src, alt, widths = [400, 800, 1200], sizes = "(min-width: 768px) 50vw, 100vw") {
-    let imageSrc = src.startsWith("/") ? "." + src : src
-    let options = {
-      widths: widths,
-      formats: ["webp", "jpeg"],
-      outputDir: "./_site/assets/img/",
-      urlPath: "/assets/img/"
-    }
-
-    Image(imageSrc, options)
-      .then(data => {
-        let largestImage = data.jpeg[data.jpeg.length - 1]
-        return `<img src="${largestImage.url}" alt="${alt}" class="w-full h-auto" loading="lazy">`
-      })
-      .catch(err => {
-        console.error("Error generating image:", err)
-        return `<img src="${src}" alt="${alt}" class="w-full h-auto" loading="lazy">`
-      })
-  })
-
-  eleventyConfig.addShortcode("figure", async function(src, alt, caption = "") {
-    try {
-      let imageSrc = src.startsWith("/") ? "./src" + src : src
+  eleventyConfig.addShortcode(
+    "image",
+    function (
+      src,
+      alt,
+      widths = [400, 800, 1200],
+      sizes = "(min-width: 768px) 50vw, 100vw",
+    ) {
+      let imageSrc = src.startsWith("/") ? "." + src : src
       let options = {
-        widths: [800, 1200, 1600],
+        widths: widths,
         formats: ["webp", "jpeg"],
         outputDir: "./_site/assets/img/",
-        urlPath: "/assets/img/"
+        urlPath: "/assets/img/",
       }
 
-      let data = await Image(imageSrc, options)
-      let largestImage = data.jpeg[data.jpeg.length - 1]
-      
+      Image(imageSrc, options)
+        .then((data) => {
+          let largestImage = data.jpeg[data.jpeg.length - 1]
+          return `<img src="${largestImage.url}" alt="${alt}" class="w-full h-auto" loading="lazy">`
+        })
+        .catch((err) => {
+          console.error("Error generating image:", err)
+          return `<img src="${src}" alt="${alt}" class="w-full h-auto" loading="lazy">`
+        })
+    },
+  )
+
+  eleventyConfig.addShortcode(
+    "figure",
+    async function (src, alt, caption = "") {
+      try {
+        let imageSrc = src.startsWith("/") ? "./src" + src : src
+        let options = {
+          widths: [800, 1200, 1600],
+          formats: ["webp", "jpeg"],
+          outputDir: "./_site/assets/img/",
+          urlPath: "/assets/img/",
+        }
+
+        let data = await Image(imageSrc, options)
+        let largestImage = data.jpeg[data.jpeg.length - 1]
+
+        if (caption) {
+          return `<figure class="my-8">
+            <img src="${largestImage.url}" alt="${alt}" class="w-full h-auto rounded-lg shadow-md" loading="lazy">
+            <figcaption class="mt-3 text-sm font-sans text-gray-600 italic text-center">${caption}</figcaption>
+          </figure>`
+        }
+        return `<img src="${largestImage.url}" alt="${alt}" class="w-full h-auto rounded-lg shadow-md" loading="lazy">`
+      } catch (err) {
+        console.error("Error generating image:", err)
+        if (caption) {
+          return `<figure class="my-8">
+            <img src="${src}" alt="${alt}" class="w-full h-auto rounded-lg shadow-md" loading="lazy">
+            <figcaption class="mt-3 text-sm font-sans text-gray-600 italic text-center">${caption}</figcaption>
+          </figure>`
+        }
+        return `<img src="${src}" alt="${alt}" class="w-full h-auto rounded-lg shadow-md" loading="lazy">`
+      }
+    },
+  )
+
+  eleventyConfig.addShortcode(
+    "video",
+    function (src, poster = "", caption = "") {
+      let videoHtml = `<video controls class="h-[50vh] w-full rounded-lg shadow-md" ${poster ? `poster="${poster}"` : ""}>
+      <source src="${src}" type="video/mp4">
+    </video>`
+
       if (caption) {
         return `<figure class="my-8">
-          <img src="${largestImage.url}" alt="${alt}" class="w-full h-auto rounded-lg shadow-md" loading="lazy">
-          <figcaption class="mt-3 text-sm text-gray-600 italic text-center">${caption}</figcaption>
-        </figure>`
+        ${videoHtml}
+        <figcaption class="mt-3 text-sm font-sans text-gray-600 italic text-center">${caption}</figcaption>
+      </figure>`
       }
-      return `<img src="${largestImage.url}" alt="${alt}" class="w-full h-auto rounded-lg shadow-md" loading="lazy">`
-    } catch (err) {
-      console.error("Error generating image:", err)
-      if (caption) {
-        return `<figure class="my-8">
-          <img src="${src}" alt="${alt}" class="w-full h-auto rounded-lg shadow-md" loading="lazy">
-          <figcaption class="mt-3 text-sm text-gray-600 italic text-center">${caption}</figcaption>
-        </figure>`
-      }
-      return `<img src="${src}" alt="${alt}" class="w-full h-auto rounded-lg shadow-md" loading="lazy">`
-    }
-  })
+      return videoHtml
+    },
+  )
 
   // Filters
   eleventyConfig.addShortcode("version", function () {
@@ -101,6 +129,7 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy("src/assets/img")
   eleventyConfig.addPassthroughCopy("src/assets/fonts")
   eleventyConfig.addPassthroughCopy("src/assets/javascript")
+  eleventyConfig.addPassthroughCopy("src/assets/videos")
   eleventyConfig.addPassthroughCopy({
     "./src/admin/config.yml": "./admin/config.yml",
     "node_modules/chartist/dist/chartist.min.css": "assets/chartist.min.css",
@@ -173,9 +202,9 @@ module.exports = function (eleventyConfig) {
       base: site.url,
       author: {
         name: site.author,
-      }
-    }
-  });
+      },
+    },
+  })
 
   eleventyConfig.addPlugin(feedPlugin, {
     type: "atom",
@@ -191,9 +220,9 @@ module.exports = function (eleventyConfig) {
       base: site.url,
       author: {
         name: site.author,
-      }
-    }
-  });
+      },
+    },
+  })
 
   return {
     dir: {
