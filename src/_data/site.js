@@ -9,6 +9,7 @@ module.exports = {
   baseUrl: "/",
   author: "Felipe Moyano",
   authorTwitter: "@gafemoyano",
+  defaultSocialImage: "/assets/img/default-social.png",
   buildTime: new Date(),
   languages: [
     {

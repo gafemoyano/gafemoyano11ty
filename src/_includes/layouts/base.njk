@@ -19,17 +19,24 @@
     <meta http-equiv="x-ua-compatible" content="ie=edge"/>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no, viewport-fit=cover"/>
     {% if tags %}
-      <meta name="”keywords”" content="{{tags}}"/>
+      <meta name="keywords" content="{{tags}}"/>
     {% else %}
-      <meta name="”keywords”" content="web development, rails, ruby on rails, blog, web design"/>
+      <meta name="keywords" content="web development, rails, ruby on rails, blog, web design"/>
     {% endif %}
     <link rel="stylesheet" href="/assets/styles/tailwind.css?v={% version %}"/>
-    <link rel="canonical" href="{{site.url}}/en/{{pageUrl}}">
+    <link rel="canonical" href="{{site.url}}/{{locale}}/{{pageUrl}}">
     <meta property="og:locale" content="{{locale}}">
     <meta property="og:title" content="{{title}}">
     <meta property="og:description" content="{{description}}">
     <meta property="og:url" content="{{site.url}}{{page.url}}">
     <meta property="og:site_name" content="Felipe Moyano">
+    {% if not featured_image %}
+      <meta property="og:image" content="{{site.url}}{{site.defaultSocialImage}}">
+      <meta property="og:image:width" content="1200">
+      <meta property="og:image:height" content="630">
+      <meta property="og:image:alt" content="{{site.title}}">
+      <meta name="twitter:image" content="{{site.url}}{{site.defaultSocialImage}}">
+    {% endif %}
     <meta name="generator" content="{{ eleventy.generator }}">
     {% block head %}
       {{ head }}
