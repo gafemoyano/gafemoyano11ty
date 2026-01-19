@@ -14,7 +14,7 @@ tags:
 ---
 
 
-Me desperté en una cama doble. Eso ya era un cambio drástico de las noches en carpa que habíamos pasado las últimas semanas en la Patagonia Chilena. Acabábamos de cruzar la frontera de regreso Argentina hacía un par de días y aún estábamos acostumbrándonos a los lujos que nos permitía el cambio favorable del dólar. El día anterior había sido largo debido a un pinchazo en una ruta poco transitada y una buena noche de descanso era más que bienvenida.
+Me desperté en una cama doble. Eso ya era un cambio drástico de las noches en carpa que habíamos pasado las últimas semanas en la Patagonia Chilena. Acabábamos de cruzar la frontera de regreso a Argentina hacía un par de días y aún estábamos acostumbrándonos a los lujos que nos permitía el cambio favorable del dólar. El día anterior había sido largo debido a un pinchazo en una ruta poco transitada y una buena noche de descanso era más que bienvenida.
 
 
 Al salir de la casa me encontré a Sergio Andrés trabajando en su moto con su dedicación habitual. Le pregunté si quería algo de desayuno, sabiendo cuál sería la respuesta de antemano. —No, yo estoy bien —contestó—, así que salí a explorar los alrededores del lugar con la esperanza de encontrar algún pan, torta o queso. Sin éxito, volví resignado y, pasando por la entrada, dije: —tocó desayunar mate.
