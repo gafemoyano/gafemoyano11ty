@@ -15,7 +15,11 @@
 {% block content %}
 
   <div class="w-full max-w-3xl px-6 mx-auto md:px-0">
-    <h1 class="mt-6 text-2xl font-bold leading-6 md:leading-loose md:text-4xl">{{ title }}</h1>
+    <h1 class="mt-6 text-2xl font-bold leading-6 md:leading-normal md:text-4xl">{{ title }}</h1>
+    {%- set slug = page.fileSlug -%}
+    {%- set translations = translationMap[slug] -%}
+    {%- set hasTranslation = translations and translations.en and translations.es -%}
+    {% if hasTranslation %}
     <div class="mt-2">
       <div class="inline-flex space-x-2">
         {% for l in locales -%}
@@ -30,6 +34,7 @@
         {% endfor -%}
       </div>
     </div>
+    {% endif %}
     <div class="mt-12">
       <img class="object-cover object-center w-full h-96" src="{{ featured_image }}" alt="{{ featured_image_alt }}">
       <p class="mt-1 text-sm text-center text-gray-600 font-sans">

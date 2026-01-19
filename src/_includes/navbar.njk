@@ -1,55 +1,49 @@
-{% set pageUrl = page
-  .url
-  .split('/')
-  .slice(2)
-  .join('/') %}
+{% set pageUrl = page.url.split('/').slice(2).join('/') %}
+{% set currentSection = page.url.split('/')[2] or '' %}
 
-<nav x-data="{ open: false }" @keydown.window.escape="open = false" @click.away=" open = false " class="z-10 bg-white shadow-sm">
+<nav x-data="{ open: false }" @keydown.window.escape="open = false" @click.away="open = false" class="z-10 bg-white shadow-sm">
   <div class="px-4 mx-auto sm:px-6 lg:px-8">
     <div class="flex items-center justify-between h-16">
       <div class="flex items-center">
-        <div class="flex-shrink-0 ">
+        <div class="flex-shrink-0">
           <a href="/{{locale}}" class="text-lg font-bold text-lime-600 transition-all duration-150 ease-in-out hover:text-lime-700 focus:text-lime-800 font-sans">
-              <img src="/assets/img/gf.png" alt="Logo" class="w-auto h-8">
+            <img src="/assets/img/gf.png" alt="Logo" class="w-auto h-8">
           </a>
         </div>
       </div>
 
       <div class="flex">
         <div class="hidden md:block">
-          <div class="flex items-baseline justify-end ml-10 space-x-4">
+          <div class="flex items-baseline justify-end ml-10 space-x-1">
+            <a href="/{{ locale }}" class="px-3 py-1.5 text-sm font-medium rounded-md transition-colors duration-150 font-sans {% if currentSection == '' %}bg-lime-100 text-lime-800{% else %}text-gray-600 hover:bg-gray-100 hover:text-gray-900{% endif %}">{{"nav.home" | i18n}}</a>
 
-            <a href="/{{ locale }}" class="px-3 py-2 mt-2 text-sm font-medium leading-5 text-gray-700 duration-150 ease-in-out border-b-4 border-transparent hover:border-b-4 hover:border-lime-600 focus:outline-none focus:border-lime-600 tansition font-sans">{{"nav.home" | i18n}}</a>
+            <a href="/{{ locale }}/articles" class="px-3 py-1.5 text-sm font-medium rounded-md transition-colors duration-150 font-sans {% if currentSection == 'articles' %}bg-lime-100 text-lime-800{% else %}text-gray-600 hover:bg-gray-100 hover:text-gray-900{% endif %}">{{"nav.articles" | i18n}}</a>
 
-            <a href="/{{ locale }}/articles" class="px-3 py-2 mt-2 text-sm font-medium leading-5 text-gray-700 duration-150 ease-in-out border-b-4 border-transparent hover:border-b-4 hover:border-lime-600 focus:outline-none focus:border-lime-600 tansition font-sans">{{"nav.articles" | i18n}}</a>
+            <a href="/{{ locale }}/projects" class="px-3 py-1.5 text-sm font-medium rounded-md transition-colors duration-150 font-sans {% if currentSection == 'projects' %}bg-lime-100 text-lime-800{% else %}text-gray-600 hover:bg-gray-100 hover:text-gray-900{% endif %}">{{"nav.projects" | i18n}}</a>
 
-            <a href="/{{ locale }}/projects" class="px-3 py-2 mt-2 text-sm font-medium leading-5 text-gray-700 duration-150 ease-in-out border-b-4 border-transparent hover:border-b-4 hover:border-lime-600 focus:outline-none focus:border-lime-600 tansition font-sans">{{"nav.projects" | i18n}}</a>
-
-
-            <div class="relative" x-data="{ open: false}" @mouseenter="open = true" @mouseleave=" open = false" @click.away="open = false">
-              <button class="px-3 py-2 mt-2 text-sm font-medium leading-5 duration-150 ease-in-out border-b-4 border-transparent hover:border-b-4 focus:outline-none tansition font-sans">
-                <span class="inline-flex items-center justify-center w-7 h-7 text-xs font-semibold uppercase rounded-full bg-lime-100 text-lime-600 transition-all duration-150 hover:bg-lime-200 hover:text-lime-700">{{ locale }}</span>
+            <div class="relative" x-data="{ open: false}" @mouseenter="open = true" @mouseleave="open = false" @click.away="open = false">
+              <button class="px-3 py-1.5 text-sm font-medium transition-colors duration-150 font-sans">
+                <span class="inline-flex items-center justify-center w-7 h-7 text-xs font-semibold uppercase rounded-full bg-lime-100 text-lime-700 transition-all duration-150 hover:bg-lime-200">{{ locale }}</span>
               </button>
-            <div x-show="open" class="absolute right-0 z-10 w-48 rounded-md shadow-lg" x-transition:enter="transition ease-out duration-100" x-transition:enter-start="transform opacity-0 scale-95" x-transition:enter-end="transform opacity-100 scale-100" x-transition:leave="transition ease-in duration-75" x-transition:leave-start="transform opacity-100 scale-100" x-transition:leave-end="transform opacity-0 scale-95">
-              <div class="py-1 bg-white rounded-md shadow-xs">
-                {% for locale in locales -%}
-                  <a class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 font-sans" href="/{{ locale.code }}/{{ pageUrl }}" rel="alternate" hreflang="{{ locale.code }}">
-                    {{ locale.label | capitalize }}
-                  </a>
-                {% endfor -%}
+              <div x-show="open" class="absolute right-0 z-10 w-48 rounded-md shadow-lg" x-transition:enter="transition ease-out duration-100" x-transition:enter-start="transform opacity-0 scale-95" x-transition:enter-end="transform opacity-100 scale-100" x-transition:leave="transition ease-in duration-75" x-transition:leave-start="transform opacity-100 scale-100" x-transition:leave-end="transform opacity-0 scale-95">
+                <div class="py-1 bg-white rounded-md shadow-xs">
+                  {% for lang in locales -%}
+                    <a class="block px-4 py-2 text-sm font-sans {% if lang.code == locale %}text-lime-800 bg-lime-50 font-medium{% else %}text-gray-700 hover:bg-gray-100{% endif %}" href="/{{ lang.code }}/{{ pageUrl }}" rel="alternate" hreflang="{{ lang.code }}">
+                      {{ lang.label | capitalize }}
+                    </a>
+                  {% endfor -%}
+                </div>
               </div>
             </div>
           </div>
         </div>
       </div>
-      <!-- Mobile menu button -->
+
       <div class="-mr-2 md:hidden">
-        <button @click="open = !open" class="inline-flex items-center justify-center p-2 text-lime-400 rounded-md hover:text-white hover:bg-lime-700 focus:outline-none focus:bg-lime-700 focus:text-white">
-          <!-- Menu open: "hidden", Menu closed: "block" -->
+        <button @click="open = !open" class="inline-flex items-center justify-center p-2 text-gray-500 rounded-md hover:text-gray-700 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 focus:text-gray-700">
           <svg class="block w-6 h-6" stroke="currentColor" fill="none" viewbox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
           </svg>
-          <!-- Menu open: "block", Menu closed: "hidden" -->
           <svg class="hidden w-6 h-6" stroke="currentColor" fill="none" viewbox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
           </svg>
@@ -59,24 +53,21 @@
   </div>
 </div>
 
-<!-- Mobile menu, toggle classes based on menu state. Open: "block", closed: "hidden" -->
-  <div :class="{'block': open, 'hidden': !open}" class="hidden md:hidden">
-    <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-      <a href="/{{ locale }}" class="block px-3 py-2 text-base font-medium text-white bg-lime-800 rounded-md focus:outline-none focus:text-white focus:bg-lime-700 hover:text-white font-sans">{{"nav.home" | i18n}}</a>
+<div :class="{'block': open, 'hidden': !open}" class="hidden md:hidden">
+  <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+    <a href="/{{ locale }}" class="block px-3 py-2 text-base font-medium rounded-md font-sans {% if currentSection == '' %}bg-lime-100 text-lime-800{% else %}text-gray-600 hover:bg-gray-100 hover:text-gray-900{% endif %}">{{"nav.home" | i18n}}</a>
 
-      <a href="/{{ locale }}/articles" class="block px-3 py-2 text-base font-medium text-lime-600 rounded-md hover:text-white hover:bg-lime-600 focus:outline-none focus:text-white focus:bg-lime-700 font-sans">{{"nav.articles" | i18n}}</a>
+    <a href="/{{ locale }}/articles" class="block px-3 py-2 text-base font-medium rounded-md font-sans {% if currentSection == 'articles' %}bg-lime-100 text-lime-800{% else %}text-gray-600 hover:bg-gray-100 hover:text-gray-900{% endif %}">{{"nav.articles" | i18n}}</a>
 
-      <a href="/{{ locale }}/projects" class="block px-3 py-2 text-base font-medium text-lime-600 rounded-md hover:text-white hover:bg-lime-600 focus:outline-none focus:text-white focus:bg-lime-700 font-sans">{{"nav.projects" | i18n}}</a>
+    <a href="/{{ locale }}/projects" class="block px-3 py-2 text-base font-medium rounded-md font-sans {% if currentSection == 'projects' %}bg-lime-100 text-lime-800{% else %}text-gray-600 hover:bg-gray-100 hover:text-gray-900{% endif %}">{{"nav.projects" | i18n}}</a>
 
-      <a href="/{{ locale }}/about" class="block px-3 py-2 text-base font-medium text-lime-600 rounded-md hover:text-white hover:bg-lime-600 focus:outline-none focus:text-white focus:bg-lime-700 font-sans">{{"nav.about" | i18n}}</a>
+    <hr class="border border-gray-200 my-2">
 
-      <hr class="border border-gray-500 />
-
-      {% for locale in locales -%}
-        <a class="block px-3 py-2 text-base font-medium text-lime-600 rounded-md hover:text-white hover:bg-lime-600 focus:outline-none focus:text-white focus:bg-lime-700 font-sans" href="/{{ locale.code }}/{{ pageUrl }}" rel="alternate" hreflang="{{ locale.code }}">
-          {{ locale.label | capitalize }}
-        </a>
-      {% endfor -%}
-    </div>
+    {% for lang in locales -%}
+      <a class="block px-3 py-2 text-base font-medium rounded-md font-sans {% if lang.code == locale %}bg-lime-100 text-lime-800{% else %}text-gray-600 hover:bg-gray-100 hover:text-gray-900{% endif %}" href="/{{ lang.code }}/{{ pageUrl }}" rel="alternate" hreflang="{{ lang.code }}">
+        {{ lang.label | capitalize }}
+      </a>
+    {% endfor -%}
   </div>
+</div>
 </nav>

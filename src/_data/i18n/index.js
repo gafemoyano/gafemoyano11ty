@@ -28,4 +28,7 @@ module.exports = {
     projects: { en: "Projects", es: "Proyectos" },
     about: { en: "About", es: "Acerca de" },
   },
+  external_post: {
+    published_on: { en: "Published on", es: "Publicado en" },
+  },
 }

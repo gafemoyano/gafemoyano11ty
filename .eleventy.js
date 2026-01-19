@@ -180,6 +180,19 @@ module.exports = function (eleventyConfig) {
     return collection.getFilteredByGlob("./src/es/posts/*.md")
   })
 
+  // Feed collections exclude external posts (permalink: false breaks RSS)
+  eleventyConfig.addCollection("englishPostsFeed", function (collection) {
+    return collection
+      .getFilteredByGlob("./src/en/posts/*.md")
+      .filter((post) => !post.data.external_url)
+  })
+
+  eleventyConfig.addCollection("spanishPostsFeed", function (collection) {
+    return collection
+      .getFilteredByGlob("./src/es/posts/*.md")
+      .filter((post) => !post.data.external_url)
+  })
+
   eleventyConfig.addCollection("englishProjects", function (collection) {
     return collection.getFilteredByGlob("./src/en/projects/*.md")
   })
@@ -192,7 +205,7 @@ module.exports = function (eleventyConfig) {
     type: "atom",
     outputPath: "/en/feed.xml",
     collection: {
-      name: "englishPosts",
+      name: "englishPostsFeed",
       limit: 0,
     },
     metadata: {
@@ -210,7 +223,7 @@ module.exports = function (eleventyConfig) {
     type: "atom",
     outputPath: "/es/feed.xml",
     collection: {
-      name: "spanishPosts",
+      name: "spanishPostsFeed",
       limit: 0,
     },
     metadata: {
