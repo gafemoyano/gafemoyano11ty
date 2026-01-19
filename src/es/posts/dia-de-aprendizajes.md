@@ -32,8 +32,6 @@ Unos 15 minutos después la cadena saltó nuevamente. Ahora sí se había enreda
 
 Inspeccionamos la gravedad del daño para evaluar nuestras opciones: la moto no podía andar más así. La única esperanza era intentar enderezar el eslabón. Saqué mi navaja de pinzas, que hasta ese día había sido invaluable para cortar quesos y salames, y después de múltiples intentos concluimos que no era la herramienta adecuada para esta tarea, mucho menos en nuestras inexpertas manos uniandinas.
 
- {% figure "/assets/img/articles/buen-lugar-para-bararse.jpg", "Un buen lugar para bararse", "Buen lugar para barrse" %}
- 
 Afortunadamente, no tardó demasiado en manifestarse la famosa solidaridad argentina hacia los moteros en forma de un par de un camión antiquísimo de transporte que paró a ver si necesitábamos ayuda. Sus dos ocupantes, el copiloto de alrededor 20 años y el piloto de unos 40 venían de dejar una mercancía en la frontera Chilena y estaban disfrutando de una birra dominguera mientras conducían de regreso a casa. Al explicarles la situación, el conductor sacó una pinza gigante de unos 50 cm y con un solo movimiento ajustó el eslabón. 
 El nuevo plan era andar la moto, lentamente, hasta un lugar que ellos conocían de carga de ganado para poder subir la moto a la altura del camión y así llevarla remolcada hasta el siguiente pueblo donde pudiéramos buscar si un mecánico nos atendía, pues normalmente descansan los domingos.
 
