@@ -14,15 +14,15 @@
 
       <div class="flex">
         <div class="hidden md:block">
-          <div class="flex items-baseline justify-end ml-10 space-x-1">
-            <a href="/{{ locale }}" class="px-3 py-1.5 text-sm font-medium rounded-md transition-colors duration-150 font-sans {% if currentSection == '' %}bg-lime-100 text-lime-800{% else %}text-gray-600 hover:bg-gray-100 hover:text-gray-900{% endif %}">{{"nav.home" | i18n}}</a>
+          <div class="flex items-baseline justify-end ml-10 space-x-4">
+            <a href="/{{ locale }}" class="px-3 py-2 text-sm font-medium border-b-2 transition-colors duration-150 font-sans {% if currentSection == '' %}text-lime-700 border-lime-600{% else %}text-gray-600 border-transparent hover:text-gray-900 hover:border-gray-300{% endif %}">{{"nav.home" | i18n}}</a>
 
-            <a href="/{{ locale }}/articles" class="px-3 py-1.5 text-sm font-medium rounded-md transition-colors duration-150 font-sans {% if currentSection == 'articles' %}bg-lime-100 text-lime-800{% else %}text-gray-600 hover:bg-gray-100 hover:text-gray-900{% endif %}">{{"nav.articles" | i18n}}</a>
+            <a href="/{{ locale }}/articles" class="px-3 py-2 text-sm font-medium border-b-2 transition-colors duration-150 font-sans {% if currentSection == 'articles' %}text-lime-700 border-lime-600{% else %}text-gray-600 border-transparent hover:text-gray-900 hover:border-gray-300{% endif %}">{{"nav.articles" | i18n}}</a>
 
-            <a href="/{{ locale }}/projects" class="px-3 py-1.5 text-sm font-medium rounded-md transition-colors duration-150 font-sans {% if currentSection == 'projects' %}bg-lime-100 text-lime-800{% else %}text-gray-600 hover:bg-gray-100 hover:text-gray-900{% endif %}">{{"nav.projects" | i18n}}</a>
+            <a href="/{{ locale }}/projects" class="px-3 py-2 text-sm font-medium border-b-2 transition-colors duration-150 font-sans {% if currentSection == 'projects' %}text-lime-700 border-lime-600{% else %}text-gray-600 border-transparent hover:text-gray-900 hover:border-gray-300{% endif %}">{{"nav.projects" | i18n}}</a>
 
             <div class="relative" x-data="{ open: false}" @mouseenter="open = true" @mouseleave="open = false" @click.away="open = false">
-              <button class="px-3 py-1.5 text-sm font-medium transition-colors duration-150 font-sans">
+              <button class="px-3 py-2 text-sm font-medium transition-colors duration-150 font-sans">
                 <span class="inline-flex items-center justify-center w-7 h-7 text-xs font-semibold uppercase rounded-full bg-lime-100 text-lime-700 transition-all duration-150 hover:bg-lime-200">{{ locale }}</span>
               </button>
               <div x-show="open" class="absolute right-0 z-10 w-48 rounded-md shadow-lg" x-transition:enter="transition ease-out duration-100" x-transition:enter-start="transform opacity-0 scale-95" x-transition:enter-end="transform opacity-100 scale-100" x-transition:leave="transition ease-in duration-75" x-transition:leave-start="transform opacity-100 scale-100" x-transition:leave-end="transform opacity-0 scale-95">
