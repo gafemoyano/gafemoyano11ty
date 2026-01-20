@@ -23,6 +23,8 @@
     {% else %}
       <meta name="keywords" content="web development, rails, ruby on rails, blog, web design"/>
     {% endif %}
+    <link rel="preload" href="/assets/fonts/Canela%20Deck%20Family/CanelaDeck-Bold-Trial.otf" as="font" type="font/otf" crossorigin>
+    <link rel="preload" href="/assets/fonts/Canela%20Text%20Family/CanelaText-Regular-Trial.otf" as="font" type="font/otf" crossorigin>
     <link rel="stylesheet" href="/assets/styles/tailwind.css?v={% version %}"/>
     <link rel="canonical" href="{{site.url}}/{{locale}}/{{pageUrl}}">
     <meta property="og:locale" content="{{locale}}">
@@ -54,6 +56,22 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
     <link rel="icon" type="image/png" href="/assets/img/transition_400x.png">
     <link href="https://unpkg.com/prismjs@1.20.0/themes/prism-okaidia.css" rel="stylesheet">
+
+    {% block jsonld %}
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "{{ site.title }}",
+      "url": "{{ site.url }}",
+      "author": {
+        "@type": "Person",
+        "name": "{{ site.author }}",
+        "url": "{{ site.url }}"
+      }
+    }
+    </script>
+    {% endblock %}
 
     {% if site.environment === "production" %}
       <!-- Global site tag (gtag.js) - Google Analytics -->

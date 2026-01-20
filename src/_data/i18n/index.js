@@ -31,4 +31,8 @@ module.exports = {
   external_post: {
     published_on: { en: "Published on", es: "Publicado en" },
   },
+  reading_time: {
+    min_read: { en: "min read", es: "min de lectura" },
+    min: { en: "min", es: "min" },
+  },
 }

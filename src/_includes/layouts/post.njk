@@ -12,10 +12,43 @@
   <meta name="twitter:creator" content="{{site.authorTwitter}}">
 {% endblock %}
 
+{% block jsonld %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "{{ title }}",
+  "description": "{{ description }}",
+  "image": "{{ site.url }}{{ featured_image }}",
+  "datePublished": "{{ date | htmlDateString }}",
+  "dateModified": "{{ date | htmlDateString }}",
+  "author": {
+    "@type": "Person",
+    "name": "{{ site.author }}",
+    "url": "{{ site.url }}"
+  },
+  "publisher": {
+    "@type": "Person",
+    "name": "{{ site.author }}",
+    "url": "{{ site.url }}"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "{{ site.url }}{{ page.url }}"
+  }
+}
+</script>
+{% endblock %}
+
 {% block content %}
 
   <div class="w-full max-w-3xl px-6 mx-auto md:px-0">
     <h1 class="mt-6 text-2xl font-bold leading-6 md:leading-normal md:text-4xl">{{ title }}</h1>
+    <div class="mt-2 flex items-center gap-3 text-sm text-gray-500 font-sans">
+      <time datetime="{{ date | htmlDateString }}">{{ date | readableDate }}</time>
+      <span class="text-gray-300">·</span>
+      <span>{{ content | readingTime }} {{ "reading_time.min_read" | i18n }}</span>
+    </div>
     {%- set slug = page.fileSlug -%}
     {%- set translations = translationMap[slug] -%}
     {%- set hasTranslation = translations and translations.en and translations.es -%}

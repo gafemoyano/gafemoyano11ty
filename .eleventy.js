@@ -110,6 +110,14 @@ module.exports = function (eleventyConfig) {
     return DateTime.fromJSDate(dateObj, { zone: "utc" }).toFormat("dd LLL yyyy")
   })
 
+  eleventyConfig.addFilter("readingTime", (content) => {
+    if (!content) return 1
+    const plainText = content.replace(/<[^>]*>/g, "")
+    const words = plainText.split(/\s+/).filter((word) => word.length > 0).length
+    const wordsPerMinute = 200
+    return Math.max(1, Math.ceil(words / wordsPerMinute))
+  })
+
   eleventyConfig.addFilter("htmlDateString", (dateObj) => {
     return DateTime.fromJSDate(dateObj, { zone: "utc" }).toFormat("yyyy-LL-dd")
   })

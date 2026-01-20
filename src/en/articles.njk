@@ -27,9 +27,13 @@ dir: "ltr"
                        loading="lazy">
                 </div>
               {% endif %}
-              <time class="text-sm font-mono text-gray-500 group-hover:text-gray-800 transition-colors">
-                {{ post.data.date | readableDate }}
-              </time>
+              <div class="flex items-center gap-2 text-sm font-mono text-gray-500 group-hover:text-gray-800 transition-colors">
+                <time>{{ post.data.date | readableDate }}</time>
+                {% if not post.data.external_url %}
+                <span class="text-gray-300">·</span>
+                <span>{{ post.templateContent | readingTime }} {{ "reading_time.min" | i18n }}</span>
+                {% endif %}
+              </div>
             </div>
 
             <div class="flex-1 gap-2 flex flex-col">
